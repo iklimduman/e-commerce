@@ -5,3 +5,13 @@
     background-size: contain  ;
     margin-left: 25px ;
 }
+
+.input-field{
+    width:100%;
+    border:none;
+    
+}
+
+.input-field:focus{
+    outline: none;
+}

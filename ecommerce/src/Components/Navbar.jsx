@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Search, ShoppingCart, ShoppingCartOutlined } from "@material-ui/icons";
-import { Badge } from '@material-ui/core';
+import { Badge, Input } from '@material-ui/core';
 import "./Navbar.css";
 
 const Container = styled.div`
@@ -58,7 +58,8 @@ const Navbar = () => {
                 </Left>
                 <Center>
                     <SearchContainer>
-                        <Search style={{color:"gray"}}/>
+                        <Search style={{color:"gray",cursor:"pointer"}}/>
+                        <input type="text" className="input-field" placeholder="Search for an item"/>
                     </SearchContainer>
                 </Center>
                 <Right>
@@ -66,7 +67,7 @@ const Navbar = () => {
                     <MenuItem>Sign in</MenuItem>
                     <MenuItem>
                         <Badge badgeContent={4} color="primary">
-                            <ShoppingCartOutlined />
+                            <ShoppingCartOutlined/>
                         </Badge>
                     </MenuItem>
                 </Right>
