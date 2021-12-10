@@ -62,21 +62,22 @@ const InfoContainer = styled.div`
     width : 25vw ;
     height : 50vh ;
     display : flex ;
-    align-items : center ;
-    justify-content : center ;
-`
-
-const Info = styled.div`
-    width : 35vw ;
-    margin-left : 10vw ;
-    height : 50vh ;
-    font-family: 'Bebas Neue', cursive;
-    font-size : 100px ;
-    line-height : 105px ;
-    padding : 50px  ;
-    text-align : right ;
+    flex-direction : column ;
     background-color : rgb(249,196,255,0.5) ;
     position : relative ;
+    margin-left : 10vw ;
+`
+
+const Info = styled.h1`
+    
+    font-family: 'Bebas Neue', cursive;
+    font-size : 100px ;
+    margin-right : 3vw ;
+    
+    letter-spacing: 3px;
+    text-align : right ;
+    
+    
     color : rgb(255,255,255);
     box-shadow: 1px 1px 0px #$({props => props.boxshadow}),
                 2px 2px 0px #$({props => props.boxshadow}),
@@ -92,7 +93,16 @@ const ImgContainer = styled.div`
     flex : 1 ;
 `
 
+const Desc = styled.p`
+    margin-right : 3vw ;
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: 3px;
+    font-family: 'Bebas Neue', cursive;
+    text-align : right ;
+    color : rgb(255,255,255);
 
+`
 const Slider = () => {
 
     const [slideIndex, setSlideIndex] = useState(0);
@@ -116,6 +126,7 @@ const Slider = () => {
                     <Slide bg={item.bg} key={item.id} src={item.src}>
                         <InfoContainer>
                             <Info boxshadow={item.bg}>{item.title}</Info>
+                            <Desc>{item.desc}</Desc>
 
                             {/*
                             <Title>{item.title}</Title>

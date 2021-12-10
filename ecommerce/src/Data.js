@@ -4,8 +4,10 @@ export const sliderItems = [
         id: 1,
         src: "../Assets/slide-1.jpg",
 
-        title: "SUMMER SALE!",
-        desc: "DON'T COMPROMISE ON STYLE! GET FLAT 30% OFF FOR NEW ARRIVALS.",
+        title: "NEW COLLECTION!",
+        desc: "CRAFTED WITH PASSION.",
+
+        
         bg: "C271D2"
     },
     {
@@ -13,7 +15,7 @@ export const sliderItems = [
         id: 2,
         src: "../Assets/slide-1.jpg",
 
-        title: "NEW COLLECTION!",
+        title: "SUMMER SALE!",
         desc: "DON'T COMPROMISE ON STYLE! GET FLAT 30% OFF FOR NEW ARRIVALS.",
         bg: "71D289"
     },
@@ -23,7 +25,7 @@ export const sliderItems = [
         src: "../Assets/slide-1.jpg",
 
         title: "NEW OFFER!",
-        desc: "DON'T COMPROMISE ON STYLE! GET FLAT 30% OFF FOR NEW ARRIVALS.",
+        desc: "YOU'LL NEVER BELIVE THIS PRICES.",
         bg: "AD71D2"
     }
 ]
