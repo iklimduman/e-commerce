@@ -5,7 +5,6 @@ import { Categories } from "../Data";
 
 
 const Container = styled.div`
-    border : 1px solid black ;
     display : flex ;
     padding : 20px ;
     justify-content : space-between ;
