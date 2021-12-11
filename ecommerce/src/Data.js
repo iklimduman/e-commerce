@@ -29,3 +29,18 @@ export const sliderItems = [
         bg: "AD71D2"
     }
 ]
+
+export const Categories = [
+    {
+        name : "casual wear",
+        img : "https://images.pexels.com/photos/6995704/pexels-photo-6995704.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+    },
+    {
+        name : "active wear",
+        img : "https://images.pexels.com/photos/7346634/pexels-photo-7346634.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+    },
+    {
+        name : "on sale",
+        img : "https://images.pexels.com/photos/4584600/pexels-photo-4584600.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+    }
+]
