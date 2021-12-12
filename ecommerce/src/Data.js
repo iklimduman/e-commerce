@@ -48,38 +48,48 @@ export const Categories = [
 export const Products = [
     {
         id : 1,
-        img : "https://images.pexels.com/photos/4587377/pexels-photo-4587377.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+        img : "https://images.pexels.com/photos/4587377/pexels-photo-4587377.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+        desc : "Mid-Rise Leggings"
     },
     {
         id : 2,
-        img : "https://images.pexels.com/photos/7246441/pexels-photo-7246441.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+        img : "https://images.pexels.com/photos/7246441/pexels-photo-7246441.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+        desc : "Silk Dress"
     },
     {
         id : 3,
-        img : "https://images.pexels.com/photos/10475629/pexels-photo-10475629.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+        img : "https://images.pexels.com/photos/10475629/pexels-photo-10475629.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+        desc : "Knit Sweater"
+
     },
     {
         id : 4,
-        img : "https://images.pexels.com/photos/4398989/pexels-photo-4398989.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+        img : "https://images.pexels.com/photos/4398989/pexels-photo-4398989.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+        desc : "Cashmere Sweater"
     },
     {
         id : 5,
-        img : "https://images.pexels.com/photos/5709908/pexels-photo-5709908.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+        img : "https://images.pexels.com/photos/5709908/pexels-photo-5709908.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+        desc : "Multi-color Sweater"
     },
     {
         id : 6,
-        img : "https://images.pexels.com/photos/4584627/pexels-photo-4584627.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+        img : "https://images.pexels.com/photos/4584627/pexels-photo-4584627.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+        desc : "Zip-up Hoodie"
     },
     {
         id : 7,
-        img : "https://images.pexels.com/photos/6310184/pexels-photo-6310184.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+        img : "https://images.pexels.com/photos/6310184/pexels-photo-6310184.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+        desc : "Faux-Leather Bag"
     },
     {
         id : 8,
-        img : "https://images.pexels.com/photos/6311662/pexels-photo-6311662.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+        img : "https://images.pexels.com/photos/6311662/pexels-photo-6311662.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+        desc : "Casual Hoodie"
     },
     {
         id : 9,
-        img : "https://images.pexels.com/photos/8483329/pexels-photo-8483329.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+        img : "https://images.pexels.com/photos/8483329/pexels-photo-8483329.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+        desc : "Sport Bra"
     }
 ]
