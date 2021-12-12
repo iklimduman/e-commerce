@@ -78,7 +78,9 @@ const MainProduct = ({ item }) => {
                 <Description>{item.desc}</Description>
             </BottomContainer>
             <EyeContainer>
+            { /* 
                 <VisibilityOutlinedIcon />
+            */}
             </EyeContainer>
             <ShoppingContainer>
                 <ShoppingCartOutlinedIcon sx={{color : 'black' ,
