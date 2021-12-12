@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 const Container = styled.div`
-    padding-left : 25px ;
+    padding-left : 50px ;
     text-transform : uppercase ;
     font-family: 'Nunito Sans', sans-serif;
 `

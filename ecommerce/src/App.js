@@ -4,7 +4,7 @@ import './App.css';
 import Navbar from './Components/Navbar';
 import Slider from './Components/Slider';
 import CategoryContainer from './Components/CategoryContainer';
-import MainProductContainer from './Components/MainProductConteiner';
+import CarouselContainer from './Components/CarouselContainer';
 
 function App() {
   return (
@@ -12,7 +12,7 @@ function App() {
       <Navbar />
       <Slider />
       <CategoryContainer />
-      <MainProductContainer />
+      <CarouselContainer />
     </div>
   );
 }

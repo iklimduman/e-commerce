@@ -1,0 +1,28 @@
+/* OVERWRITE CAROUSEL ELEMENTS */
+
+/* arrow buttons*/
+.rec.rec-arrow {
+    border-radius: 50%;
+    margin-left : 10px ;
+    margin-right : 10px ;
+    /* arrow */
+    color : rgb(96,0,186) ;
+    /* arrow container */
+    background-color : rgb(232,232,232,0.5) ; 
+}
+
+/* round buttons on hover */
+.rec.rec-arrow:hover {
+    background-color : rgb(232,232,232,0.5) ; 
+    color : rgb(232,232,232,0.5) ; 
+}
+
+/* hide disabled buttons */
+.rec.rec-arrow:disabled {
+    visibility: hidden;
+}
+
+/* default carousel dots */
+button.rec-dot{
+    display : none ;
+  }

@@ -5,6 +5,8 @@ import MainProduct from "./MainProduct";
 import Title from "./Title";
 import Carousel from "react-elastic-carousel";
 
+import "./CarouselContainer.css";
+
 const TitleInput = [
     {
         text : "Popular This Month" 
@@ -14,7 +16,7 @@ const TitleInput = [
 
 const Container = styled.div`
     display : flex ;
-    padding : 20px ;
+    padding : 100px ;
     overflow-x : hidden ;
 `;
 
@@ -25,7 +27,7 @@ const breakPoints = [
     { width: 1200, itemsToShow: 4 },
 ];
 
-const MainProductContainer = () => {
+const CarouselContainer = () => {
     return (
         <div>
         <Title item={TitleInput[0]}/>
@@ -41,4 +43,4 @@ const MainProductContainer = () => {
     )
 };
 
-export default MainProductContainer;
+export default CarouselContainer;
