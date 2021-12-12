@@ -9,13 +9,13 @@ import { Mobile } from '../ResponsiveConstants';
 
 
 const Container = styled.div`
-margin-top : 2vh ;
+    margin-top : 2vh ;
     width: 100%;
-  height: 100vh;
-  display: flex;
-  position: relative;
-  overflow: hidden;
-  ${Mobile({ display: "none" })}
+    height: 100vh;
+    display: flex;
+    position: relative;
+    overflow: hidden;
+    ${Mobile({ display: "none" })}
 `
 
 const Arrow = styled.div`
