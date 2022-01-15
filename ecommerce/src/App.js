@@ -14,6 +14,7 @@ function App() {
       <Slider />
       <CategoryContainer />
       <CarouselContainer />
+      <Newsletter />
     </div>
   );
 }
