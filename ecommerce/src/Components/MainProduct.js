@@ -55,9 +55,13 @@ const EyeContainer = styled.div`
     display : flex ;
     align-items : center ;
     justify-content : center ;
+    opacity : 0 ;
     &:hover {
-        background-color : rgb(222,222,222, 0.6) ;
+        background-color : rgb(222,222,222, 0.2) ;
+        opacity : 1 ;
+        cursor : pointer ;
     }
+    
 `
 
 const ShoppingContainer = styled.div`
@@ -78,20 +82,38 @@ const MainProduct = ({ item }) => {
                 <Description>{item.desc}</Description>
             </BottomContainer>
             <EyeContainer>
-            { /* 
-                <VisibilityOutlinedIcon />
-            */}
+              
+                <VisibilityOutlinedIcon sx={{ width : '40px' ,
+                height : '40px',
+                transition : "all 0.5s ease",
+                 '&:hover': {
+                    
+                    transform : "scale(1.4)"
+                } }}/>
+            
             </EyeContainer>
             <ShoppingContainer>
                 <ShoppingCartOutlinedIcon sx={{color : 'black' ,
                  backgroundColor : "white",
                  borderRadius : '50%',
-                 padding : '5px'}}/>
+                 padding : '5px',
+                 cursor : 'pointer',
+                 transition : "all 0.5s ease",
+                 '&:hover': {
+                    
+                    transform : "scale(1.1)"
+                }}}/>
                 <StarOutlineRoundedIcon sx={{color : 'black' ,
                  backgroundColor : "white",
                  borderRadius : '50%',
                  padding : '5px',
-                 marginRight : '5px'}} />
+                 marginRight : '5px',
+                 cursor : 'pointer',
+                 transition : "all 0.5s ease",
+                 '&:hover': {
+                    
+                    transform : "scale(1.1)"
+                }}} />
             </ShoppingContainer>
 
 
