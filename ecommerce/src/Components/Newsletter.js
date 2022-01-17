@@ -1,5 +1,6 @@
 import React, { useRef } from "react";
 import styled from "styled-components";
+import SendIcon from '@mui/icons-material/Send';
 
 const Container = styled.div`
     background-color : rgb(232,252,242,0.5) ;
@@ -52,7 +53,7 @@ const Newsletter = () => {
 
                 </Input>
                 <Subscribe>
-                    SUBSCRIBE
+                    <SendIcon />
                 </Subscribe>
             </İnputContainer>
 
