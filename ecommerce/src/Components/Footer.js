@@ -33,26 +33,30 @@ const Right = styled.div`
 `
 const Title = styled.h1``
 
-const Desc = styled.h3``
+const Desc = styled.span`
+    font-family: 'Nunito Sans',sans-serif;
+    font-size: 1.2em;
+    margin-bottom: 20px;`
 
 const SmallTitle = styled.h2``
 
 const SocialContainer = styled.div`
-    display : flex ;
-    align-items : center ;
-    justify-content : center ;
-    flex-direction : row ;
+    margin : 10px 
 `
 
 const ListItem = styled.li`
     margin : 10px ;
-    width : 50%
+    width : 50% ;
+    font-family: 'Nunito Sans',sans-serif;
+    font-size: 1.1em;
 `
 
 const ContactItem = styled.div`
     display : flex ;
     align-items : center ;
     margin : 20px 0px ;
+    font-family: 'Nunito Sans',sans-serif;
+    font-size: 1.1em;
 `
 
 const Payment = styled.img`
@@ -73,24 +77,28 @@ const Footer = () => {
                 </Desc>
                 <SocialContainer>
                     <button style={{
-                        backgroundColor: 'transparent',
-                        border: 'none'
+                        border: '1px solid black',
+                        borderRadius : '5px',
+                        backgroundColor : '#3D4780'
                     }}>
-                        <FacebookIcon />
+                        <FacebookIcon style={{color : 'white',fontSize:"30px"}} />
                     </button>
 
                     <button style={{
-                        backgroundColor: 'transparent',
-                        border: 'none'
+                        border: '1px solid black',
+                        borderRadius : '5px',
+                        backgroundColor : '#00FFFB',
+                        margin : '10px'
                     }}>
-                        <TwitterIcon />
+                        <TwitterIcon style={{color : 'white',fontSize:"30px"}}/>
                     </button>
 
                     <button style={{
-                        backgroundColor: 'transparent',
-                        border: 'none'
+                        backgroundColor: '#B900FF',
+                        border: '1px solid black',
+                        borderRadius : '5px',
                     }}>
-                        <InstagramIcon />
+                        <InstagramIcon style={{color:'white',fontSize:"30px"}}/>
                     </button>
 
                 </SocialContainer>
@@ -111,13 +119,13 @@ const Footer = () => {
                 Contact
             </SmallTitle>
             <ContactItem>
-                <LocationOnIcon /> 42 Wallaby Way
+                <LocationOnIcon style={{marginRight : '5px'}}/> 42 Wallaby Way,Sydney
             </ContactItem>
             <ContactItem>
-                <MailIcon /> contact@lotus.com
+                <MailIcon style={{marginRight : '5px'}}/> contact@lotus.com
             </ContactItem>
             <ContactItem>
-                <LocalPhoneIcon /> +1 234 56 78
+                <LocalPhoneIcon style={{marginRight : '5px'}}/> +1 234 56 78
             </ContactItem>
 
             <Payment src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/MasterCard_logo.png/800px-MasterCard_logo.png" />
