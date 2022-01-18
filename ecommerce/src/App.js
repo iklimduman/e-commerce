@@ -6,6 +6,7 @@ import Slider from './Components/Slider';
 import CategoryContainer from './Components/CategoryContainer';
 import CarouselContainer from './Components/CarouselContainer';
 import Newsletter from './Components/Newsletter';
+import Footer from './Components/Footer';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <CategoryContainer />
       <CarouselContainer />
       <Newsletter />
+      <Footer />
     </div>
   );
 }
