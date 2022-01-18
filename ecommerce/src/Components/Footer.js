@@ -12,7 +12,8 @@ const Links = ['Home', 'Casual Wear', 'Active Wear', 'On Sale', 'Order Tracking'
 
 const Container = styled.div`
     display : flex ;
-    height : 40vh ;
+    height : auto ;
+    padding-bottom : 50px ;
 `
 
 const Left = styled.div`
@@ -23,7 +24,7 @@ const Left = styled.div`
 const Center = styled.div`
     flex : 1 ;
     padding : 20px ;
-    height : 40vh ;
+    height : auto ;
     
 `
 
