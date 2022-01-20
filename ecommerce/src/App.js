@@ -8,15 +8,22 @@ import CarouselContainer from './Components/CarouselContainer';
 import Newsletter from './Components/Newsletter';
 import Footer from './Components/Footer';
 
+import ProductList from './Components/ProductList';
+
 function App() {
   return (
     <div className="App">
+    <ProductList />
+    {
+      /*
       <Navbar />
       <Slider />
       <CategoryContainer />
       <CarouselContainer />
       <Newsletter />
-      <Footer />
+      <Footer /> */
+    }
+      
     </div>
   );
 }

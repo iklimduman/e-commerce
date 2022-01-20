@@ -6,24 +6,21 @@ import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import StarOutlineRoundedIcon from '@mui/icons-material/StarOutlineRounded';
 
 const Container = styled.div`
-    /*flex : 1 ; /* to make every item same size 
-    margin : 10px ;
-    height : 50vh ;
-    width : 50vw ;
-    */
     display: flex;
     justify-content: center;
     align-items: center;
     height: 500px;
-    width: ${props=>props.width} ;
-    margin: 0 15px;
+    width: 35vh ;
     font-size: 4em;
+    margin : 20px ;
+    border-radius: 5%;
     position : relative ;
     `
 
 const Image = styled.img`
     width : 100% ;
     height : 100% ;
+    border-radius: 5%;
     object-fit : cover ;
     
 `
@@ -74,9 +71,9 @@ const ShoppingContainer = styled.div`
     align-items :flex-start ;
 `
 
-const MainProduct = ({ item }) => {
+const DefaultProduct = ({ item }) => {
     return (
-        <Container width={item.width}>
+        <Container>
             <Image src={item.img} />
             <BottomContainer>
                 <Description>{item.desc}</Description>
@@ -121,4 +118,4 @@ const MainProduct = ({ item }) => {
     )
 }
 
-export default MainProduct;
+export default DefaultProduct;
