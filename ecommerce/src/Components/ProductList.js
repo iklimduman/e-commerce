@@ -20,7 +20,7 @@ const ProductContainer = styled.div`
 const FilterContainer = styled.div`
     margin : auto ;
     margin-top : 20px ;
-    width : 80% ;
+    width : 90% ;
     display: flex;
     justify-content: space-between ;
     
@@ -28,9 +28,17 @@ const FilterContainer = styled.div`
 
 const FilterLeft = styled.div``
 
-const FilterText = styled.span``
+const FilterText = styled.span`
+margin : 0 10px ;
+font-size : 20px ;
+font-weight: 600;
+`
 
-const Select = styled.select``
+const Select = styled.select`
+margin : 0 15px ;
+font-size : 15px ;
+font-weight: 400;
+`
 
 const Option = styled.option``
 
@@ -44,13 +52,44 @@ const ProductList = () => {
             <FilterContainer>
                 <FilterLeft>
                     <FilterText>
-                        Filter
+                        Filter :
                     </FilterText>
+                    <Select>
+                        <Option disabled selected>
+                            Color
+                        </Option>
+                        <Option>Black</Option>
+                        <Option>White</Option>
+                        <Option>Red</Option>
+                        <Option>Yellow</Option>
+                        <Option>Green</Option>
+                    </Select>
+                    <Select>
+                        <Option disabled selected>
+                            Size
+                        </Option>
+                        <Option>XS</Option>
+                        <Option>S</Option>
+                        <Option>M</Option>
+                        <Option>L</Option>
+                        <Option>XL</Option>
+                    </Select>
                 </FilterLeft>
                 <FilterLeft>
                     <FilterText>
-                        Sort
+                        Sort :
                     </FilterText>
+                    <Select>
+                        <Option selected>
+                            Newest
+                        </Option>
+                        <Option>
+                            Price (desc)
+                        </Option>
+                        <Option>
+                            Price (asc)
+                        </Option>
+                    </Select>
                 </FilterLeft>
 
             </FilterContainer>
