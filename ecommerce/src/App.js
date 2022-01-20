@@ -1,29 +1,14 @@
 
 import './App.css';
 
-import Navbar from './Components/Navbar';
-import Slider from './Components/Slider';
-import CategoryContainer from './Components/CategoryContainer';
-import CarouselContainer from './Components/CarouselContainer';
-import Newsletter from './Components/Newsletter';
-import Footer from './Components/Footer';
-
-import ProductList from './Components/ProductList';
+import Home from './Pages/Home';
+import Products from './Pages/Products';
 
 function App() {
   return (
     <div className="App">
-    <ProductList />
-    {
-      /*
-      <Navbar />
-      <Slider />
-      <CategoryContainer />
-      <CarouselContainer />
-      <Newsletter />
-      <Footer /> */
-    }
-      
+      <Home />
+
     </div>
   );
 }
