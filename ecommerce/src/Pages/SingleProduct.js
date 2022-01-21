@@ -4,8 +4,11 @@ import Footer from "../Components/Footer";
 
 import styled from "styled-components";
 
-const Container = styled.div`
-    `
+import React , { useState } from "react";
+
+
+
+const Container = styled.div``
 
 const Wrapper = styled.div`
     width : 70% ;
@@ -50,7 +53,26 @@ const Favorite = styled.button``
 
 const CartButton = styled.button``
 
+const QuantityContainer = styled.div``
+
+const QuantityButton = styled.button``
+
+const Quantity = styled.span``
+
 const SingleProduct = () => {
+
+    const [quantity, setQuantity] = useState(1) ;
+
+    const handleDecrease = () => {  
+        if(quantity != 1){
+            setQuantity(prevQuantity => prevQuantity - 1)
+        }
+    }
+
+    const handleIncrease = () => {
+        setQuantity(quantity + 1)
+    }
+
     return (
         <Container>
             <Navbar />
@@ -71,11 +93,16 @@ const SingleProduct = () => {
                     </SmallTitle>
                     <ButtonContainer>
                         <SizeButton style={{borderRadius : "50%"}}>XS</SizeButton>
-                        <SizeButton style={{borderRadius : "100%"}}> S</SizeButton>
+                        <SizeButton style={{borderRadius : "50%"}}> S</SizeButton>
                         <SizeButton style={{borderRadius : "50%"}}> M</SizeButton>
                         <SizeButton style={{borderRadius : "50%"}}>L</SizeButton>
                         <SizeButton style={{borderRadius : "50%"}}>XL</SizeButton>
                     </ButtonContainer>
+                    <QuantityContainer>
+                        <QuantityButton onClick={handleDecrease}> - </QuantityButton>
+                        <Quantity>{quantity}</Quantity>
+                        <QuantityButton onClick={handleIncrease}> + </QuantityButton>
+                    </QuantityContainer>
                     <BuyContainer>
                         <Favorite>Wishlist</Favorite>
                         <CartButton>Add to Cart</CartButton>
