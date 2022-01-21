@@ -4,7 +4,7 @@ import Footer from "../Components/Footer";
 
 import styled from "styled-components";
 
-import React , { useState } from "react";
+import React, { useState } from "react";
 
 
 
@@ -46,25 +46,40 @@ const SizeButton = styled.button`
 `
 
 const BuyContainer = styled.div`
-    margin-top : 50px ;
+    margin-top : 30px ;
 `
 
-const Favorite = styled.button``
+const Favorite = styled.button`
+    margin-right : 15px ;`
 
 const CartButton = styled.button``
 
 const QuantityContainer = styled.div``
 
-const QuantityButton = styled.button``
+const QuantityButton = styled.button`
+    text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 15px;
+  height: 27px;
+  width: 27px;
+  padding: 0px;
+  margin: 0px 0px 0px 4px;
+  vertical-align: middle;
+  line-height: 17px;
+  box-sizing: border-box;
+`
 
-const Quantity = styled.span``
+const Quantity = styled.span`
+    font-size : 20px ;
+    line-height : 32px ;`
 
 const SingleProduct = () => {
 
-    const [quantity, setQuantity] = useState(1) ;
+    const [quantity, setQuantity] = useState(1);
 
-    const handleDecrease = () => {  
-        if(quantity != 1){
+    const handleDecrease = () => {
+        if (quantity != 1) {
             setQuantity(prevQuantity => prevQuantity - 1)
         }
     }
@@ -92,12 +107,15 @@ const SingleProduct = () => {
                         Select Size
                     </SmallTitle>
                     <ButtonContainer>
-                        <SizeButton style={{borderRadius : "50%"}}>XS</SizeButton>
-                        <SizeButton style={{borderRadius : "50%"}}> S</SizeButton>
-                        <SizeButton style={{borderRadius : "50%"}}> M</SizeButton>
-                        <SizeButton style={{borderRadius : "50%"}}>L</SizeButton>
-                        <SizeButton style={{borderRadius : "50%"}}>XL</SizeButton>
+                        <SizeButton style={{ borderRadius: "50%" }}>XS</SizeButton>
+                        <SizeButton style={{ borderRadius: "50%" }}>S</SizeButton>
+                        <SizeButton style={{ borderRadius: "50%" }}>M</SizeButton>
+                        <SizeButton style={{ borderRadius: "50%" }}>L</SizeButton>
+                        <SizeButton style={{ borderRadius: "50%" }}>XL</SizeButton>
                     </ButtonContainer>
+                    <SmallTitle>
+                        Quantity
+                    </SmallTitle>
                     <QuantityContainer>
                         <QuantityButton onClick={handleDecrease}> - </QuantityButton>
                         <Quantity>{quantity}</Quantity>
