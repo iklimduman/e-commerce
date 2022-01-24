@@ -141,8 +141,10 @@ const Quantity = styled.span`
 const SingleProduct = () => {
 
     const [quantity, setQuantity] = useState(1);
-    const [sizeButton, setSizeButton] = useState({
-        "arr": [
+    const [update , setUpdate] = useState(0) ;
+
+    const [sizeButton, setSizeButton] = useState(
+         [
             {
                 name: "XS",
                 buttonStyle: sizeButtonStyle
@@ -165,22 +167,34 @@ const SingleProduct = () => {
             }
 
         ]
-    });
+    );
 
     const handleSizeButtonOnClick = (index) => {
-        let temp = sizeButton.arr;
+
+        let temp = sizeButton;
         let target = temp.find(button=>button.name === index) ;
-        console.log(target.buttonStyle) ;
-        if ( target.buttonStyle.backgroundColor === "transparent") {
-            temp = {...target, buttonStyle : sizeOnclick}
-            setSizeButton(temp)
+
+        let elementIndex = temp.indexOf(target) ;
+
+        let deneme = temp[elementIndex].buttonStyle ;
+
+        if (temp[elementIndex].buttonStyle  == sizeButtonStyle) {
+            
+            temp[elementIndex].buttonStyle = sizeOnclick ;
+            console.log(temp) ;
+            setSizeButton(temp) ;
+            setUpdate(update + 1) ;
         }
+        else if ( temp[elementIndex].buttonStyle  == sizeOnclick) {
+            
+            temp[elementIndex].buttonStyle = sizeButtonStyle ;
+            console.log(temp) ;
+            setSizeButton(temp) ;
+            setUpdate(update - 1) ;
+         }
         else {
-            temp = {...target , buttonStyle : sizeButtonStyle}
-            setSizeButton(temp)
+            console.log("error") ;
         }
-        console.log(temp) ;
-        /*sizeButton === sizeButtonStyle ? setSizeButton(sizeOnclick) : setSizeButton(sizeButtonStyle)*/
     }
 
     const handleDecrease = () => {
@@ -214,11 +228,11 @@ const SingleProduct = () => {
                         Select Size
                     </SmallTitle>
                     <ButtonContainer>
-                        <SizeButton style={sizeButtonStyle} name="XS" onClick={() => handleSizeButtonOnClick("XS")} >XS</SizeButton>
-                        <SizeButton style={sizeButtonStyle} onClick={() => handleSizeButtonOnClick("S")} name="X">S</SizeButton>
-                        <SizeButton style={sizeButtonStyle} onClick={() => handleSizeButtonOnClick("M")} name="M">M</SizeButton>
-                        <SizeButton style={sizeButtonStyle} onClick={() => handleSizeButtonOnClick("L")} name="L">L</SizeButton>
-                        <SizeButton style={sizeButtonStyle} onClick={() => handleSizeButtonOnClick("XL")} name="XL">XL</SizeButton>
+                        <SizeButton style={sizeButton[0].buttonStyle} onClick={()=>handleSizeButtonOnClick("XS")} >XS</SizeButton>
+                        <SizeButton style={sizeButton[1].buttonStyle} onClick={() => handleSizeButtonOnClick("S")} name="X">S</SizeButton>
+                        <SizeButton style={sizeButton[2].buttonStyle} onClick={() => handleSizeButtonOnClick("M")} name="M">M</SizeButton>
+                        <SizeButton style={sizeButton[3].buttonStyle} onClick={() => handleSizeButtonOnClick("L")} name="L">L</SizeButton>
+                        <SizeButton style={sizeButton[4].buttonStyle} onClick={() => handleSizeButtonOnClick("XL")} name="XL">XL</SizeButton>
                     </ButtonContainer>
                     <SmallTitle>
                         Quantity
