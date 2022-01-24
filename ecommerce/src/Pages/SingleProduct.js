@@ -4,9 +4,8 @@ import Footer from "../Components/Footer";
 import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
 
 import styled from "styled-components";
-import Zoom from 'react-img-zoom' ;
 
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 
 const Container = styled.div`
     font-family: 'Didact Gothic', sans-serif;
@@ -39,7 +38,7 @@ const InfoContainer = styled.div`
 
 const Title = styled.h1`
     color : rgb(58,15,84) ;`
-    
+
 
 const Description = styled.p``
 
@@ -108,25 +107,25 @@ const QuantityButton = styled.button`
     cursor : pointer ;
 `
 const sizeButtonStyle = {
-    borderRadius: "50%" , 
-    backgroundColor : "transparent" , 
-    borderColor : " rgb(58,15,84)",
-    color : " rgb(58,15,84)",
-    cursor : "pointer ",
-    fontWeight : "500",
-    height:"37px" ,
-    width: "37px" ,
+    borderRadius: "50%",
+    backgroundColor: "transparent",
+    borderColor: " rgb(58,15,84)",
+    color: " rgb(58,15,84)",
+    cursor: "pointer ",
+    fontWeight: "500",
+    height: "37px",
+    width: "37px",
 }
 
 const sizeOnclick = {
-    borderRadius: "50%" , 
-    backgroundColor : " rgb(58,15,84)" , 
-    borderColor : " rgb(58,15,84)",
-    color : "white",
-    cursor : "pointer ",
-    fontWeight : "500",
-    height:"37px" ,
-    width: "37px" ,
+    borderRadius: "50%",
+    backgroundColor: " rgb(58,15,84)",
+    borderColor: " rgb(58,15,84)",
+    color: "white",
+    cursor: "pointer ",
+    fontWeight: "500",
+    height: "37px",
+    width: "37px",
 }
 
 const Price = styled.span`
@@ -142,14 +141,50 @@ const Quantity = styled.span`
 const SingleProduct = () => {
 
     const [quantity, setQuantity] = useState(1);
-    const [sizeButton , setSizeButton] = useState(sizeButtonStyle);
+    const [sizeButton, setSizeButton] = useState({
+        "arr": [
+            {
+                name: "XS",
+                buttonStyle: sizeButtonStyle
+            },
+            {
+                name: "S",
+                buttonStyle: sizeButtonStyle
+            },
+            {
+                name: "M",
+                buttonStyle: sizeButtonStyle
+            },
+            {
+                name: "L",
+                buttonStyle: sizeButtonStyle
+            },
+            {
+                name: "XL",
+                buttonStyle: sizeButtonStyle
+            }
 
-    const handleSizeButtonOnClick = () => {
-        sizeButton === sizeButtonStyle ? setSizeButton(sizeOnclick) : setSizeButton(sizeButtonStyle)
+        ]
+    });
+
+    const handleSizeButtonOnClick = (index) => {
+        let temp = sizeButton.arr;
+        let target = temp.find(button=>button.name === index) ;
+        console.log(target.buttonStyle) ;
+        if ( target.buttonStyle.backgroundColor === "transparent") {
+            temp = {...target, buttonStyle : sizeOnclick}
+            setSizeButton(temp)
+        }
+        else {
+            temp = {...target , buttonStyle : sizeButtonStyle}
+            setSizeButton(temp)
+        }
+        console.log(temp) ;
+        /*sizeButton === sizeButtonStyle ? setSizeButton(sizeOnclick) : setSizeButton(sizeButtonStyle)*/
     }
 
     const handleDecrease = () => {
-        if (quantity != 1) {
+        if (quantity !== 1) {
             setQuantity(prevQuantity => prevQuantity - 1)
         }
     }
@@ -179,11 +214,11 @@ const SingleProduct = () => {
                         Select Size
                     </SmallTitle>
                     <ButtonContainer>
-                        <SizeButton style={sizeButton} onClick={handleSizeButtonOnClick}>XS</SizeButton>
-                        <SizeButton style={sizeButtonStyle}>S</SizeButton>
-                        <SizeButton style={sizeButtonStyle}>M</SizeButton>
-                        <SizeButton style={sizeButtonStyle}>L</SizeButton>
-                        <SizeButton style={sizeButtonStyle}>XL</SizeButton>
+                        <SizeButton style={sizeButtonStyle} name="XS" onClick={() => handleSizeButtonOnClick("XS")} >XS</SizeButton>
+                        <SizeButton style={sizeButtonStyle} onClick={() => handleSizeButtonOnClick("S")} name="X">S</SizeButton>
+                        <SizeButton style={sizeButtonStyle} onClick={() => handleSizeButtonOnClick("M")} name="M">M</SizeButton>
+                        <SizeButton style={sizeButtonStyle} onClick={() => handleSizeButtonOnClick("L")} name="L">L</SizeButton>
+                        <SizeButton style={sizeButtonStyle} onClick={() => handleSizeButtonOnClick("XL")} name="XL">XL</SizeButton>
                     </ButtonContainer>
                     <SmallTitle>
                         Quantity
@@ -194,7 +229,7 @@ const SingleProduct = () => {
                         <QuantityButton onClick={handleIncrease}> + </QuantityButton>
                     </QuantityContainer>
                     <BuyContainer>
-                        <Favorite><FavoriteBorderOutlinedIcon style={{marginRight : "5px",color : " rgb(58,15,84)"}}/>WISHLIST</Favorite>
+                        <Favorite><FavoriteBorderOutlinedIcon style={{ marginRight: "5px", color: " rgb(58,15,84)" }} />WISHLIST</Favorite>
                         <CartButton>ADD TO CART</CartButton>
                     </BuyContainer>
                 </InfoContainer>
