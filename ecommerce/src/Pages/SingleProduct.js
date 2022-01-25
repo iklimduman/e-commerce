@@ -176,19 +176,23 @@ const SingleProduct = () => {
 
         let elementIndex = temp.indexOf(target) ;
 
-        let deneme = temp[elementIndex].buttonStyle ;
-
         if (temp[elementIndex].buttonStyle  == sizeButtonStyle) {
+
+           temp.forEach(element => {
+               if(element.buttonStyle == sizeOnclick) {
+                   element.buttonStyle = sizeButtonStyle ;
+               }
+           });
             
             temp[elementIndex].buttonStyle = sizeOnclick ;
-            console.log(temp) ;
+
             setSizeButton(temp) ;
             setUpdate(update + 1) ;
         }
         else if ( temp[elementIndex].buttonStyle  == sizeOnclick) {
             
             temp[elementIndex].buttonStyle = sizeButtonStyle ;
-            console.log(temp) ;
+            
             setSizeButton(temp) ;
             setUpdate(update - 1) ;
          }
