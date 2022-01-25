@@ -44,7 +44,9 @@ const Description = styled.p``
 
 const SmallTitle = styled.h3``
 
-const ButtonContainer = styled.div``
+const ButtonContainer = styled.div`
+    display : flex ;
+    flex-direction : row ;`
 
 const SizeButton = styled.button`
     width : 32px ;
@@ -137,6 +139,15 @@ const Quantity = styled.span`
     font-size : 22px ;
     line-height : 32px ;
     margin : 0 10px ;`
+
+const ColorButton = styled.div`
+    width : 30px ;
+    height : 30px ;
+    border : 1px solid rgb(58,15,84) ;
+    margin : 0 0 0 10px ;
+    border-radius: 50%;
+    background-color: ${props=>props.color};
+    `
 
 const SingleProduct = () => {
 
@@ -237,6 +248,14 @@ const SingleProduct = () => {
                         <SizeButton style={sizeButton[2].buttonStyle} onClick={() => handleSizeButtonOnClick("M")} name="M">M</SizeButton>
                         <SizeButton style={sizeButton[3].buttonStyle} onClick={() => handleSizeButtonOnClick("L")} name="L">L</SizeButton>
                         <SizeButton style={sizeButton[4].buttonStyle} onClick={() => handleSizeButtonOnClick("XL")} name="XL">XL</SizeButton>
+                    </ButtonContainer>
+                    <SmallTitle>
+                        Color
+                    </SmallTitle>
+                    <ButtonContainer>
+                        <ColorButton color={"rgb(250,243,254)"}/>
+                        <ColorButton color={"rgb(0,0,0)"}/>
+                        <ColorButton color={"rgb(29,210,210)"}/>
                     </ButtonContainer>
                     <SmallTitle>
                         Quantity
