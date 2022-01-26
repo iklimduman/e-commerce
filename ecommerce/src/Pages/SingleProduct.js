@@ -209,7 +209,6 @@ const SingleProduct = () => {
 
     const HandleSizeButtonOnClick = (index) => {
 
-        
         let target = temp.find(button=>button.name === index) ;
 
         let elementIndex = temp.indexOf(target) ;
