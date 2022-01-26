@@ -5,7 +5,7 @@ import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlin
 
 import styled from "styled-components";
 
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 
 const Container = styled.div`
     font-family: 'Didact Gothic', sans-serif;
@@ -143,11 +143,21 @@ const Quantity = styled.span`
 const ColorButton = styled.div`
     width : 30px ;
     height : 30px ;
-    border : 1px solid rgb(58,15,84) ;
+    border : 2px solid #EEEFEF ;
     margin : 0 0 0 10px ;
     border-radius: 50%;
     background-color: ${props=>props.color};
-    `
+    cursor : pointer ;
+`
+
+const ColorButtonSelected = {
+    width : "30px" ,
+    height : "30px" ,
+    border : "1px solid rgb(58,15,84)" ,
+    margin : "0 0 0 10px" ,
+    borderRadius: "50%",
+    cursor : "pointer"
+}
 
 const SingleProduct = () => {
 
@@ -180,9 +190,26 @@ const SingleProduct = () => {
         ]
     );
 
-    const handleSizeButtonOnClick = (index) => {
+    const [colorButton , setColorButton] = useState (
+        [
+            {name : "white"
+            },
+            {name : "black"
+            },
+            {name : "blue"
+            }
+        ]
+    )
 
-        let temp = sizeButton;
+    const handleColorOnClick = (index) => {
+        console.log(index)
+    }
+
+    let temp = sizeButton;
+
+    const HandleSizeButtonOnClick = (index) => {
+
+        
         let target = temp.find(button=>button.name === index) ;
 
         let elementIndex = temp.indexOf(target) ;
@@ -198,6 +225,7 @@ const SingleProduct = () => {
             temp[elementIndex].buttonStyle = sizeOnclick ;
 
             setSizeButton(temp) ;
+
             setUpdate(update + 1) ;
         }
         else if ( temp[elementIndex].buttonStyle  == sizeOnclick) {
@@ -205,6 +233,7 @@ const SingleProduct = () => {
             temp[elementIndex].buttonStyle = sizeButtonStyle ;
             
             setSizeButton(temp) ;
+
             setUpdate(update - 1) ;
          }
         else {
@@ -243,19 +272,19 @@ const SingleProduct = () => {
                         Select Size
                     </SmallTitle>
                     <ButtonContainer>
-                        <SizeButton style={sizeButton[0].buttonStyle} onClick={()=>handleSizeButtonOnClick("XS")} >XS</SizeButton>
-                        <SizeButton style={sizeButton[1].buttonStyle} onClick={() => handleSizeButtonOnClick("S")} name="X">S</SizeButton>
-                        <SizeButton style={sizeButton[2].buttonStyle} onClick={() => handleSizeButtonOnClick("M")} name="M">M</SizeButton>
-                        <SizeButton style={sizeButton[3].buttonStyle} onClick={() => handleSizeButtonOnClick("L")} name="L">L</SizeButton>
-                        <SizeButton style={sizeButton[4].buttonStyle} onClick={() => handleSizeButtonOnClick("XL")} name="XL">XL</SizeButton>
+                        <SizeButton style={sizeButton[0].buttonStyle} onClick={()=>HandleSizeButtonOnClick("XS")} >XS</SizeButton>
+                        <SizeButton style={sizeButton[1].buttonStyle} onClick={() => HandleSizeButtonOnClick("S")} name="X">S</SizeButton>
+                        <SizeButton style={sizeButton[2].buttonStyle} onClick={() => HandleSizeButtonOnClick("M")} name="M">M</SizeButton>
+                        <SizeButton style={sizeButton[3].buttonStyle} onClick={() => HandleSizeButtonOnClick("L")} name="L">L</SizeButton>
+                        <SizeButton style={sizeButton[4].buttonStyle} onClick={() => HandleSizeButtonOnClick("XL")} name="XL">XL</SizeButton>
                     </ButtonContainer>
                     <SmallTitle>
                         Color
                     </SmallTitle>
                     <ButtonContainer>
-                        <ColorButton color={"rgb(250,243,254)"}/>
-                        <ColorButton color={"rgb(0,0,0)"}/>
-                        <ColorButton color={"rgb(29,210,210)"}/>
+                        <ColorButton color={"rgb(250,243,254)"} onClick={()=>handleColorOnClick("white")} />
+                        <ColorButton color={"rgb(0,0,0)"} onClick={()=>handleColorOnClick("black")}/>
+                        <ColorButton color={"rgb(29,210,210)"} onClick={()=>handleColorOnClick("blue")}/>
                     </ButtonContainer>
                     <SmallTitle>
                         Quantity
