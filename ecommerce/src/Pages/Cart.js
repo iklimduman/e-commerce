@@ -18,6 +18,7 @@ const Wrapper = styled.div`
 const Title = styled.span`
     font-size : 26px ;
     font-weight : 600 ;
+    color : #39024D ;
 `
 
 const ButtonWrapper = styled.div`
@@ -121,15 +122,34 @@ const Color = styled.div`
 `
 const Price = styled.span`
     flex : 1 ;
+    font-size : 19px ;
+    font-weight : 700 ;
+    color : #39024D ;
 `
 
 const QuantityWrap = styled.div`
     flex : 1 ;
+    display : flex ;
+    flex-direction : row ;
 `
 
-const Quantity = styled.span``
+const Quantity = styled.div`
+    font-size : 20px ;
+    font-weight : 700 ;
+    color : #590876 ;
+    margin : 0 15px ;`
 
-const QuantityButton = styled.button``
+const QuantityButton = styled.button`
+    width : 33px ;
+    height : 33px ;
+    color : #590876  ;
+    font-size : 18px ;
+    font-weight : 700 ;
+    border : 1.5px solid #590876  ;
+    background-color : transparent ;
+    border-radius : 50% ;
+    cursor : pointer ;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 5px 0 rgba(0, 0, 0, 0.19);`
 
 const Cart = () => {
 
