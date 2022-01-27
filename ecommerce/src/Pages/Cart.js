@@ -56,7 +56,7 @@ const CheckOut = styled.button`
 `
 
 const CartWrapper = styled.div`
-    width : 85% ;
+    width : 68% ;
     display : flex ;
     flex-direction : column ;
     position : absolute ;
@@ -65,7 +65,7 @@ const CartWrapper = styled.div`
 `
 
 const CartItem = styled.div`
-    width : 80% ;
+    width : 100% ;
     height : 30vh ;
     display : flex ;
     justify-content : center ;
@@ -168,7 +168,7 @@ const TopWrap = styled.div`
 
 const SummaryWarpper = styled.div`
     width : 30% ;
-    height : 40vh ;
+    min-height : 40vh ;
     
     position : absolute ;
     top : 0 ;
@@ -177,9 +177,41 @@ const SummaryWarpper = styled.div`
 
 const Summary = styled.div`
     width : 100% ;
-    height : 100% ;
-    border : 1px solid green ;
+    min-height : 40vh ;
     margin-top : 20px ;
+    box-shadow: 0 4px 8px -5px rgba(0, 0, 0, 0.7), 0 6px 20px -5px rgba(0, 0, 0, 0.5);
+    border-radius : 15px ;
+    display : flex ;
+    flex-direction : column ;
+    align-items : center ;
+`
+
+const PaymentItem = styled.div`
+    width : 80% ;
+    display : flex ;
+    justify-content : space-between ;
+    padding : 15px 0 ;
+`
+
+const Text = styled.span`
+    font-size : 19px ;
+    font-weight : 700 ;
+`
+
+const ItemPrice = styled.span`
+    font-size : 19px ;
+    font-weight : 500 ;`
+
+const CouponInput = styled.input``
+
+const CouponButton = styled.button`
+    background-color : #590876 ;
+    color : white ;
+    font-size : 17px ;
+    height : 24px ;
+    border :none ;
+    border-radius : 3px ;
+    cursor : pointer ;
 `
 
 const Cart = () => {
@@ -328,6 +360,26 @@ const Cart = () => {
                         Payment Summary
                     </Title>
                     <Summary>
+                        <PaymentItem>
+                            <Text>Payment Summary</Text>
+                            <ItemPrice>150 $</ItemPrice>
+                        </PaymentItem>
+                        <PaymentItem>
+                            <Text>Additional Service</Text>
+                            <ItemPrice>10 $</ItemPrice>
+                        </PaymentItem>
+                        <PaymentItem>
+                            <CouponInput placeholder="COUPON CODE">
+
+                            </CouponInput>
+                            <CouponButton>
+                                APPLY
+                            </CouponButton>
+                        </PaymentItem>
+                        <PaymentItem>
+                            <Text>Total Amount</Text>
+                            <ItemPrice>160 $</ItemPrice>
+                        </PaymentItem>
 
                     </Summary>
 
