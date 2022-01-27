@@ -1,4 +1,4 @@
-import React , { useState } from "react";
+import React, { useState } from "react";
 import Navbar from "../Components/Navbar";
 import Footer from "../Components/Footer";
 import styled from "styled-components";
@@ -8,11 +8,15 @@ const Container = styled.div``
 const Wrapper = styled.div`
     font-family: 'Didact Gothic', sans-serif;
     display : flex ;
-    flex-direction : column ;
+    flex-direction : row ;
     align-items : center ;
-    margin-top : 55px ;
+    
     margin-bottom : 20px ;
+    width : 80% ;
+    margin : auto ;
+    margin-top : 55px ;
     min-height : 100vh ;
+    position : relative ;
 `
 
 const Title = styled.span`
@@ -52,21 +56,23 @@ const CheckOut = styled.button`
 `
 
 const CartWrapper = styled.div`
-    width : 70% ;
+    width : 85% ;
     display : flex ;
     flex-direction : column ;
+    position : absolute ;
+    top : 0 ;
     
 `
 
 const CartItem = styled.div`
-    width : 100% ;
+    width : 80% ;
     height : 30vh ;
     display : flex ;
     justify-content : center ;
     align-items : center ;
     flex-direction : row ;
     margin-bottom : 15px ;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    box-shadow: 0 4px 8px -5px rgba(0, 0, 0, 0.7), 0 6px 20px -5px rgba(0, 0, 0, 0.5);
 `
 
 const CartImage = styled.div`
@@ -149,25 +155,50 @@ const QuantityButton = styled.button`
     background-color : transparent ;
     border-radius : 50% ;
     cursor : pointer ;
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 5px 0 rgba(0, 0, 0, 0.19);`
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 5px 0 rgba(0, 0, 0, 0.19);
+`
+
+const TopWrap = styled.div`
+    display : flex ;
+    justify-content : center ;
+    align-items : center ;
+    flex-direction : column ;
+    margin-top : 20px ;
+`
+
+const SummaryWarpper = styled.div`
+    width : 30% ;
+    height : 40vh ;
+    
+    position : absolute ;
+    top : 0 ;
+    right : 0 ;
+`
+
+const Summary = styled.div`
+    width : 100% ;
+    height : 100% ;
+    border : 1px solid green ;
+    margin-top : 20px ;
+`
 
 const Cart = () => {
 
-    const [quantity , setQuantity] = useState(1) ;
+    const [quantity, setQuantity] = useState(1);
 
-    const handleIncrement = () =>{
+    const handleIncrement = () => {
         setQuantity(quantity + 1)
     }
 
     const handleDecrement = () => {
-        quantity>1 && setQuantity(quantity - 1) ;
+        quantity > 1 && setQuantity(quantity - 1);
     }
-    
+
 
     return (
         <Container>
             <Navbar />
-            <Wrapper>
+            { /* <TopWrap>
                 <Title>
                     YOUR BAG
                 </Title>
@@ -175,7 +206,15 @@ const Cart = () => {
                     <ContinueShopping>CONTINUE SHOPPING</ContinueShopping>
                     <CheckOut>CHECKOUT NOW</CheckOut>
                 </ButtonWrapper>
+            </TopWrap> */}
+
+
+            <Wrapper>
+
                 <CartWrapper>
+                    <Title style={{ marginBottom: "20px" }}>
+                        Order
+                    </Title>
                     <CartItem>
                         <CartImage>
                             <Image src="https://images.pexels.com/photos/5709908/pexels-photo-5709908.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" />
@@ -282,6 +321,18 @@ const Cart = () => {
 
 
                 </CartWrapper>
+
+
+                <SummaryWarpper>
+                    <Title>
+                        Payment Summary
+                    </Title>
+                    <Summary>
+
+                    </Summary>
+
+
+                </SummaryWarpper>
 
             </Wrapper>
             <Footer />
