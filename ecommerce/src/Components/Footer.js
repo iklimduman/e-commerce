@@ -7,6 +7,7 @@ import TwitterIcon from '@mui/icons-material/Twitter';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import MailIcon from '@mui/icons-material/Mail';
 import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
+import { Mobile } from "../ResponsiveConstants";
 
 const Links = ['Home', 'Casual Wear', 'Active Wear', 'On Sale', 'Order Tracking', 'Cart', 'Wishlist', 'My Account', 'Terms'];
 
@@ -14,6 +15,7 @@ const Container = styled.div`
     display : flex ;
     height : auto ;
     padding-bottom : 50px ;
+    ${Mobile({flexDirection : "column"})} ;
 `
 
 const Left = styled.div`
@@ -42,7 +44,7 @@ const Desc = styled.span`
 const SmallTitle = styled.h2``
 
 const SocialContainer = styled.div`
-    margin : 10px 
+    margin : 10px  ;
 `
 
 const ListItem = styled.li`

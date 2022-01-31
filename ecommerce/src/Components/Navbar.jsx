@@ -1,7 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Search, ShoppingCart, ShoppingCartOutlined } from "@material-ui/icons";
+import MenuOutlinedIcon from '@mui/icons-material/MenuOutlined';
 import { Badge, Input } from '@material-ui/core';
+import { Mobile } from '../ResponsiveConstants';
 import "./Navbar.css";
 
 const Container = styled.div`
@@ -13,16 +15,18 @@ const Wrapper = styled.div`
     justify-content : space-between ;
 `
 const Left = styled.div`
-flex : 1;
-display : flex ;
+    flex : 1;
+    display : flex ;
+    align-items : center ;
+    justify-content: center;
 `
 
 const Right = styled.div`
-flex : 1;
-display : flex ;
-align-items : center ;
-justify-content : flex-end ;
-padding-right : 25px ;
+    flex : 1;
+    display : flex ;
+    align-items : center ;
+    justify-content : flex-end ;
+    padding-right : 25px ;
 `
 
 const Center = styled.div`
@@ -30,11 +34,24 @@ const Center = styled.div`
     align-self: center;
     justify-content: center;
     display : flex ;
-    flex : 1
+    flex : 1 ;
 `
 const MenuItem = styled.div`
     cursor : pointer ;
     margin-left : 25px ;
+    ${Mobile({ display: "none" })} ;
+    
+`
+const MenuItemKeep = styled.div`
+    cursor : pointer ;
+    margin-left : 25px ;
+`
+
+const MenuMobile = styled.div`
+    cursor : pointer ;
+    margin-left : 25px ;
+    display : none ;
+    ${Mobile({ display: "inline-block" })} ;
 `
 
 const SearchContainer = styled.div`
@@ -45,7 +62,17 @@ const SearchContainer = styled.div`
     align-items : center ;
     padding : 5px ;
     border-radius : 25px ;
-    `
+`
+
+window.addEventListener('resize', () => {
+    var w = window.innerWidth;
+    if (w <= 880) {
+        document.getElementsByName("input-field")[0].placeholder = "";
+    }
+    if (w > 880) {
+        document.getElementsByName("input-field")[0].placeholder = "Search for an item";
+    }
+})
 
 const Navbar = () => {
     return (
@@ -58,18 +85,23 @@ const Navbar = () => {
                 </Left>
                 <Center>
                     <SearchContainer>
-                        <Search style={{color:"gray",cursor:"pointer"}}/>
-                        <input type="text" className="input-field" placeholder="Search for an item"/>
+                        <Search style={{ color: "gray", cursor: "pointer" }} />
+                        <input type="text" className="input-field" placeholder="Search for an item" name="input-field" />
+
                     </SearchContainer>
                 </Center>
                 <Right>
                     <MenuItem>Register</MenuItem>
                     <MenuItem>Sign in</MenuItem>
-                    <MenuItem>
+
+                    <MenuItemKeep>
                         <Badge badgeContent={4} color="primary">
-                            <ShoppingCartOutlined/>
+                            <ShoppingCartOutlined />
                         </Badge>
-                    </MenuItem>
+                    </MenuItemKeep>
+                    <MenuMobile>
+                        <MenuOutlinedIcon />
+                    </MenuMobile>
                 </Right>
             </Wrapper>
         </Container>

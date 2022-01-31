@@ -2,16 +2,34 @@
     width : 200px ;
     height : 60px ;
     background : url("../Assets/logo.png") no-repeat ;
-    background-size: contain  ;
+    background-size: cover  ;
     margin-left: 25px ;
 }
 
 .input-field{
     width:100%;
     border:none;
-    
 }
 
 .input-field:focus{
     outline: none;
+}
+
+.input-field-mobile{
+    display : none ;
+}
+@media screen and (max-width : 380px) {
+    .input-field{
+        width : 50px ;
+    }
+    .logo-container{
+        width : 100px ;
+        height: 30px ;
+    }
+    .input-field{
+        display: none;
+    }
+    .input-field-mobile{
+        display: inline-block;
+    }
 }

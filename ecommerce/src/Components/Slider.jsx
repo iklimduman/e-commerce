@@ -44,8 +44,7 @@ const Wrapper = styled.div`
     display: flex;
     transition: all 1.5s ease;
     transform: translateX(${(props) => props.slideIndex * -100}vw);
-
-    
+ 
 `
 
 const Slide = styled.div`
@@ -83,10 +82,7 @@ const Info = styled.h1`
     
     
     color : rgb(255,255,255);
-    
-}
 `
-
 
 const ImgContainer = styled.div`
     flex : 1 ;
@@ -140,28 +136,6 @@ const Slider = () => {
                     </Slide>
                 ))}
             </Wrapper>
-
-            {/*
-            <Wrapper slideIndex={slideIndex}>
-                {sliderItems.map((item) => (
-                    <Slide src={myImage}>
-                        <InfoContainer>
-                            <Info>
-                                <p style={{ color: "#FEF9FF" }}>New</p>
-                                <p style={{ color: "#FEF9FF" }}>Collection</p>
-                                <p style={{ color: "#FEF9FF" }}>Out</p>
-                                <div style={{ fontSize: "70px", position: "absolute", right: "50px", bottom: "0px", color: "#FEF9FF" }}>
-                                    <p>Spring /</p>
-                                    <p>Summer</p>
-                                    <p>'21</p>
-                                </div>
-                            </Info>
-                        </InfoContainer>
-                        <ImageContainer></ImageContainer>
-                    </Slide>
-                ))}
-            </Wrapper>
-            */}
 
             <Arrow direction="right" onClick={() => handleClick("right")}>
                 <ArrowRightOutlined />
