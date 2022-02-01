@@ -6,6 +6,7 @@ import React from "react";
 import styled from "styled-components";
 import { Products } from "../Data";
 import DefaultProduct from "././DefaultProduct";
+import ProductCard from "./ProductCard";
 
 const Container = styled.div`
     `
@@ -96,7 +97,7 @@ const ProductList = () => {
 
             <ProductContainer>
                 {Products.map((item) => (
-                    <DefaultProduct item={item} key={item.id} />
+                    <ProductCard item={item} key={item.id} />
                 ))}
             </ProductContainer>
 
