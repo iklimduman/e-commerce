@@ -6,31 +6,34 @@ import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import StarOutlineRoundedIcon from '@mui/icons-material/StarOutlineRounded';
 import StarRatings from "react-star-ratings";
 
+
 const Container = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
     height: 500px;
     width: 35vh ;
-    font-size: 4em;
     margin : 20px ;
-    border : 1px solid black ;
     position : relative ;
-    `
+    padding : 1em ;
+    background-color : rgb(222,222,222, 0.6) ;
+    border-radius: 20px ;
+`
 
 const Image = styled.img`
     width : 500px ;
     height : 35vh ;
     object-fit : cover ;
+    border-radius: 20px ;
     
 `
 
 const Description = styled.h1`
     
     font-size : 20px ;
-    bottom : 0 ;
     color : black ;
     font-family: 'Nunito Sans', sans-serif;
+    margin-bottom : 0 !important ;
 `
 
 const BottomContainer = styled.div`
@@ -38,12 +41,12 @@ const BottomContainer = styled.div`
     width : 100% ;
     height : 15% ;
     
-    background-color : rgb(222,222,222, 0.6) ;
     display : flex ;
     flex-direction : column ;
     align-items : center ;
     justify-content : center ;
     z-index : 1 ;
+    padding : 10px 0 ;
 `
 
 const EyeContainer = styled.div`
@@ -84,11 +87,19 @@ const ImageContainer = styled.div`
     height : 85% ;
     background : url(${props => props.img}) no-repeat;
     background-size: cover ;
+    border-radius : 20px ;
 `
 
 const PointContainer = styled.div`
     width : 100% ;
     font-size : 20px ;
+`
+
+const PriceContainer = styled.div`
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 19px;
+    margin : 10px 0 ;
 `
 
 const ProductCard = ({ item }) => {
@@ -101,11 +112,17 @@ const ProductCard = ({ item }) => {
 
                 <BottomContainer>
                     <Description>{item.desc}</Description>
-                    <PointContainer>{item.point}</PointContainer>
+
+                    <PriceContainer>
+                        $ {item.price} 
+                    </PriceContainer>
+
                     <StarRatings
                         rating={item.point}
                         numberOfStars={5}
-                        starRatedColor="blue"
+                        starDimension="25px"
+                        starRatedColor="#340263"
+
                     />
 
                 </BottomContainer>
@@ -132,6 +149,8 @@ const ProductCard = ({ item }) => {
                     backgroundColor: "white",
                     borderRadius: '50%',
                     padding: '5px',
+                    marginRight: "5px",
+                    marginTop: "5px",
                     cursor: 'pointer',
                     transition: "all 0.5s ease",
                     '&:hover': {
@@ -145,6 +164,7 @@ const ProductCard = ({ item }) => {
                     borderRadius: '50%',
                     padding: '5px',
                     marginRight: '5px',
+                    marginTop: "5px",
                     cursor: 'pointer',
                     transition: "all 0.5s ease",
                     '&:hover': {

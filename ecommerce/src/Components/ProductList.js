@@ -20,10 +20,14 @@ const ProductContainer = styled.div`
 
 const FilterContainer = styled.div`
     margin : auto ;
-    margin-top : 20px ;
+    margin-top : 30px ;
+    padding: 20px  0;
     width : 90% ;
+    margin-bottom : 20px ;
     display: flex;
     justify-content: space-between ;
+
+    box-shadow: rgba(0, 0, 0, 0.15) 0 1.95px 1.95px -1px;
     
 `
 
