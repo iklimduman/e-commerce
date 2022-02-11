@@ -2,6 +2,7 @@
 
 const router = require("express").Router() ;
 const User = require("../Models/User") ;
+const CryptoJS = require("crypto-js") ;
 
 // REGISTER
 // on register method user is the one who sends the info. So it needed to be post req.
@@ -10,7 +11,8 @@ router.post("/register" , async (req,res)=>{
         {
             username : req.body.username,
             email : req.body.email ,
-            password : req.body.password ,
+            password : CryptoJS.AES.encrypt(req.body.password , 
+                process.env.PASS_SEC).toString() ,
         }
     );
     // newUser locally created, to send user data to DB use save()
