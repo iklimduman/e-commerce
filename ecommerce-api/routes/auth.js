@@ -3,6 +3,8 @@
 const router = require("express").Router();
 const User = require("../Models/User");
 const CryptoJS = require("crypto-js");
+const encUtf16 = require("crypto-js/enc-utf16");
+const jwt = require("jsonwebtoken");
 
 // REGISTER
 // on register method user is the one who sends the info. So it needed to be post req.
@@ -38,18 +40,30 @@ router.post("/login", async (req, res) => {
 
         const hashedPassword = CryptoJS.AES.decrypt(user.password,
             process.env.PASS_SEC);
-        const pass = hashedPassword.toString();
+        const pass = hashedPassword.toString(CryptoJS.enc.Utf8);
+        console.log("--" + pass);
 
         if (!user) {
-            res.status(401).json("Wrong credentials!");
+            res.status(401).json("Wrong user!");
         }
         else if (pass !== req.body.password) {
-            res.status(401).json("Wrong credentials!")
+            res.status(401).json("Wrong pass!");
         }
         else {
 
-            const { password , ...others} = user._doc ;
-            res.status(200).json(others);
+            const accesToken = jwt.sign({
+                id: user._id,
+                isAdmin: user.isAdmin
+            },
+                process.env.JWT_SEC,
+                { expiresIn: "3d" }
+            )
+
+            const { password, ...others } = user._doc;
+
+            
+
+            res.status(200).json({...others , accesToken});
         }
 
     }
