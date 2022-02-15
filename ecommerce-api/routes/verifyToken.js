@@ -1,0 +1,36 @@
+const jwt = require("jsonwebtoken");
+
+
+// middleware
+const verifyToken = (req, res, next) => {
+    const authHeader = req.headers.token
+    if (authHeader) {
+        const token = authHeader.split(" ")[1];
+        jwt.verify(token, process.env.JWT_SEC, (err, user) => {
+            if (err) {
+                res.status(401).json("Token is not valid!");
+            }
+            else {
+                // assign user to request
+                req.user = user;
+            }
+            next();
+        })
+    }
+    else {
+        return res.status(401).json("You are not authenticated!");
+    }
+}
+
+const verifyTokenAuthorization = (req, res, next) => {
+    verifyToken(req, res, () => {
+        if (req.user.id === req.params.id || req.user.isAdmin) {
+            // if the user is admin or user is the same user who sends the request continue to route function
+            next()
+        } else {
+            res.status(401).json("You are not allowed to do that!");
+        }
+    })
+}
+
+module.exports = { verifyToken, verifyTokenAuthorization }
