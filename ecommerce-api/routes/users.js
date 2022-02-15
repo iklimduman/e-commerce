@@ -39,6 +39,18 @@ router.put("/:id", verifyTokenAuthorization, async (req, res) => {
         
         res.status(400).json("Error!") ;
     }
+});
+
+// DELETE
+
+router.delete("/:id" , verifyTokenAuthorization , async(req,res)=>{
+    try{
+        await User.findByIdAndDelete(req.params.id) ;
+        res.status(200).json("User has been deleted...");
+    }
+    catch(err){
+        res.status(500).json(err);
+    }
 })
 
 module.exports = router
