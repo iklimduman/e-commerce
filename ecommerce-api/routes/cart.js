@@ -46,7 +46,7 @@ router.delete("/:id", verifyTokenAuthorization, async (req, res) => {
 
 // GET USERS CART
 // everybody can see products so no need to verifyTokenAndAdmin here
-router.get("/find/:id", verifyTokenAuthorization, async (req, res) => {
+router.get("/find/:userId", verifyTokenAuthorization, async (req, res) => {
     try {
         const cart = await Cart.findOne({ userId: req.params.userId });
 
@@ -68,5 +68,6 @@ router.get("/", verifyTokenAndAdmin, async (req, res) => {
         res.status(500).json(err);
     }
 })
+
 
 module.exports = router
