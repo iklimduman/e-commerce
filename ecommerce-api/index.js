@@ -28,7 +28,7 @@ app.use("/api/products" , productRoute) ;
 
 app.use("/api/orders" , orderRoute) ;
 
-app.use("/api/cart" , cartRoute) ;
+app.use("/api/carts" , cartRoute) ;
 
 
 

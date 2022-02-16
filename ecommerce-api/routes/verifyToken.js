@@ -36,6 +36,7 @@ const verifyTokenAuthorization = (req, res, next) => {
 const verifyTokenAndAdmin = (req, res, next) => {
     verifyToken(req, res, () => {
         if (req.user.isAdmin) {
+            console.log("verified") ;
             // if the user is admin or user is the same user who sends the request continue to route function
             next();
         } else {
