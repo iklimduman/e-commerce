@@ -2,7 +2,7 @@ export const sliderItems = [
     {
         key: 1,
         id: 1,
-        src: "../Assets/slide-1.jpg",
+        src: "https://images.pexels.com/photos/235922/pexels-photo-235922.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
 
         title: "NEW COLLECTION!",
         desc: "CRAFTED WITH PASSION.",
@@ -13,7 +13,7 @@ export const sliderItems = [
     {
         key: 2,
         id: 2,
-        src: "../Assets/slide-1.jpg",
+        src: "https://images.pexels.com/photos/3822220/pexels-photo-3822220.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
 
         title: "SUMMER SALE!",
         desc: "DON'T COMPROMISE ON STYLE! GET FLAT 30% OFF FOR NEW ARRIVALS.",
@@ -22,7 +22,7 @@ export const sliderItems = [
     {
         key: 3,
         id: 3,
-        src: "../Assets/slide-1.jpg",
+        src: "https://images.pexels.com/photos/866370/pexels-photo-866370.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
 
         title: "NEW OFFER!",
         desc: "YOU'LL NEVER BELIVE THIS PRICES.",

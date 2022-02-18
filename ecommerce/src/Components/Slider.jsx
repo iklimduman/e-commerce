@@ -50,12 +50,11 @@ const Wrapper = styled.div`
 const Slide = styled.div`
     width: 100vw;
     height: 100vh;
-    display: flex;
     
-    background-color: #${(props) => props.bg};
+    background : ${props => `url(${props.src})`} ;
+    background-size: 100% ;
     
-   
-    align-items: center;
+ 
 `
 
 const InfoContainer = styled.div`
