@@ -1,11 +1,12 @@
 
 import './App.css';
+import Pay from './Pay';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-      </header>
+      <Pay />
+
     </div>
   );
 }
