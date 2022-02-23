@@ -4,10 +4,11 @@ import Footer from "./Footer";
 
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import { Products } from "../Data";
+
 import DefaultProduct from "././DefaultProduct";
-import ProductCard from "./ProductCard";
+
 import { useLocation } from "react-router-dom";
+import ProductsContainer from "./ProductsContainer" ;
 
 const Container = styled.div`
     `
@@ -117,11 +118,7 @@ const ProductList = () => {
 
             </FilterContainer>
 
-            <ProductContainer>
-                {Products.map((item) => (
-                    <ProductCard item={item} key={item.id} />
-                ))}
-            </ProductContainer>
+            <ProductsContainer cat={cat} filters={filters} sort={sort}/>
 
             <Newsletter />
             <Footer />
