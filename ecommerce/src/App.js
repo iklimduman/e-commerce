@@ -12,18 +12,22 @@ import {
   BrowserRouter as Router,
   Routes,
   Route,
-  Link
+  Link,
+  Navigate 
 } from "react-router-dom";
 
 function App() {
+  // temp boolen variable
+  const user = true;
+
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Home/>} />
-        <Route path="/products" element={<Products/>} />
-        <Route path="/product" element={<SingleProduct/>} />
+        <Route exact path="/" element={<Home />} />
+        <Route path="/products/:category" element={<Products />} />
+        <Route path="/product/:id" element={<SingleProduct />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/login" element={<Login />} />
+        <Route path="/login" element={user ? <Navigate  to="/" /> : <Login />} />
         <Route path="/cart" element={<Cart />} />
       </Routes>
     </Router>
