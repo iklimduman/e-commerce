@@ -11,8 +11,8 @@ const Container = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 500px;
-    width: 35vh ;
+    height: 650px;
+    width: 36vh ;
     margin : 20px ;
     position : relative ;
     padding : 1em ;
@@ -30,8 +30,8 @@ const Image = styled.img`
 
 const Description = styled.h1`
     
-    font-size : 20px ;
-    color : black ;
+    font-size : 15px ;
+    color : #585858 ;
     font-family: 'Nunito Sans', sans-serif;
     margin-bottom : 0 !important ;
 `
@@ -39,14 +39,15 @@ const Description = styled.h1`
 const BottomContainer = styled.div`
     
     width : 100% ;
-    height : 15% ;
+    height : 25% ;
     
     display : flex ;
     flex-direction : column ;
     align-items : center ;
     justify-content : center ;
     z-index : 1 ;
-    padding : 10px 0 ;
+    padding-top : 10px ;
+    text-align : center ;
 `
 
 const EyeContainer = styled.div`
@@ -84,7 +85,7 @@ const InfoContainer = styled.div`
 
 const ImageContainer = styled.div`
     width : 100% ;
-    height : 85% ;
+    height : 75% ;
     background : url(${props => props.img}) no-repeat;
     background-size: cover ;
     border-radius : 20px ;
@@ -102,7 +103,23 @@ const PriceContainer = styled.div`
     margin : 10px 0 ;
 `
 
+const Title = styled.div`
+    font-size : 20px ;
+    color : #07000B ;
+    font-weight : 500 ;
+`
+
+const TitleContainer = styled.div`
+    display : flex ;
+    flex-direction : column ;
+    align-items : center ;
+    justify-content : center ;
+    width : 100% ;
+    min-height : 35% ;
+`
+
 const ProductCard = ({ item }) => {
+    console.log(item);
     return (
         <Container>
             <InfoContainer>
@@ -111,10 +128,14 @@ const ProductCard = ({ item }) => {
                 </ImageContainer>
 
                 <BottomContainer>
-                    <Description>{item.desc}</Description>
+                    <TitleContainer>
+                        <Title>{item.title}</Title>
+                    </TitleContainer>
+
+                    <Description>{item.description}</Description>
 
                     <PriceContainer>
-                        $ {item.price} 
+                        $ {item.price}
                     </PriceContainer>
 
                     <StarRatings

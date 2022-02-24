@@ -57,26 +57,27 @@ const ProductsContainer = ({ cat, filters, sort }) => {
             )
     }, [products, cat, filters]);
 
-    useEffect(()=> {
-        if(sort === "newest"){
-            setFilteredProducts((prev) => [...prev].sort((a,b) => a.createdAt - b.createdAt))
+    useEffect(() => {
+        if (sort === "newest") {
+            setFilteredProducts((prev) => [...prev].sort((a, b) => a.createdAt - b.createdAt))
         }
-        else if( sort === "price-asc"){
-            setFilteredProducts((prev) => [...prev].sort((a,b) => a.price - b.price))
+        else if (sort === "price-asc") {
+            setFilteredProducts((prev) => [...prev].sort((a, b) => a.price - b.price))
         }
-        else{
-            setFilteredProducts((prev) => [...prev].sort((a,b) => b.price - a.price))
+        else {
+            setFilteredProducts((prev) => [...prev].sort((a, b) => b.price - a.price))
         }
 
-    } , [ sort ])
+    }, [sort])
 
     console.log("filtered products = " + filteredProducts);
 
     return (
         <ProductContainer>
-            {filteredProducts.map((item) => (
-                <ProductCard item={item} key={item.id} />
-            ))}
+            {cat ? filteredProducts.map((item) => (
+                <ProductCard item={item} key={item.id} />))
+                : products.map((item) => (
+                    <ProductCard item={item} key={item.id} />))}
         </ProductContainer>
     )
 }
