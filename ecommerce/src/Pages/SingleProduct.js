@@ -6,6 +6,7 @@ import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlin
 import styled from "styled-components";
 
 import React, { useState, useRef, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 
 const Container = styled.div`
     font-family: 'Didact Gothic', sans-serif;
@@ -163,6 +164,26 @@ const SingleProduct = () => {
 
     const [quantity, setQuantity] = useState(1);
     const [update , setUpdate] = useState(0) ;
+
+    const location = useLocation();  // to get product id from url
+    const id = location.pathname.split("/")[2] ; // product id
+
+    const [ product, setProduct] = useState({}) ;
+
+    useEffect(()=>{
+        const getProduct = async ()=>{
+            /*
+            try{
+                const res = axios
+            }
+            catch(err){
+
+            }
+            */
+        }
+    },[id])
+
+    
 
     const [sizeButton, setSizeButton] = useState(
          [

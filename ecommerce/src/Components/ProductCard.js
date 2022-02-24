@@ -6,14 +6,17 @@ import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import StarOutlineRoundedIcon from '@mui/icons-material/StarOutlineRounded';
 import StarRatings from "react-star-ratings";
 
+import { Link } from "react-router-dom";
+
 
 const Container = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
     height: 650px;
-    width: 36vh ;
-    margin : 20px ;
+    width: 38vh ;
+    margin : 5px ;
+    margin-bottom : 20px ;
     position : relative ;
     padding : 1em ;
     background-color : rgb(222,222,222, 0.6) ;
@@ -51,7 +54,7 @@ const BottomContainer = styled.div`
 `
 
 const EyeContainer = styled.div`
-    position : absolute ;
+    
     width : 100% ;
     height : 100% ;
     display : flex ;
@@ -59,7 +62,7 @@ const EyeContainer = styled.div`
     justify-content : center ;
     opacity : 0 ;
     &:hover {
-        background-color : rgb(222,222,222, 0.2) ;
+        background-color : rgb(222,222,222, 0.4) ;
         opacity : 1 ;
         cursor : pointer ;
     }
@@ -84,10 +87,14 @@ const InfoContainer = styled.div`
 `
 
 const ImageContainer = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width : 100% ;
     height : 75% ;
     background : url(${props => props.img}) no-repeat;
     background-size: cover ;
+    background-position : center ;
     border-radius : 20px ;
 `
 
@@ -123,9 +130,30 @@ const ProductCard = ({ item }) => {
     return (
         <Container>
             <InfoContainer>
+
                 <ImageContainer img={item.img}>
 
+                    <EyeContainer>
+
+                        <Link to={`/product/${item._id}`}>
+                            <VisibilityOutlinedIcon sx={{
+                                width: '40px',
+                                height: '40px',
+                                color: "#200132",
+                                transition: "all 0.5s ease",
+                                '&:hover': {
+
+                                    transform: "scale(1.4)"
+                                }
+                            }} />
+
+                        </Link>
+
+                    </EyeContainer>
+
+
                 </ImageContainer>
+
 
                 <BottomContainer>
                     <TitleContainer>
@@ -151,19 +179,7 @@ const ProductCard = ({ item }) => {
             </InfoContainer>
 
 
-            <EyeContainer>
 
-                <VisibilityOutlinedIcon sx={{
-                    width: '40px',
-                    height: '40px',
-                    transition: "all 0.5s ease",
-                    '&:hover': {
-
-                        transform: "scale(1.4)"
-                    }
-                }} />
-
-            </EyeContainer>
             <ShoppingContainer>
                 <ShoppingCartOutlinedIcon sx={{
                     color: 'black',
