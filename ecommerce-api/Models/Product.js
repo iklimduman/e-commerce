@@ -31,6 +31,10 @@ const productSchema = new mongoose.Schema(
         inStock : {
             type : Boolean , 
             default : true
+        },
+        point : {
+            type : Number ,
+            default : 5
         }
     },
     { 
