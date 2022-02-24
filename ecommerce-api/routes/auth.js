@@ -61,8 +61,6 @@ router.post("/login", async (req, res) => {
 
             const { password, ...others } = user._doc;
 
-            
-
             res.status(200).json({...others , accesToken});
         }
 
