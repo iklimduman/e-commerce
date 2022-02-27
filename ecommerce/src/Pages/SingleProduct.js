@@ -8,6 +8,8 @@ import styled from "styled-components";
 import React, { useState, useRef, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
+import { publicRequest } from "../RequestMethods";
+
 const Container = styled.div`
     font-family: 'Didact Gothic', sans-serif;
 `
@@ -147,46 +149,58 @@ const ColorButton = styled.div`
     border : 2px solid #EEEFEF ;
     margin : 0 0 0 10px ;
     border-radius: 50%;
-    background-color: ${props=>props.color};
+    background-color: ${props => props.color};
     cursor : pointer ;
 `
 
 const ColorButtonSelected = {
-    width : "30px" ,
-    height : "30px" ,
-    border : "1px solid rgb(58,15,84)" ,
-    margin : "0 0 0 10px" ,
+    width: "30px",
+    height: "30px",
+    border: "1px solid rgb(58,15,84)",
+    margin: "0 0 0 10px",
     borderRadius: "50%",
-    cursor : "pointer"
+    cursor: "pointer"
 }
 
 const SingleProduct = () => {
 
     const [quantity, setQuantity] = useState(1);
-    const [update , setUpdate] = useState(0) ;
+    const [update, setUpdate] = useState(0);
 
     const location = useLocation();  // to get product id from url
-    const id = location.pathname.split("/")[2] ; // product id
+    const id = location.pathname.split("/")[2]; // product id
 
-    const [ product, setProduct] = useState({}) ;
+    const [product, setProduct] = useState({});
 
-    useEffect(()=>{
-        const getProduct = async ()=>{
-            /*
-            try{
-                const res = axios
+    const [colorArr, setColorArr] = useState([]);
+    const [sizeArr, setSizeArr] = useState([]);
+
+    useEffect(() => {
+        const getProduct = async () => {
+
+            try {
+                const res = await publicRequest.get("/products/find/" + id);
+                setProduct(res.data);
+                setColorArr(res.data.color);
+                setSizeArr(res.data.size);
+
             }
-            catch(err){
-
+            catch (err) {
+                console.log(err);
             }
-            */
         }
-    },[id])
+        getProduct();
+        console.log("PRODUCT");
+        console.log(product);
+        console.log("COLORS");
+        console.log(colorArr);
 
-    
+    }, [id])
+
+
 
     const [sizeButton, setSizeButton] = useState(
-         [
+        [
             {
                 name: "XS",
                 buttonStyle: sizeButtonStyle
@@ -211,13 +225,16 @@ const SingleProduct = () => {
         ]
     );
 
-    const [colorButton , setColorButton] = useState (
+    const [colorButton, setColorButton] = useState(
         [
-            {name : "white"
+            {
+                name: "white"
             },
-            {name : "black"
+            {
+                name: "black"
             },
-            {name : "blue"
+            {
+                name: "blue"
             }
         ]
     )
@@ -230,34 +247,34 @@ const SingleProduct = () => {
 
     const HandleSizeButtonOnClick = (index) => {
 
-        let target = temp.find(button=>button.name === index) ;
+        let target = temp.find(button => button.name === index);
 
-        let elementIndex = temp.indexOf(target) ;
+        let elementIndex = temp.indexOf(target);
 
-        if (temp[elementIndex].buttonStyle  == sizeButtonStyle) {
+        if (temp[elementIndex].buttonStyle == sizeButtonStyle) {
 
-           temp.forEach(element => {
-               if(element.buttonStyle == sizeOnclick) {
-                   element.buttonStyle = sizeButtonStyle ;
-               }
-           });
-            
-            temp[elementIndex].buttonStyle = sizeOnclick ;
+            temp.forEach(element => {
+                if (element.buttonStyle == sizeOnclick) {
+                    element.buttonStyle = sizeButtonStyle;
+                }
+            });
 
-            setSizeButton(temp) ;
+            temp[elementIndex].buttonStyle = sizeOnclick;
 
-            setUpdate(update + 1) ;
+            setSizeButton(temp);
+
+            setUpdate(update + 1);
         }
-        else if ( temp[elementIndex].buttonStyle  == sizeOnclick) {
-            
-            temp[elementIndex].buttonStyle = sizeButtonStyle ;
-            
-            setSizeButton(temp) ;
+        else if (temp[elementIndex].buttonStyle == sizeOnclick) {
 
-            setUpdate(update - 1) ;
-         }
+            temp[elementIndex].buttonStyle = sizeButtonStyle;
+
+            setSizeButton(temp);
+
+            setUpdate(update - 1);
+        }
         else {
-            console.log("error") ;
+            console.log("error");
         }
     }
 
@@ -272,39 +289,40 @@ const SingleProduct = () => {
     }
 
     return (
+
+
         <Container>
             <Navbar />
 
             <Wrapper>
 
                 <ImageContainer>
-                    <Image src="https://images.pexels.com/photos/7246441/pexels-photo-7246441.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" />
+                    <Image src={product.img} />
                 </ImageContainer>
                 <InfoContainer>
                     <Title>
-                        SILK DRESS
+                        {product.title}
                     </Title>
-                    <Price>$ 56.00</Price>
+                    <Price>$ {product.price}</Price>
                     <Description>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. A arcu cursus vitae congue. Ipsum consequat nisl vel pretium lectus quam id leo in.
+                        {product.description}
                     </Description>
                     <SmallTitle>
                         Select Size
                     </SmallTitle>
                     <ButtonContainer>
-                        <SizeButton style={sizeButton[0].buttonStyle} onClick={()=>HandleSizeButtonOnClick("XS")} >XS</SizeButton>
-                        <SizeButton style={sizeButton[1].buttonStyle} onClick={() => HandleSizeButtonOnClick("S")} name="X">S</SizeButton>
-                        <SizeButton style={sizeButton[2].buttonStyle} onClick={() => HandleSizeButtonOnClick("M")} name="M">M</SizeButton>
-                        <SizeButton style={sizeButton[3].buttonStyle} onClick={() => HandleSizeButtonOnClick("L")} name="L">L</SizeButton>
-                        <SizeButton style={sizeButton[4].buttonStyle} onClick={() => HandleSizeButtonOnClick("XL")} name="XL">XL</SizeButton>
+                        {sizeArr.map((size) => (
+                            <SizeButton style={sizeButtonStyle} onClick={() => HandleSizeButtonOnClick(size)}>{size}</SizeButton>
+                        ))}
                     </ButtonContainer>
                     <SmallTitle>
                         Color
                     </SmallTitle>
+
                     <ButtonContainer>
-                        <ColorButton color={"rgb(250,243,254)"} onClick={()=>handleColorOnClick("white")} />
-                        <ColorButton color={"rgb(0,0,0)"} onClick={()=>handleColorOnClick("black")}/>
-                        <ColorButton color={"rgb(29,210,210)"} onClick={()=>handleColorOnClick("blue")}/>
+                        {colorArr.map((c) => (
+                            <ColorButton color={c} onClick={() => handleColorOnClick(c)} />
+                        ))}
                     </ButtonContainer>
                     <SmallTitle>
                         Quantity
