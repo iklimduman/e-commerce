@@ -5,6 +5,7 @@ import MenuOutlinedIcon from '@mui/icons-material/MenuOutlined';
 import { Badge, Input } from '@material-ui/core';
 import { Mobile } from '../ResponsiveConstants';
 import "./Navbar.css";
+import { useSelector } from 'react-redux';
 
 const Container = styled.div`
     height : 60px ;
@@ -75,6 +76,11 @@ window.addEventListener('resize', () => {
 })
 
 const Navbar = () => {
+
+    const quantity = useSelector(state=>state.cart.quantity) ;
+
+    console.log(quantity) ;
+
     return (
         <Container>
             <Wrapper>
@@ -95,7 +101,7 @@ const Navbar = () => {
                     <MenuItem>Sign in</MenuItem>
 
                     <MenuItemKeep>
-                        <Badge badgeContent={4} color="primary">
+                        <Badge badgeContent={quantity} color="primary">
                             <ShoppingCartOutlined />
                         </Badge>
                     </MenuItemKeep>
