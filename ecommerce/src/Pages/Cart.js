@@ -1,8 +1,13 @@
-import React, { useState } from "react";
+import React, { useEffect, useState} from "react";
+import { useNavigate } from "react-router-dom";
 import Navbar from "../Components/Navbar";
 import Footer from "../Components/Footer";
 import styled from "styled-components";
 import { useSelector } from "react-redux";
+import StripeCheckout from "react-stripe-checkout";
+import { userRequest } from "../RequestMethods";
+
+const KEY = process.env.REACT_APP_STRIPE;
 
 const Container = styled.div``
 
@@ -169,8 +174,6 @@ const TopWrap = styled.div`
 
 const SummaryWarpper = styled.div`
     width : 30% ;
-    min-height : 40vh ;
-    
     position : absolute ;
     top : 0 ;
     right : 0 ;
@@ -178,7 +181,9 @@ const SummaryWarpper = styled.div`
 
 const Summary = styled.div`
     width : 100% ;
-    min-height : 40vh ;
+    
+    padding-top : 20px ;
+    padding-bottom : 20px ;
     margin-top : 20px ;
     box-shadow: 0 4px 8px -5px rgba(0, 0, 0, 0.7), 0 6px 20px -5px rgba(0, 0, 0, 0.5);
     border-radius : 15px ;
@@ -215,10 +220,25 @@ const CouponButton = styled.button`
     cursor : pointer ;
 `
 
+const CheckOutButton = styled.button`
+    width : 100% ;
+    padding-left : 15px ;
+    padding-right : 15px ;
+    height : 3vh ;
+    background-color : #590876;
+    color : white ;
+    border : none ;
+    border-radius : 3px ;
+    font-size : 17px ;
+    cursor : pointer ;
+`
+
 const Cart = () => {
 
     const [quantity, setQuantity] = useState(1);
+    const [stripeToken, setStripeToken] = useState(null);
     const cart = useSelector(state => state.cart);
+    const navigate = useNavigate() ;
 
     const handleIncrement = () => {
         setQuantity(quantity + 1)
@@ -227,6 +247,30 @@ const Cart = () => {
     const handleDecrement = () => {
         quantity > 1 && setQuantity(quantity - 1);
     }
+
+    const onToken = (token) => {
+        setStripeToken(token)
+    }
+
+    useEffect(()=>{
+        const makeRequest = async () => {
+            try{
+                const res = await userRequest.post("/checkout/payment" , {
+                    tokenId : stripeToken.id , 
+                    amount : 500 ,  
+                })
+               navigate("/success" , {
+                   data : res.data
+               }) ;
+            } 
+            catch(err){
+                console.log(err) ;
+            }
+        } ;
+        stripeToken && makeRequest() ;
+    },[stripeToken , cart.total,navigate])
+
+    console.log(stripeToken);
 
 
     return (
@@ -262,18 +306,18 @@ const Cart = () => {
                                 </Row>
                                 <Row>
                                     <SmallTitle>Color : </SmallTitle>
-                                    <Color color={item.color}/>
+                                    <Color color={item.color} />
                                 </Row>
                             </CartDetail>
                             <CartPrice>
-                            <Price>{item.price * item.quantity} $</Price>
-                            <QuantityWrap>
-                                <QuantityButton onClick={handleIncrement}>+</QuantityButton>
-                                <Quantity>{item.quantity}</Quantity>
-                                <QuantityButton onClick={handleDecrement}>-</QuantityButton>
-                            </QuantityWrap>
+                                <Price>{item.price * item.quantity} $</Price>
+                                <QuantityWrap>
+                                    <QuantityButton onClick={handleIncrement}>+</QuantityButton>
+                                    <Quantity>{item.quantity}</Quantity>
+                                    <QuantityButton onClick={handleDecrement}>-</QuantityButton>
+                                </QuantityWrap>
 
-                        </CartPrice>
+                            </CartPrice>
                         </CartItem>
                     ))}
 
@@ -288,7 +332,7 @@ const Cart = () => {
                     <Summary>
                         <PaymentItem>
                             <Text>Payment Summary</Text>
-                            <ItemPrice>150 $</ItemPrice>
+                            <ItemPrice>{cart.total} $</ItemPrice>
                         </PaymentItem>
                         <PaymentItem>
                             <Text>Additional Service</Text>
@@ -304,8 +348,21 @@ const Cart = () => {
                         </PaymentItem>
                         <PaymentItem>
                             <Text>Total Amount</Text>
-                            <ItemPrice>160 $</ItemPrice>
+                            <ItemPrice>{cart.total + 10} $</ItemPrice>
                         </PaymentItem>
+
+                        <StripeCheckout
+                            name='Lotus-Shop'
+                            image='./logo.png'
+                            billingAddress
+                            shippingAddress
+                            description={`Your total is $ ${cart.total}`}
+                            amount={cart.total * 100}
+                            token={onToken}
+                            stripeKey={KEY}>
+                            <CheckOutButton>CHECKOUT NOW</CheckOutButton>
+
+                        </StripeCheckout>
 
                     </Summary>
 

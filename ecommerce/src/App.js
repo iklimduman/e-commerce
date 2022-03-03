@@ -7,6 +7,7 @@ import SingleProduct from './Pages/SingleProduct';
 import Register from './Pages/Register';
 import Login from './Pages/Login';
 import Cart from './Pages/Cart';
+import Success from './Pages/Success';
 
 import {
   BrowserRouter as Router,
@@ -29,6 +30,7 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={user ? <Navigate  to="/" /> : <Login />} />
         <Route path="/cart" element={<Cart />} />
+        <Route path="/success" element={<Success />} />
       </Routes>
     </Router>
   );
