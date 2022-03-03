@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Navbar from "../Components/Navbar";
 import Footer from "../Components/Footer";
 import styled from "styled-components";
+import { useSelector } from "react-redux";
 
 const Container = styled.div``
 
@@ -122,7 +123,7 @@ const Description = styled.span`
 const Color = styled.div`
     width : 30px ;
     height : 30px ;
-    background-color : #A0A35E ;
+    background-color : ${props => props.color} ;
     border-radius: 50% ;
     border : 1px solid black ;
 `
@@ -217,6 +218,7 @@ const CouponButton = styled.button`
 const Cart = () => {
 
     const [quantity, setQuantity] = useState(1);
+    const cart = useSelector(state => state.cart);
 
     const handleIncrement = () => {
         setQuantity(quantity + 1)
@@ -230,126 +232,50 @@ const Cart = () => {
     return (
         <Container>
             <Navbar />
-            { /* <TopWrap>
-                <Title>
-                    YOUR BAG
-                </Title>
-                <ButtonWrapper>
-                    <ContinueShopping>CONTINUE SHOPPING</ContinueShopping>
-                    <CheckOut>CHECKOUT NOW</CheckOut>
-                </ButtonWrapper>
-            </TopWrap> */}
-
-
             <Wrapper>
 
                 <CartWrapper>
                     <Title style={{ marginBottom: "20px" }}>
                         Order
                     </Title>
-                    <CartItem>
-                        <CartImage>
-                            <Image src="https://images.pexels.com/photos/5709908/pexels-photo-5709908.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" />
-                        </CartImage>
-                        <CartDetail>
-                            <Row>
-                                <SmallTitle>Product : </SmallTitle>
-                                <Description>Multi colored sweather</Description>
-                            </Row>
-                            <Row>
-                                <SmallTitle>ID : </SmallTitle>
-                                <Description>12345678</Description>
-                            </Row>
-                            <Row>
-                                <SmallTitle>Size : </SmallTitle>
-                                <Description>M</Description>
-                            </Row>
-                            <Row>
-                                <SmallTitle>Color : </SmallTitle>
-                                <Color />
-                            </Row>
-
-                        </CartDetail>
-                        <CartPrice>
-                            <Price>50 $</Price>
+                    {cart.products.map(item => (
+                        <CartItem>
+                            <CartImage>
+                                <Image src={item.img} />
+                            </CartImage>
+                            <CartDetail>
+                                <Row>
+                                    <SmallTitle>Product : </SmallTitle>
+                                    <Description>{item.title}</Description>
+                                </Row>
+                                <Row>
+                                    <SmallTitle>Description : </SmallTitle>
+                                    <Description>{item.description}</Description>
+                                </Row>
+                                <Row>
+                                    <SmallTitle>ID : </SmallTitle>
+                                    <Description>{item._id}</Description>
+                                </Row>
+                                <Row>
+                                    <SmallTitle>Size : </SmallTitle>
+                                    <Description>{item.size}</Description>
+                                </Row>
+                                <Row>
+                                    <SmallTitle>Color : </SmallTitle>
+                                    <Color color={item.color}/>
+                                </Row>
+                            </CartDetail>
+                            <CartPrice>
+                            <Price>{item.price * item.quantity} $</Price>
                             <QuantityWrap>
                                 <QuantityButton onClick={handleIncrement}>+</QuantityButton>
-                                <Quantity>{quantity}</Quantity>
+                                <Quantity>{item.quantity}</Quantity>
                                 <QuantityButton onClick={handleDecrement}>-</QuantityButton>
                             </QuantityWrap>
 
                         </CartPrice>
-
-                    </CartItem>
-
-                    <CartItem>
-                        <CartImage>
-                            <Image src="https://images.pexels.com/photos/5709908/pexels-photo-5709908.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" />
-                        </CartImage>
-                        <CartDetail>
-                            <Row>
-                                <SmallTitle>Product : </SmallTitle>
-                                <Description>Multi colored sweather</Description>
-                            </Row>
-                            <Row>
-                                <SmallTitle>ID : </SmallTitle>
-                                <Description>12345678</Description>
-                            </Row>
-                            <Row>
-                                <SmallTitle>Size : </SmallTitle>
-                                <Description>M</Description>
-                            </Row>
-                            <Row>
-                                <SmallTitle>Color : </SmallTitle>
-                                <Color />
-                            </Row>
-
-                        </CartDetail>
-                        <CartPrice>
-                            <Price>50 $</Price>
-                            <QuantityWrap>
-                                <QuantityButton onClick={handleIncrement}>+</QuantityButton>
-                                <Quantity>{quantity}</Quantity>
-                                <QuantityButton onClick={handleDecrement}>-</QuantityButton>
-                            </QuantityWrap>
-
-                        </CartPrice>
-
-                    </CartItem>
-                    <CartItem>
-                        <CartImage>
-                            <Image src="https://images.pexels.com/photos/5709908/pexels-photo-5709908.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" />
-                        </CartImage>
-                        <CartDetail>
-                            <Row>
-                                <SmallTitle>Product : </SmallTitle>
-                                <Description>Multi colored sweather</Description>
-                            </Row>
-                            <Row>
-                                <SmallTitle>ID : </SmallTitle>
-                                <Description>12345678</Description>
-                            </Row>
-                            <Row>
-                                <SmallTitle>Size : </SmallTitle>
-                                <Description>M</Description>
-                            </Row>
-                            <Row>
-                                <SmallTitle>Color : </SmallTitle>
-                                <Color />
-                            </Row>
-
-                        </CartDetail>
-                        <CartPrice>
-                            <Price>50 $</Price>
-                            <QuantityWrap>
-                                <QuantityButton onClick={handleIncrement}>+</QuantityButton>
-                                <Quantity>{quantity}</Quantity>
-                                <QuantityButton onClick={handleDecrement}>-</QuantityButton>
-                            </QuantityWrap>
-
-                        </CartPrice>
-
-                    </CartItem>
+                        </CartItem>
+                    ))}
 
 
                 </CartWrapper>

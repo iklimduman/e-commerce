@@ -6,6 +6,7 @@ import { Badge, Input } from '@material-ui/core';
 import { Mobile } from '../ResponsiveConstants';
 import "./Navbar.css";
 import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 const Container = styled.div`
     height : 60px ;
@@ -77,9 +78,9 @@ window.addEventListener('resize', () => {
 
 const Navbar = () => {
 
-    const quantity = useSelector(state=>state.cart.quantity) ;
+    const quantity = useSelector(state => state.cart.quantity);
 
-    console.log(quantity) ;
+    console.log(quantity);
 
     return (
         <Container>
@@ -99,12 +100,14 @@ const Navbar = () => {
                 <Right>
                     <MenuItem>Register</MenuItem>
                     <MenuItem>Sign in</MenuItem>
+                    <Link to="/cart">
+                        <MenuItemKeep>
+                            <Badge badgeContent={quantity} color="primary">
+                                <ShoppingCartOutlined />
+                            </Badge>
+                        </MenuItemKeep>
+                    </Link>
 
-                    <MenuItemKeep>
-                        <Badge badgeContent={quantity} color="primary">
-                            <ShoppingCartOutlined />
-                        </Badge>
-                    </MenuItemKeep>
                     <MenuMobile>
                         <MenuOutlinedIcon />
                     </MenuMobile>

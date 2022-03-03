@@ -305,8 +305,6 @@ const SingleProduct = () => {
     }
 
     const handleAddCart = () => {
-        console.log(product) ;
-        console.log(size) ;
         dispatch(addProduct({...product , quantity , color , size})) ;
     }
 
