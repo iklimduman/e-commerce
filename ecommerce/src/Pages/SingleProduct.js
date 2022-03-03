@@ -9,6 +9,8 @@ import React, { useState, useRef, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
 import { publicRequest } from "../RequestMethods";
+import { addProduct } from "../Redux/cartRedux";
+import { useDispatch } from "react-redux";
 
 const Container = styled.div`
     font-family: 'Didact Gothic', sans-serif;
@@ -174,6 +176,10 @@ const SingleProduct = () => {
 
     const [colorArr, setColorArr] = useState([]);
     const [sizeArr, setSizeArr] = useState([]);
+    const [color , setColor] = useState("") ;
+    const [size , setSize] = useState("") ;
+
+    const dispatch = useDispatch() ;
 
     useEffect(() => {
         const getProduct = async () => {
@@ -240,12 +246,17 @@ const SingleProduct = () => {
     )
 
     const handleColorOnClick = (index) => {
-        console.log(index)
+        
+        setColor(index) ;
     }
 
-    let temp = sizeButton;
+    
 
     const HandleSizeButtonOnClick = (index) => {
+
+        setSize(index) ;
+        /*
+        let temp = sizeButton;
 
         let target = temp.find(button => button.name === index);
 
@@ -263,6 +274,8 @@ const SingleProduct = () => {
 
             setSizeButton(temp);
 
+            console.log(temp) ;
+
             setUpdate(update + 1);
         }
         else if (temp[elementIndex].buttonStyle == sizeOnclick) {
@@ -271,11 +284,14 @@ const SingleProduct = () => {
 
             setSizeButton(temp);
 
+            console.log(temp) ;
+
             setUpdate(update - 1);
         }
         else {
             console.log("error");
         }
+        */
     }
 
     const handleDecrease = () => {
@@ -286,6 +302,12 @@ const SingleProduct = () => {
 
     const handleIncrease = () => {
         setQuantity(quantity + 1)
+    }
+
+    const handleAddCart = () => {
+        console.log(product) ;
+        console.log(size) ;
+        dispatch(addProduct({...product , quantity , color , size})) ;
     }
 
     return (
@@ -334,7 +356,7 @@ const SingleProduct = () => {
                     </QuantityContainer>
                     <BuyContainer>
                         <Favorite><FavoriteBorderOutlinedIcon style={{ marginRight: "5px", color: " rgb(58,15,84)" }} />WISHLIST</Favorite>
-                        <CartButton>ADD TO CART</CartButton>
+                        <CartButton onClick={handleAddCart}>ADD TO CART</CartButton>
                     </BuyContainer>
                 </InfoContainer>
             </Wrapper>
