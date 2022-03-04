@@ -69,7 +69,9 @@ const SearchContainer = styled.div`
 window.addEventListener('resize', () => {
     var w = window.innerWidth;
     if (w <= 880) {
+        /*
         document.getElementsByName("input-field")[0].placeholder = "";
+        */
     }
     if (w > 880) {
         document.getElementsByName("input-field")[0].placeholder = "Search for an item";

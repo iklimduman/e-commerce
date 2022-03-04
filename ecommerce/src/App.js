@@ -9,6 +9,8 @@ import Login from './Pages/Login';
 import Cart from './Pages/Cart';
 import Success from './Pages/Success';
 
+import { useSelector } from 'react-redux';
+
 import {
   BrowserRouter as Router,
   Routes,
@@ -19,7 +21,7 @@ import {
 
 function App() {
   // temp boolen variable
-  const user = true;
+  const user = useSelector((state) => state.user.currentUser);
 
   return (
     <Router>

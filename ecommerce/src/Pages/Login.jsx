@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
+import { login } from "../Redux/apiCalls";
 
 const Container = styled.div`
     background : linear-gradient(
@@ -37,7 +39,10 @@ const Input = styled.input`
     flex : 1 ;
     min-width : 40% ;
     margin : 20px 10px 0 0 ;
-    padding : 5px ;`
+    padding : 5px ;
+`
+const Error = styled.span`
+    color : red ;`
 
 const Button = styled.button`
     width : 30% ;
@@ -47,7 +52,11 @@ const Button = styled.button`
     margin-top : 15px ;
     margin-bottom : 15px ;
     color : white ;
-    background-color : #390270 ;`
+    background-color : #390270 ;
+    &:disabled{
+        color : green ;
+        cursor : not-allowed ;
+    }`
 
 const Link = styled.a``
 
@@ -57,17 +66,36 @@ const Bottom = styled.div`
     flex-direction : column ;`
 
 const Login = () => {
+    const [username, setUserName] = useState("");
+    const [password, setPassword] = useState("");
+
+    const dispatch = useDispatch();
+    const { isFetching , error} = useSelector((state) => state.user) ;
+
+    const handleLogin = (e) => {
+        
+        e.preventDefault();
+        login(dispatch, {
+            username,
+            password
+        })
+    }
     return (
         <Container>
 
             <Wrapper>
                 <Title>SIGN IN</Title>
                 <Form>
-                    <Input placeholder="Username" />
-                    <Input placeholder="Password" />
+                    <Input placeholder="Username"
+                        onChange={(e) => setUserName(e.target.value)} />
+                    <Input placeholder="Password"
+                        type="password"
+                        onChange={(e) => setPassword(e.target.value)} />
 
                     <Bottom>
-                        <Button>LOGIN</Button>
+                        <Button onClick={handleLogin} disabled={isFetching}>LOGIN</Button>
+                        {error && <Error>Something went wrong</Error>}
+                        
                         <Link>Forgot Password</Link>
                         <Link>Create Account</Link>
 
