@@ -1,0 +1,40 @@
+.sidebar-container{
+    flex : 1 ;
+    height : calc(100vh - 120px) ;
+    background-color : #6e64b9 ;
+    color : #fdfdfd ;
+    position : sticky ;
+    top : 120px ;
+}
+
+.sidebar-wrapper{
+    padding : 20px ;
+}
+
+.sidebarMenu{
+    margin-bottom : 10px ;
+}
+
+.sidebarTitle{
+    font-size : 24px ;
+    font-family: 'Fira Sans', sans-serif;
+    cursor : default ;
+}
+
+.sidebarList{
+    list-style: none;
+    padding : 5px ;
+}
+.sidebarListItem{
+    padding : 5px ;
+    cursor : pointer ;
+    display : flex ;
+    align-items: center ;
+    border-radius: 10px ;
+}
+
+.sidebarListItem.active ,
+.sidebarListItem:hover{
+    background-color: #fdfdfd ;
+    color : #6e64b9 ;
+}
