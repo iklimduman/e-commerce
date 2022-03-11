@@ -2,6 +2,7 @@ import React from "react";
 import "./Topbar.css";
 
 import logo from "../../Images/lotus-logo.jpeg" ;
+import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone';
 
 const Topbar = () => {
     return (
@@ -14,6 +15,7 @@ const Topbar = () => {
                 </div>
                 <div className="top-right">
                     right
+                    <NotificationsNoneIcon></NotificationsNoneIcon>
                 </div>
             </div>
         </div>
