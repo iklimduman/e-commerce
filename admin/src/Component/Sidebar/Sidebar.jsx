@@ -2,6 +2,16 @@ import React from "react";
 import "./Sidebar.css";
 
 import { Home, Insights, TrendingUp } from '@mui/icons-material';
+import PersonIcon from '@mui/icons-material/Person';
+import CategoryIcon from '@mui/icons-material/Category';
+import SignalCellularAltIcon from '@mui/icons-material/SignalCellularAlt';
+import ReceiptIcon from '@mui/icons-material/Receipt';
+import MailOutlineIcon from '@mui/icons-material/MailOutline';
+import ChatBubbleOutlineIcon from '@mui/icons-material/ChatBubbleOutline';
+import MessageIcon from '@mui/icons-material/Message';
+import WorkIcon from '@mui/icons-material/Work';
+import BarChartIcon from '@mui/icons-material/BarChart';
+import AttachFileIcon from '@mui/icons-material/AttachFile';
 
 const iconStyle = {
     marginRight: '15px',
@@ -23,33 +33,49 @@ const Sidebar = () => {
                             <Insights style={iconStyle} /> Analiytics
                         </li>
                         <li className="sidebarListItem">
-                            <TrendingUp style={iconStyle} /> Home
+                            <TrendingUp style={iconStyle} /> Sales
                         </li>
                     </ul>
 
                     <h3 className="sidebarTitle">Quick Menu</h3>
                     <ul className="sidebarList">
                         <li className="sidebarListItem">
-                            <Home style={iconStyle} /> Home
+                            <PersonIcon style={iconStyle} /> Users
                         </li>
                         <li className="sidebarListItem">
-                            <Insights style={iconStyle} /> Analiytics
+                            <CategoryIcon style={iconStyle} /> Products
                         </li>
                         <li className="sidebarListItem">
-                            <TrendingUp style={iconStyle} /> Home
+                            <ReceiptIcon style={iconStyle} /> Transactions
+                        </li>
+                        <li className="sidebarListItem">
+                            <SignalCellularAltIcon style={iconStyle} /> Reports
                         </li>
                     </ul>
 
-                    <h3 className="sidebarTitle">User Data</h3>
+                    <h3 className="sidebarTitle">Notifications</h3>
                     <ul className="sidebarList">
                         <li className="sidebarListItem">
-                            <Home style={iconStyle} /> Home
+                            <MailOutlineIcon style={iconStyle} /> Mail
                         </li>
                         <li className="sidebarListItem">
-                            <Insights style={iconStyle} /> Analiytics
+                            <ChatBubbleOutlineIcon style={iconStyle} /> Feedback
                         </li>
                         <li className="sidebarListItem">
-                            <TrendingUp style={iconStyle} /> Home
+                            <MessageIcon style={iconStyle} /> Messages
+                        </li>
+                    </ul>
+
+                    <h3 className="sidebarTitle">Staff</h3>
+                    <ul className="sidebarList">
+                        <li className="sidebarListItem">
+                            <WorkIcon style={iconStyle} /> Manage
+                        </li>
+                        <li className="sidebarListItem">
+                            <BarChartIcon style={iconStyle} /> Analiytics
+                        </li>
+                        <li className="sidebarListItem">
+                            <AttachFileIcon style={iconStyle} /> Reports
                         </li>
                     </ul>
 

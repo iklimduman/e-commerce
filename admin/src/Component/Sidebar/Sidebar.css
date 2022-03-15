@@ -17,16 +17,17 @@
 
 .sidebarTitle{
     font-size : 24px ;
+    padding-left : 15px ;
     font-family: 'Fira Sans', sans-serif;
     cursor : default ;
 }
 
 .sidebarList{
     list-style: none;
-    padding : 5px ;
+    padding-left : 15px ;
 }
 .sidebarListItem{
-    padding : 5px ;
+    padding : 2px ;
     cursor : pointer ;
     display : flex ;
     align-items: center ;
