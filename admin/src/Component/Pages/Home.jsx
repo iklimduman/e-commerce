@@ -1,33 +1,43 @@
 import React from "react";
-import "./Home.css" ;
+import "./Home.css";
+
+import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
+import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 
 const featureArray = [
     {
-        title : "Revanue",
-        income : "2415" , 
-        difference : "11.4"
+        title: "Revanue",
+        income: "3218",
+        difference: "11.4"
     },
     {
-        title : "Sales",
-        income : "2415" , 
-        difference : "11.4"
+        title: "Sales",
+        income: "2415",
+        difference: "-6.8"
     },
     {
-        title : "Cost",
-        income : "2415" , 
-        difference : "11.4"
+        title: "Cost",
+        income: "1348",
+        difference: "9.5"
     }
-]
+] ;
 
-const testArray = [ 1,2,3] ;
+const arrowStyle = {
+    color : "rgba(12,1,3,0.76)" 
+}
 
-const FeaturedItem = (title, income, difference) => {
+
+const FeaturedItem = ({ item }) => {
     return (
-        <div>
-            <span>{title}</span>
-            <span>$ {income}</span>
-            <span>{difference}</span>
-            <span>Compared to last month</span>
+        <div className="featuredItemwrapper">
+            <span className="featuredTitle">{item.title}</span>
+            <div className="income-wrapper">
+                <span className="income">${item.income}</span>
+                <span className="difference">{item.difference}%</span>
+                { parseInt(item.difference) > 0 ? <ArrowUpwardIcon style={arrowStyle}/> : <ArrowDownwardIcon style={arrowStyle}/>}
+            </div>
+
+            <span className="bottomText">Compared to last month</span>
         </div>
     )
 }
@@ -35,14 +45,12 @@ const FeaturedItem = (title, income, difference) => {
 const Home = () => {
     return (
         <div className="home-container">
-            {testArray.map((item) =>
-            {
-                 
-                    <FeaturedItem title="deneme" income="deneme" difference="DENEME"/>
-                
-            })}
+            {featureArray.map((item) => (
+                <FeaturedItem item={item} />
+            ))}
         </div>
     )
 }
 
-export default Home ;
+export default Home;
+export { FeaturedItem };

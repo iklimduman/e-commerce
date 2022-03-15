@@ -1,3 +1,49 @@
 .home-container{
     flex : 4 ;
+    display : flex ;
+    justify-content: space-between;
+    padding-top : 20px ;
+}
+
+.featuredItemwrapper{
+    flex : 1 ;
+    display : flex ;
+    height : 15vh ;
+    flex-direction : column ;
+    border-radius: 10px ;
+    cursor : pointer ;
+    padding : 20px ;
+    margin : 0 15px ;
+    -webkit-box-shadow: -1px 2px 36px -6px rgba(17,1,38,0.76);
+    -moz-box-shadow: -1px 2px 36px -6px rgba(17,1,38,0.76);
+    box-shadow: -1px 2px 36px -6px rgba(17,1,38,0.76);
+    justify-content: space-between ;
+}
+
+.featuredTitle{
+    font-size : 28px ;
+    color : rgba(6, 0, 14, 0.76) ;
+    font-family: 'Fira Sans', sans-serif;
+}
+
+.income-wrapper{
+    display: flex ;
+    flex-direction: row ;
+    font-family: 'Fira Sans', sans-serif;
+    font-size : 19px ;
+    align-items : center ;
+}
+
+.difference{
+    margin : 0 15px ;
+}
+
+.income{
+    font-size : 26px ;
+    color : rgba(6, 0, 14, 0.76) ;
+}
+
+.bottomText{
+    font-family: 'Fira Sans', sans-serif;
+    font-size : 16px ;
 }
