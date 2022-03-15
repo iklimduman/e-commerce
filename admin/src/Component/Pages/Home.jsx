@@ -22,8 +22,12 @@ const featureArray = [
     }
 ] ;
 
-const arrowStyle = {
-    color : "rgba(12,1,3,0.76)" 
+const arrowStyleDown = {
+    color : "red" 
+}
+
+const arrowStyleUp = {
+    color : "green"
 }
 
 
@@ -34,7 +38,7 @@ const FeaturedItem = ({ item }) => {
             <div className="income-wrapper">
                 <span className="income">${item.income}</span>
                 <span className="difference">{item.difference}%</span>
-                { parseInt(item.difference) > 0 ? <ArrowUpwardIcon style={arrowStyle}/> : <ArrowDownwardIcon style={arrowStyle}/>}
+                { parseInt(item.difference) > 0 ? <ArrowUpwardIcon style={arrowStyleUp}/> : <ArrowDownwardIcon style={arrowStyleDown}/>}
             </div>
 
             <span className="bottomText">Compared to last month</span>

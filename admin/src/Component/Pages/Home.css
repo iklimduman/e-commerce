@@ -35,7 +35,7 @@
 }
 
 .difference{
-    margin : 0 15px ;
+    margin : 0 10px ;
 }
 
 .income{
@@ -46,4 +46,5 @@
 .bottomText{
     font-family: 'Fira Sans', sans-serif;
     font-size : 16px ;
+    color :rgba(32, 30, 34, 0.76) ;
 }
