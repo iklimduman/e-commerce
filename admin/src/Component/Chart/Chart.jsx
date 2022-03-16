@@ -2,7 +2,7 @@ import React from "react";
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import "./Chart.css";
 
-const Chart = ({ data, title, dataKeyX, dataKeyY }) => {
+const Chart = ({ data, title, dataKeyX, dataKeyY, grid}) => {
 
     return (
         <div className="chart-container">
@@ -18,7 +18,8 @@ const Chart = ({ data, title, dataKeyX, dataKeyY }) => {
                     <YAxis />
                     <Line type="monotone" dataKey={dataKeyY} stroke="#543F60" />
                     <Tooltip />
-                    <CartesianGrid stroke="#DDDDDD" strokeDasharray="5 5" />
+                    {grid && <CartesianGrid stroke="#DDDDDD" strokeDasharray="5 5" />}
+                    
                 </LineChart>
             </ResponsiveContainer>
         </div>

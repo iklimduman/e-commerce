@@ -48,3 +48,26 @@ export const userData = [
         user : 2550
     }
 ]
+
+export const newTeamMembers = [
+    {
+        name : "Jane Doe",
+        job : "Back-end Developer",
+        img : "https://images.pexels.com/photos/3769021/pexels-photo-3769021.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+    },
+    {
+        name : "John Doe",
+        job : "UX Desginer",
+        img : "https://images.pexels.com/photos/3769021/pexels-photo-3769021.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+    },
+    {
+        name : "Anne Clark",
+        job : "Front-end Developer",
+        img : "https://images.pexels.com/photos/3769021/pexels-photo-3769021.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+    },
+    {
+        name : "Eric Brown",
+        job : "IOS Developer",
+        img : "https://images.pexels.com/photos/3769021/pexels-photo-3769021.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+    }
+]

@@ -6,7 +6,8 @@ import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 
 import { userData } from "../../dummyData";
-
+import Transactions from "../Transactions/Transactions";
+import TeamMember from "../TeamMember/TeamMember";
 
 const featureArray = [
     {
@@ -62,7 +63,13 @@ const Home = () => {
             <Chart data={userData}
                 title={"User Analiytics"}
                 dataKeyX={"month"}
-                dataKeyY={"user"} />
+                dataKeyY={"user"}
+                grid={true}
+            />
+            <div className="home-widgets">
+                    <TeamMember />
+                    <Transactions />
+            </div>
         </div>
 
     )

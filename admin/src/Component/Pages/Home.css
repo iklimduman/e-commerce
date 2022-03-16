@@ -54,3 +54,9 @@
     font-size : 16px ;
     color :rgba(32, 30, 34, 0.76) ;
 }
+
+.home-widgets{
+    display : flex ;
+    margin : 20px ;
+    margin-top : 50px ;
+}
