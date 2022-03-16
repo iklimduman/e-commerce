@@ -1,7 +1,13 @@
+
+.home-wrapper{
+    flex : 4 ;
+}
+
 .home-container{
     flex : 4 ;
     display : flex ;
-    justify-content: space-between;
+    justify-content: space-between ;
+    flex-wrap: wrap;
     padding-top : 20px ;
 }
 
@@ -13,7 +19,7 @@
     border-radius: 10px ;
     cursor : pointer ;
     padding : 20px ;
-    margin : 0 15px ;
+    margin :  15px ;
     -webkit-box-shadow: -1px 2px 36px -6px rgba(17,1,38,0.76);
     -moz-box-shadow: -1px 2px 36px -6px rgba(17,1,38,0.76);
     box-shadow: -1px 2px 36px -6px rgba(17,1,38,0.76);
