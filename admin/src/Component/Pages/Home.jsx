@@ -5,6 +5,9 @@ import Chart from "../Chart/Chart";
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 
+import { userData } from "../../dummyData";
+
+
 const featureArray = [
     {
         title: "Revanue",
@@ -56,7 +59,10 @@ const Home = () => {
                 ))}
 
             </div>
-            <Chart />
+            <Chart data={userData}
+                title={"User Analiytics"}
+                dataKeyX={"month"}
+                dataKeyY={"user"} />
         </div>
 
     )

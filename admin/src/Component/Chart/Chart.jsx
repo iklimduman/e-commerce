@@ -1,13 +1,28 @@
-import React from "react" ;
+import React from "react";
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
-import "./Chart.css" ;
+import "./Chart.css";
 
-const Chart = () => {
+const Chart = ({ data, title, dataKeyX, dataKeyY }) => {
+
     return (
         <div className="chart-container">
-            charts
+            <span className="chartTitle">{title}</span>
+            <ResponsiveContainer width="100%" aspect={4 / 1}>
+                <LineChart
+                    data={data}
+                    margin={{
+                        top: 25,
+                        right: 25
+                    }}>
+                    <XAxis dataKey={dataKeyX} stroke="#543F60" />
+                    <YAxis />
+                    <Line type="monotone" dataKey={dataKeyY} stroke="#543F60" />
+                    <Tooltip />
+                    <CartesianGrid stroke="#DDDDDD" strokeDasharray="5 5" />
+                </LineChart>
+            </ResponsiveContainer>
         </div>
     )
-} 
+}
 
-export default Chart ;
+export default Chart;
