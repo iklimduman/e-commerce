@@ -4,21 +4,38 @@ import "./UserPage.css";
 import { DataGrid } from '@mui/x-data-grid';
 import { userRows } from "../../dummyData";
 
-const Avatar = ({ imgSrc , firstName , lastName }) => {
-    
+import IconButton from '@mui/material/IconButton';
+import DeleteIcon from '@mui/icons-material/Delete';
+
+const Avatar = ({ imgSrc, firstName, lastName }) => {
     return (
-        <div style={{ display: "flex", alignItems: "center", flexDirection : "row" }}>
-                    <img src={imgSrc} style={{ width: "32px", height: "32px", borderRadius: "50%", objectFit: "cover", marginRight : "5px" }} />
-                    <span>{firstName + lastName}</span>
-                </div>
+        <div style={{ display: "flex", alignItems: "center", flexDirection: "row" }}>
+            <img src={imgSrc} style={{ width: "32px", height: "32px", borderRadius: "50%", objectFit: "cover", marginRight: "5px" }} />
+            <span>{firstName + lastName}</span>
+        </div>
     )
 }
 
-const Status = ({status}) =>{
-    var text = '' ;
-    status == 'online' ? text='ON' : text='OFF' ;
+const Status = ({ status }) => {
+    var text = '';
+    status == 'online' ? text = 'ON' : text = 'OFF';
     return (
-        <div className={"status" + status}>{text}</div>
+        <div className={"status " + status}>{text}</div>
+    )
+}
+
+const Membership = ({ isPremium }) => {
+    return (<span>{isPremium ? 'Premium' : 'Normal'}</span>)
+}
+
+const Action = () => {
+    return (
+        <div>
+            <button className="edit-button">EDIT</button>
+            <IconButton aria-label="delete">
+                <DeleteIcon style={{ color: "rgba(202, 46, 46, 0.7)" }} />
+            </IconButton>
+        </div>
     )
 }
 
@@ -43,36 +60,58 @@ const columns = [
         headerName: 'Age',
         type: 'number',
         width: 90,
+        align: 'left',
+        headerAlign: 'left'
     },
     {
-        field : 'email',
-        headerName : 'e-mail',
-        width : 200,
+        field: 'email',
+        headerName: 'e-mail',
+        width: 200,
+        align: 'left',
+        headerAlign: 'left'
     },
     {
-        field : 'status' ,
-        headerName : 'Status',
-        width : 100,
-        renderCell : (params) => {
+        field: 'premiumMember',
+        headerName: 'Membership Type',
+        width: 170,
+        renderCell: (params) => (<Membership isPremium={params.row.premiumMember} />)
+    },
+    {
+        field: 'status',
+        headerName: 'Status',
+        width: 100,
+        renderCell: (params) => {
             return (
                 <Status status={params.row.status} />
             )
         }
+    },
+    {
+        headerName: 'Action',
+        width: 150,
+        renderCell: (params) => (<Action />)
     }
 
 ];
 
-
 const UserPage = () => {
     return (
+
         <div className="userList">
-            <DataGrid
-                rows={userRows}
-                columns={columns}
-                pageSize={10}
-                checkboxSelection
-            />
+            <span className="title">Active Users</span>
+            <div className="data-grid-container">
+                <DataGrid
+                    rows={userRows}
+                    columns={columns}
+                    pageSize={10}
+                    checkboxSelection
+                    disableSelectionOnClick
+                />
+            </div>
+
         </div>
+
+
     )
 }
 
