@@ -7,7 +7,7 @@ import { userRows } from "../../dummyData";
 import IconButton from '@mui/material/IconButton';
 import DeleteIcon from '@mui/icons-material/Delete';
 
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 
 
@@ -20,13 +20,22 @@ const UserPage = () => {
         console.log(data);
     }
 
+    const navigate = useNavigate();
+
+    const handleRedirect = (userID) => {
+        navigate("/user/" + userID , {
+            state : {
+                hi : "foo",
+            },
+        });
+    };
+
     const Action = ({ userID }) => {
 
         return (
             <div>
-                <Link to={"/user/" + userID}>
-                    <button className="edit-button">EDIT</button>
-                </Link>
+                <button className="edit-button" onClick={() => handleRedirect(userID)}>EDIT</button>
+
 
                 <IconButton aria-label="delete">
                     <DeleteIcon onClick={() => handleDelete(userID)} style={{ color: "rgba(202, 46, 46, 0.7)" }} />
