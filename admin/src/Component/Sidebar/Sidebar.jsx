@@ -12,6 +12,7 @@ import MessageIcon from '@mui/icons-material/Message';
 import WorkIcon from '@mui/icons-material/Work';
 import BarChartIcon from '@mui/icons-material/BarChart';
 import AttachFileIcon from '@mui/icons-material/AttachFile';
+import { Link, useNavigate } from "react-router-dom";
 
 const iconStyle = {
     marginRight: '15px',
@@ -19,14 +20,27 @@ const iconStyle = {
     height: '35px'
 }
 
+
 const Sidebar = () => {
+
+    const navigate = useNavigate() ;
+
+    const handleUserClick = () => {
+        console.log("i got clicked") ;
+        navigate("/users") ;
+    }
+
+    const handleHomeClick = () => {
+        navigate("/") ;
+    }
+
     return (
         <div className="sidebar-container">
             <div className="sidebar-wrapper">
                 <div className="sidebarMenu">
                     <h3 className="sidebarTitle">Dashboard</h3>
                     <ul className="sidebarList">
-                        <li className="sidebarListItem">
+                        <li className="sidebarListItem" onClick={handleHomeClick}>
                             <Home style={iconStyle} /> Home
                         </li>
                         <li className="sidebarListItem">
@@ -39,7 +53,7 @@ const Sidebar = () => {
 
                     <h3 className="sidebarTitle">Quick Menu</h3>
                     <ul className="sidebarList">
-                        <li className="sidebarListItem">
+                        <li className="sidebarListItem" onClick={handleUserClick}>
                             <PersonIcon style={iconStyle} /> Users
                         </li>
                         <li className="sidebarListItem">

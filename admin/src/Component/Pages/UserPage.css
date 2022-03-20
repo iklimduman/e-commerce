@@ -10,6 +10,30 @@
     margin : auto ;
 }
 
+.title-warpper{
+    width : 80% ;
+    display : flex ;
+    justify-content: space-between ;
+    align-items: center ;
+}
+
+.add-new-button{
+    height : 40% ;
+    font-family: 'Fira Sans', sans-serif;
+    font-size: 16px ;
+    border : none ;
+    background-color : #6e64b9 ;
+    color : #fdfdfd ;
+    cursor: pointer ;
+    border-radius: 5px;
+}
+
+.add-new-button:hover{
+    color: #6e64b9;
+    background-color: #fdfdfd;
+    border : 2px solid #6e64b9 ;
+}
+
 .status{
     width : 30px ;
     height : 30px ;

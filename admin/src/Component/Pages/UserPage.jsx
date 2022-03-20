@@ -21,8 +21,6 @@ const UserPage = () => {
 
     const [data, setData] = useState(teamRows);
 
-    console.log(data) ;
-
     const handleDelete = (userID) => {
         setData(data.filter(item => item.id !== userID));
         console.log(data);
@@ -30,27 +28,27 @@ const UserPage = () => {
 
     const navigate = useNavigate();
 
-    const handleRedirect = (userID,firstname,lastname,age,status,email,role,img,tel,address) => {
+    const handleRedirect = (userID, firstname, lastname, age, status, email, role, img, tel, address) => {
         navigate("/user/" + userID, {
             state: {
                 ID: userID,
-                firstname : firstname,
-                lastname : lastname,
-                age : age,
-                status : status,
-                email : email,
-                role : role,
-                img : img,
-                tel : tel,
-                address : address
+                firstname: firstname,
+                lastname: lastname,
+                age: age,
+                status: status,
+                email: email,
+                role: role,
+                img: img,
+                tel: tel,
+                address: address
             },
         });
     };
 
-    const Action = ({ userID,firstname,lastname,age,status,email,role,img,tel,address}) => {
+    const Action = ({ userID, firstname, lastname, age, status, email, role, img, tel, address }) => {
         return (
             <div>
-                <button className="edit-button" onClick={() => handleRedirect(userID,firstname,lastname,age,status,email,role,img,tel,address)}>EDIT</button>
+                <button className="edit-button" onClick={() => handleRedirect(userID, firstname, lastname, age, status, email, role, img, tel, address)}>EDIT</button>
                 <IconButton aria-label="delete">
                     <DeleteIcon onClick={() => handleDelete(userID)} style={{ color: "rgba(202, 46, 46, 0.7)" }} />
                 </IconButton>
@@ -66,10 +64,10 @@ const UserPage = () => {
         )
     }
 
-    
+
 
     const Membership = ({ isPremium }) => {
-        console.log(isPremium) ;
+        console.log(isPremium);
         return (<span>{isPremium}</span>)
     }
 
@@ -145,10 +143,18 @@ const UserPage = () => {
         }
     ];
 
+    const redirectNewUser = () => {
+        navigate("/newuser") ;
+    }
+
     return (
 
         <div className="userList">
-            <span className="title">My Team</span>
+            <div className="title-warpper">
+                <span className="title">My Team</span>
+                <button className="add-new-button" onClick={redirectNewUser}>ADD NEW</button>
+            </div>
+
             <div className="data-grid-container">
                 <DataGrid
                     rows={data}
