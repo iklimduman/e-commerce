@@ -2,18 +2,26 @@ import react, { useState } from "react";
 import "./UserPage.css";
 
 import { DataGrid } from '@mui/x-data-grid';
-import { userRows } from "../../dummyData";
+import { teamRows } from "../../dummyData";
 
 import IconButton from '@mui/material/IconButton';
 import DeleteIcon from '@mui/icons-material/Delete';
 
 import { Link, useNavigate } from "react-router-dom";
 
-
+export const Status = ({ status }) => {
+    var text = '';
+    status == 'online' ? text = 'ON' : text = 'OFF';
+    return (
+        <div className={"status " + status}>{text}</div>
+    )
+}
 
 const UserPage = () => {
 
-    const [data, setData] = useState(userRows);
+    const [data, setData] = useState(teamRows);
+
+    console.log(data) ;
 
     const handleDelete = (userID) => {
         setData(data.filter(item => item.id !== userID));
@@ -22,21 +30,27 @@ const UserPage = () => {
 
     const navigate = useNavigate();
 
-    const handleRedirect = (userID) => {
-        navigate("/user/" + userID , {
-            state : {
-                hi : "foo",
+    const handleRedirect = (userID,firstname,lastname,age,status,email,role,img,tel,address) => {
+        navigate("/user/" + userID, {
+            state: {
+                ID: userID,
+                firstname : firstname,
+                lastname : lastname,
+                age : age,
+                status : status,
+                email : email,
+                role : role,
+                img : img,
+                tel : tel,
+                address : address
             },
         });
     };
 
-    const Action = ({ userID }) => {
-
+    const Action = ({ userID,firstname,lastname,age,status,email,role,img,tel,address}) => {
         return (
             <div>
-                <button className="edit-button" onClick={() => handleRedirect(userID)}>EDIT</button>
-
-
+                <button className="edit-button" onClick={() => handleRedirect(userID,firstname,lastname,age,status,email,role,img,tel,address)}>EDIT</button>
                 <IconButton aria-label="delete">
                     <DeleteIcon onClick={() => handleDelete(userID)} style={{ color: "rgba(202, 46, 46, 0.7)" }} />
                 </IconButton>
@@ -52,16 +66,11 @@ const UserPage = () => {
         )
     }
 
-    const Status = ({ status }) => {
-        var text = '';
-        status == 'online' ? text = 'ON' : text = 'OFF';
-        return (
-            <div className={"status " + status}>{text}</div>
-        )
-    }
+    
 
     const Membership = ({ isPremium }) => {
-        return (<span>{isPremium ? 'Premium' : 'Normal'}</span>)
+        console.log(isPremium) ;
+        return (<span>{isPremium}</span>)
     }
 
 
@@ -97,10 +106,16 @@ const UserPage = () => {
             headerAlign: 'left'
         },
         {
-            field: 'premiumMember',
-            headerName: 'Membership Type',
+            field: 'role',
+            headerName: 'Role',
             width: 170,
-            renderCell: (params) => (<Membership isPremium={params.row.premiumMember} />)
+            align: 'left',
+            headerAlign: 'left',
+            renderCell: (params) => {
+                return (
+                    <Membership isPremium={params.row.role} />
+                )
+            }
         },
         {
             field: 'status',
@@ -115,14 +130,25 @@ const UserPage = () => {
         {
             headerName: 'Action',
             width: 150,
-            renderCell: (params) => (<Action userID={params.row.id} />)
+            renderCell: (params) => (<Action
+                userID={params.row.id}
+                firstname={params.row.firstName}
+                lastname={params.row.lastName}
+                age={params.row.age}
+                status={params.row.status}
+                email={params.row.email}
+                role={params.row.role}
+                img={params.row.img}
+                tel={params.row.tel}
+                address={params.row.address}
+            />)
         }
     ];
 
     return (
 
         <div className="userList">
-            <span className="title">Active Users</span>
+            <span className="title">My Team</span>
             <div className="data-grid-container">
                 <DataGrid
                     rows={data}
