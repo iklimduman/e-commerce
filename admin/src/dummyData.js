@@ -130,4 +130,11 @@ export const teamRows = [
     { id: 17, lastName: 'Frances', firstName: 'Rossini', age: 36, status : "online", email : "rossini@gmail.com", role : "Back-end Developer", img : "https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260", address : "NY | USA" , tel : "+1 234 567 89" },
     { id: 18, lastName: 'Roxie', firstName: 'Harvey', age: 65, status : "offline", email : "harvey@gmail.com", role :  "Software Architect", img : "https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260", address : "NY | USA" , tel : "+1 234 567 89" }
 
+];
+
+const topSellingBrands = [
+    {name : "Adidas", value : 1348},
+    {name : "Nike", value : 1284},
+    {name : "Puma", value : 1156},
+    {name : "New Balance", value : 1048}
 ]
