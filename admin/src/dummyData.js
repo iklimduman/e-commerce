@@ -132,9 +132,9 @@ export const teamRows = [
 
 ];
 
-const topSellingBrands = [
-    {name : "Adidas", value : 1348},
-    {name : "Nike", value : 1284},
-    {name : "Puma", value : 1156},
-    {name : "New Balance", value : 1048}
+export const TopSellingBrands = [
+    {name : "Adidas", value : 1400},
+    {name : "Nike", value : 1200},
+    {name : "Puma", value : 1150},
+    {name : "New Balance", value : 800}
 ]

@@ -5,9 +5,11 @@ import Chart from "../Chart/Chart";
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 
-import { userData } from "../../dummyData";
+import { userData, topSellingBrands, TopSellingBrands } from "../../dummyData";
 import Transactions from "../Transactions/Transactions";
 import TeamMember from "../TeamMember/TeamMember";
+import CustomPieChart from "../Chart/CustomPieChart";
+
 
 const featureArray = [
     {
@@ -70,6 +72,10 @@ const Home = () => {
                     <TeamMember />
                     <Transactions />
             </div>
+            <div className="home-widgets">
+                    <CustomPieChart chartData={TopSellingBrands}/>
+            </div>
+
         </div>
 
     )

@@ -1,6 +1,10 @@
-import { PieChart, Pie, Sector, ResponsiveContainer } from "recharts";
+import { PieChart, Pie, Sector, ResponsiveContainer, Tooltip} from "recharts";
+import { useCallback, useState } from "react";
+import { TopSellingBrands } from "../../dummyData";
 
-const ActiveShape = (props) => {
+const RenderActiveShape = (props) => {
+    console.log("--");
+    console.log(props);
     const RADIAN = Math.PI / 180;
     const { cx, cy, midAngle, innerRadius, outerRadius, startAngle, endAngle, fill, payload, percent, value } = props;
     const sin = Math.sin(-RADIAN * midAngle);
@@ -46,21 +50,25 @@ const ActiveShape = (props) => {
     )
 };
 
-const CustomPieChart = () => {
+const CustomPieChart = (props) => {
 
     //activeIndex represents the current slice of the pie
+    
 
-    const [activeIndex, setActiveIndex] = useState(0) ;
+    const [activeIndex, setActiveIndex] = useState(0);
+    const onPieEnter = useCallback(
+        (_, index) => {
+            setActiveIndex(index);
+        },
+        [setActiveIndex]
+    );
 
-    const onPieEnter = () => {
-        setActiveIndex
-    }
     return (
         <PieChart width={400} height={400}>
             <Pie
                 activeIndex={activeIndex}
-                activeShape={activeShape}
-                data={data}
+                activeShape={RenderActiveShape}
+                data={props.chartData}
                 cx={200}
                 cy={200}
                 innerRadius={60}
@@ -69,8 +77,10 @@ const CustomPieChart = () => {
                 dataKey="value"
                 onMouseEnter={onPieEnter}
             />
+            <Tooltip />
         </PieChart>
     )
 }
 
 export default CustomPieChart;
+export { RenderActiveShape } ;

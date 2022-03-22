@@ -34,9 +34,8 @@ const NewUser = () => {
                             <button className="img-button">Browse</button>
                         </div>
                         <button className="create-button">CREATE</button>
-
-
                     </div>
+
                     <div className="col-2">
                         <label for="email" className="form-label">E-Mail</label>
                         <input type="text" id="email" name="email" className="form-input"></input>
@@ -46,8 +45,6 @@ const NewUser = () => {
                         <input type="text" id="address" name="address" className="form-input"></input>
                         <label for="date" className="form-label">Date of Birth</label>
                         <input type="text" id="date" name="date" className="form-input"></input>
-
-                        
                     </div>
 
 
