@@ -6,7 +6,6 @@ import {
     Geography,
     Marker,
     Annotation,
-    ZoomableGroup
 } from "react-simple-maps";
 
 import ReactTooltip from "react-tooltip";
@@ -18,11 +17,7 @@ const geoUrl =
 // North and East are : + South and West are - values on coordinates !
 
 const markers = [
-    {
-        markerOffset: 30,
-        name: "Washington, DC",
-        coordinates: [-77.007507, 38.900497]
-    },
+    
     {
         markerOffset: -30,
         name: "New York, NY",
@@ -43,6 +38,16 @@ const markers = [
         name: "Phoenix, AZ",
         coordinates: [-112.074036, 33.448376]
     },
+    {
+        markerOffset: -30,
+        name: "Los Angeles, CA",
+        coordinates: [-118.243683, 34.052235]
+    },
+    {
+        markerOffset: -30,
+        name: "Wichita, KS",
+        coordinates: [-97.314835, 37.6871761]
+    },
 ]
 
 //Geography components returns countries
@@ -55,7 +60,7 @@ export const MapChart = () => {
                     {({ geographies }) => geographies.filter(country => country.properties.NAME === "United States of America")
                         .map((geo) => (
                             <Geography key={geo.rmsKey}
-                                geography={geo} fill="#E8E1EC" stroke="#65556E" onMouseEnter={() => { console.log(geo) }} />
+                                geography={geo} fill="#f6f0fa" stroke="#65556E" onMouseEnter={() => { console.log(geo) }} />
                         ))}
                 </Geographies>
                 {markers.map(({ markerOffset, name, coordinates }) => (

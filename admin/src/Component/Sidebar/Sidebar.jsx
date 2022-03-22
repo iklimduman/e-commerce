@@ -34,6 +34,10 @@ const Sidebar = () => {
         navigate("/") ;
     }
 
+    const handleProductClick = () => {
+        navigate("/products") ;
+    }
+
     return (
         <div className="sidebar-container">
             <div className="sidebar-wrapper">
@@ -56,7 +60,7 @@ const Sidebar = () => {
                         <li className="sidebarListItem" onClick={handleUserClick}>
                             <PersonIcon style={iconStyle} /> Users
                         </li>
-                        <li className="sidebarListItem">
+                        <li className="sidebarListItem" onClick={handleProductClick}>
                             <CategoryIcon style={iconStyle} /> Products
                         </li>
                         <li className="sidebarListItem">

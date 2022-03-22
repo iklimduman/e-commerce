@@ -18,8 +18,8 @@ const RenderActiveShape = (props) => {
     const textAnchor = cos >= 0 ? 'start' : 'end';
 
     return (
-        <g>
-            <text x={cx} y={cy} dy={8} textAnchor="middle" fill={fill}>
+        <g style={{overflowWrap: "break-word"}}>
+            <text x={cx} y={cy} dy={8} textAnchor="middle" fill={fill} style={{fontSize : "16px"}}>
                 {payload.name}
             </text>
             <Sector

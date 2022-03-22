@@ -129,8 +129,26 @@ export const teamRows = [
     { id: 16, lastName: 'Clifford', firstName: 'Ferrara', age: 44, status : "offline", email : "ferrera@gmail.com", role : "Data Scientist", img : "https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260", address : "NY | USA" , tel : "+1 234 567 89" },
     { id: 17, lastName: 'Frances', firstName: 'Rossini', age: 36, status : "online", email : "rossini@gmail.com", role : "Back-end Developer", img : "https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260", address : "NY | USA" , tel : "+1 234 567 89" },
     { id: 18, lastName: 'Roxie', firstName: 'Harvey', age: 65, status : "offline", email : "harvey@gmail.com", role :  "Software Architect", img : "https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260", address : "NY | USA" , tel : "+1 234 567 89" }
-
 ];
+
+export const AllProducts = [
+    { id :1, title :"Vans Sneaker" ,price : 50, stock : 123 , img : "https://images.pexels.com/photos/7020124/pexels-photo-7020124.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"},
+    { id :2, title :"Nike Matching Yoga Set" ,price : 75, stock : 16 , img : "https://images.pexels.com/photos/7020124/pexels-photo-7020124.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"},
+    { id :3, title :"Nike Sneaker" ,price : 70, stock : 181 , img : "https://images.pexels.com/photos/5710077/pexels-photo-5710077.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"},
+    { id :4, title :"New Balance Sneaker" ,price : 45, stock : 0 , img : "https://images.pexels.com/photos/7020124/pexels-photo-7020124.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"},
+    { id :5, title :"Adidas Simple Sports Bra" ,price : 65, stock : 27 , img : "https://images.pexels.com/photos/7020124/pexels-photo-7020124.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"},
+    { id :6, title :"Nike Sneaker" ,price : 55, stock : 96 , img : "https://images.pexels.com/photos/7020124/pexels-photo-7020124.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"},
+    { id :7, title :"Vans Special Edition Sneaker" ,price : 65, stock : 18 , img : "https://images.pexels.com/photos/7020124/pexels-photo-7020124.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"},
+    { id :8, title :"Nike Special Edition Sneaker" ,price : 85, stock : 0 , img : "https://images.pexels.com/photos/7020124/pexels-photo-7020124.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"},
+    { id :9, title :"Puma Casual Sneaker" ,price : 35, stock : 164 , img : "https://images.pexels.com/photos/7020124/pexels-photo-7020124.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"},
+    { id :10, title :"New Balance Casual Hoodie" ,price : 65, stock : 27 , img : "https://images.pexels.com/photos/7020124/pexels-photo-7020124.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"},
+    { id :11, title :"Nike Air Jordan Sneaker" ,price : 65, stock : 97 , img : "https://images.pexels.com/photos/7020124/pexels-photo-7020124.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"},
+    { id :12, title :"Nike Multi-Colored Air Jordan Sneaker" ,price : 95, stock : 0 , img : "https://images.pexels.com/photos/7020124/pexels-photo-7020124.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"},
+    { id :13, title :"Vans Daily Sneaker" ,price : 35, stock : 67 , img : "https://images.pexels.com/photos/7020124/pexels-photo-7020124.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"},
+    { id :14, title :"Nike Running Sneaker" ,price : 45, stock : 65 , img : "https://images.pexels.com/photos/7020124/pexels-photo-7020124.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"},
+    { id :15, title :"Nike Pro Sports Bra" ,price : 60, stock : 107 , img : "https://images.pexels.com/photos/7020124/pexels-photo-7020124.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"}
+
+]
 
 export const TopSellingBrands = [
     {name : "Adidas", value : 1400},
@@ -140,8 +158,8 @@ export const TopSellingBrands = [
 ]
 
 export const TopSellingProducts = [
-    {name : "Nike AirForce-1", value : 700},
-    {name : "Adidas Sports-Bra", value : 300},
+    {name : "Nike AirForce", value : 700},
+    {name : "Adidas Superstar", value : 300},
     {name : "Puma RSX", value : 400},
-    {name : "New Balance Unisex Sneaker", value : 500}
+    {name : "NewBalance 374", value : 500}
 ]
