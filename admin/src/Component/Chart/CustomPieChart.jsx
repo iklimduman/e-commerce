@@ -64,12 +64,12 @@ const CustomPieChart = (props) => {
     );
 
     return (
-        <PieChart width={400} height={400}>
+        <PieChart width={500} height={500}>
             <Pie
                 activeIndex={activeIndex}
                 activeShape={RenderActiveShape}
                 data={props.chartData}
-                cx={200}
+                cx={150}
                 cy={200}
                 innerRadius={60}
                 outerRadius={80}

@@ -9,6 +9,7 @@ import { userData, topSellingBrands, TopSellingBrands } from "../../dummyData";
 import Transactions from "../Transactions/Transactions";
 import TeamMember from "../TeamMember/TeamMember";
 import CustomPieChart from "../Chart/CustomPieChart";
+import {MapChart} from "../Chart/MapChart";
 
 
 const featureArray = [
@@ -74,6 +75,7 @@ const Home = () => {
             </div>
             <div className="home-widgets">
                     <CustomPieChart chartData={TopSellingBrands}/>
+                    <MapChart />
             </div>
 
         </div>
