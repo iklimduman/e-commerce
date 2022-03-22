@@ -49,10 +49,10 @@ const markers = [
 
 export const MapChart = () => {
     return (
-        <div style={{ width: "60%", borderStyle: "double" }}>
-            <ComposableMap data-tip="">
+        <div style={{ width: "50%", borderStyle: "double" }}>
+            <ComposableMap projection="geoAlbers">
                 <Geographies geography={geoUrl}>
-                    {({ geographies }) => geographies.filter(country => country.properties.CONTINENT === "North America")
+                    {({ geographies }) => geographies.filter(country => country.properties.NAME === "United States of America")
                         .map((geo) => (
                             <Geography key={geo.rmsKey}
                                 geography={geo} fill="#EADEF0" stroke="black" onMouseEnter={() => { console.log(geo) }} />
