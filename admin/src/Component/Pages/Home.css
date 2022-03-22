@@ -8,7 +8,7 @@
     display : flex ;
     justify-content: space-between ;
     flex-wrap: wrap;
-    padding-top : 20px ;
+    padding-top : 10px ;
 }
 
 .featuredItemwrapper{
@@ -59,4 +59,37 @@
     display : flex ;
     margin : 20px ;
     margin-top : 50px ;
+}
+
+.pie-chart-container{
+    margin-right : 20px ;
+    padding-top :20px ;
+    display: flex;
+    flex : 1 ;
+    flex-direction: column ;
+    align-items : center ;
+    justify-content: center ;
+    -webkit-box-shadow: -1px 2px 16px -6px rgba(17,1,38,0.76);
+    -moz-box-shadow: -1px 2px 16px -6px rgba(17,1,38,0.76);
+    box-shadow: -1px 2px 16px -6px rgba(17,1,38,0.76);
+    border-radius: 10px ;
+}
+
+.map-container{
+    margin-left : 20px ;
+    flex : 3 ;
+    display: flex ;
+    flex-direction: column;
+    align-items : center;
+    justify-content : center ;
+    -webkit-box-shadow: -1px 2px 16px -6px rgba(17,1,38,0.76);
+    -moz-box-shadow: -1px 2px 16px -6px rgba(17,1,38,0.76);
+    box-shadow: -1px 2px 16px -6px rgba(17,1,38,0.76);
+    border-radius: 10px ;
+}
+
+.chartText{
+    font-family: 'Fira Sans', sans-serif;
+    font-size : 18px ;
+    color :rgba(13, 11, 15, 0.76) ;
 }

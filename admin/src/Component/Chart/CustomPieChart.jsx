@@ -54,7 +54,6 @@ const CustomPieChart = (props) => {
 
     //activeIndex represents the current slice of the pie
     
-
     const [activeIndex, setActiveIndex] = useState(0);
     const onPieEnter = useCallback(
         (_, index) => {
@@ -64,15 +63,14 @@ const CustomPieChart = (props) => {
     );
 
     return (
-        <PieChart width={500} height={500}>
+        <PieChart width={450} height={250}>
             <Pie
                 activeIndex={activeIndex}
                 activeShape={RenderActiveShape}
                 data={props.chartData}
-                cx={150}
-                cy={200}
-                innerRadius={60}
-                outerRadius={80}
+                
+                innerRadius={50}
+                outerRadius={70}
                 fill="#8884d8"
                 dataKey="value"
                 onMouseEnter={onPieEnter}

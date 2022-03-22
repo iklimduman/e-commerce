@@ -5,11 +5,11 @@ import Chart from "../Chart/Chart";
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 
-import { userData, topSellingBrands, TopSellingBrands } from "../../dummyData";
+import { userData, TopSellingProducts, TopSellingBrands } from "../../dummyData";
 import Transactions from "../Transactions/Transactions";
 import TeamMember from "../TeamMember/TeamMember";
 import CustomPieChart from "../Chart/CustomPieChart";
-import {MapChart} from "../Chart/MapChart";
+import { MapChart } from "../Chart/MapChart";
 
 
 const featureArray = [
@@ -70,12 +70,21 @@ const Home = () => {
                 grid={true}
             />
             <div className="home-widgets">
-                    <TeamMember />
-                    <Transactions />
+                <TeamMember />
+                <Transactions />
             </div>
             <div className="home-widgets">
-                    <CustomPieChart chartData={TopSellingBrands}/>
+                <div className="pie-chart-container">
+                    <span className="chartText">Top Selling Brands</span>
+                    <CustomPieChart chartData={TopSellingBrands} />
+                    <span className="chartText">Top Selling Products</span>
+                    <CustomPieChart chartData={TopSellingProducts} />
+                </div>
+                <div className="map-container">
+                    <span className="chartText">Currently Open Stores</span>
                     <MapChart />
+                </div>
+
             </div>
 
         </div>

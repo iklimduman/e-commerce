@@ -138,3 +138,10 @@ export const TopSellingBrands = [
     {name : "Puma", value : 1150},
     {name : "New Balance", value : 800}
 ]
+
+export const TopSellingProducts = [
+    {name : "Nike AirForce-1", value : 700},
+    {name : "Adidas Sports-Bra", value : 300},
+    {name : "Puma RSX", value : 400},
+    {name : "New Balance Unisex Sneaker", value : 500}
+]

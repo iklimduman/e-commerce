@@ -19,27 +19,27 @@ const geoUrl =
 
 const markers = [
     {
-        markerOffset: -15,
+        markerOffset: 30,
         name: "Washington, DC",
         coordinates: [-77.007507, 38.900497]
     },
     {
-        markerOffset: -15,
+        markerOffset: -30,
         name: "New York, NY",
         coordinates: [-73.935242, 40.730610]
     },
     {
-        markerOffset: -15,
+        markerOffset: -30,
         name: "Chicago, IL",
         coordinates: [-87.623177, 41.881832]
     },
     {
-        markerOffset: -15,
+        markerOffset: -30,
         name: "Austin, TX",
         coordinates: [-100.000000, 31.000000]
     },
     {
-        markerOffset: -15,
+        markerOffset: -30,
         name: "Phoenix, AZ",
         coordinates: [-112.074036, 33.448376]
     },
@@ -49,20 +49,20 @@ const markers = [
 
 export const MapChart = () => {
     return (
-        <div style={{ width: "50%", borderStyle: "double" }}>
+        <div style={{ width: "80%"}}>
             <ComposableMap projection="geoAlbers">
                 <Geographies geography={geoUrl}>
                     {({ geographies }) => geographies.filter(country => country.properties.NAME === "United States of America")
                         .map((geo) => (
                             <Geography key={geo.rmsKey}
-                                geography={geo} fill="#EADEF0" stroke="black" onMouseEnter={() => { console.log(geo) }} />
+                                geography={geo} fill="#E8E1EC" stroke="#65556E" onMouseEnter={() => { console.log(geo) }} />
                         ))}
                 </Geographies>
                 {markers.map(({ markerOffset, name, coordinates }) => (
                     <Marker key={name} coordinates={coordinates}>
                         <g
                             fill="none"
-                            stroke="#FF5533"
+                            stroke="#450068"
                             strokeWidth="2"
                             strokeLinecap="round"
                             strokeLinejoin="round"
@@ -74,7 +74,7 @@ export const MapChart = () => {
                         <text
                             textAnchor="middle"
                             y={markerOffset}
-                            style={{ fontFamily: "system-ui", fill: "#5D5A6D" }}
+                            style={{ fontFamily: "'Fira Sans', sans-serif", fill: "#450068", fontSize:"18px" }}
                         >
                             {name}
                         </text>
