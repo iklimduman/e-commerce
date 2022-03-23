@@ -1,6 +1,9 @@
 import { useLocation } from "react-router-dom";
 import "./Product.css";
 import CloudUploadIcon from '@mui/icons-material/CloudUpload';
+import CustomComposedChart from "../Chart/ComposedChart";
+
+import { salesPerformance } from "../../dummyData";
 
 const Product = (props) => {
 
@@ -77,12 +80,11 @@ const Product = (props) => {
                     </div>
                 </div>
                 <div className="sales-performance">
-                    sales performance
+                    <CustomComposedChart data={salesPerformance} dataKey="name" barKey="actual" lineKey="target"/>
                 </div>
 
-
             </div>
-        </div >
+        </div>
 
     )
 }
