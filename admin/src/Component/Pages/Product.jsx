@@ -29,18 +29,23 @@ const Product = (props) => {
                                 height: "150px",
                                 display: "flex",
                                 alignItems: "center",
-                                justifyContent: "center"
+                                justifyContent: "center",
+                                position: "realtive"
                             }}>
                                 <div style={{
                                     width: "100%", height: "100%", backgroundColor: "white", opacity: "0.5", display: "flex",
                                     alignItems: "center",
                                     justifyContent: "center"
                                 }}>
-                                <CloudUploadIcon sx={{color : "black" ,opacity : "1 !important", backgroundColor : "white", fontSize : "44px !important"}}/>
-                                    
-
                                 </div>
-                                
+                                <CloudUploadIcon sx={{
+                                    color: "rgb(331,175)",
+                                    opacity: "1 !important",
+                                    position: "absolute",
+                                    fontSize: "44px !important"
+                                }}
+                                />
+
 
                             </div>
 
