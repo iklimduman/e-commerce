@@ -116,6 +116,7 @@ input[type=text] {
     font-family: 'Fira Sans', sans-serif;
     border : none ;
     background-color : #6e64b9 ;
+    border : 2px solid #6e64b9 ;
     color : #fdfdfd ;
     cursor: pointer ;
 }

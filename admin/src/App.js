@@ -7,6 +7,7 @@ import UserPage from './Component/Pages/UserPage';
 import SingleUser from './Component/Pages/SingleUser';
 import NewUser from './Component/Pages/NewUser';
 import Products from './Component/Pages/Products' ;
+import Product from './Component/Pages/Product';
 
 import {
   BrowserRouter as Router,
@@ -27,6 +28,7 @@ function App() {
           <Route exact path="/" element={<Home />} />
           <Route exact path="/users" element={<UserPage />} />
           <Route path="/user/:userID" element={<SingleUser />} />
+          <Route path="/product/:productID" element={<Product />} />
           <Route path="/newuser" element={<NewUser />} />
           <Route path="/products" element={<Products />} />
         </Routes>

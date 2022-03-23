@@ -133,20 +133,20 @@ export const teamRows = [
 
 export const AllProducts = [
     { id :1, title :"Vans Sneaker" ,price : 50, stock : 123 , img : "https://images.pexels.com/photos/7020124/pexels-photo-7020124.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"},
-    { id :2, title :"Nike Matching Yoga Set" ,price : 75, stock : 16 , img : "https://images.pexels.com/photos/7020124/pexels-photo-7020124.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"},
+    { id :2, title :"Nike Matching Yoga Set" ,price : 75, stock : 16 , img : "https://images.pexels.com/photos/8436462/pexels-photo-8436462.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"},
     { id :3, title :"Nike Sneaker" ,price : 70, stock : 181 , img : "https://images.pexels.com/photos/5710077/pexels-photo-5710077.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"},
-    { id :4, title :"New Balance Sneaker" ,price : 45, stock : 0 , img : "https://images.pexels.com/photos/7020124/pexels-photo-7020124.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"},
-    { id :5, title :"Adidas Simple Sports Bra" ,price : 65, stock : 27 , img : "https://images.pexels.com/photos/7020124/pexels-photo-7020124.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"},
+    { id :4, title :"New Balance Sneaker" ,price : 45, stock : 0 , img : "https://images.pexels.com/photos/4932841/pexels-photo-4932841.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"},
+    { id :5, title :"Adidas Simple Sports Bra" ,price : 65, stock : 27 , img : "https://images.pexels.com/photos/4998873/pexels-photo-4998873.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"},
     { id :6, title :"Nike Sneaker" ,price : 55, stock : 96 , img : "https://images.pexels.com/photos/7020124/pexels-photo-7020124.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"},
-    { id :7, title :"Vans Special Edition Sneaker" ,price : 65, stock : 18 , img : "https://images.pexels.com/photos/7020124/pexels-photo-7020124.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"},
-    { id :8, title :"Nike Special Edition Sneaker" ,price : 85, stock : 0 , img : "https://images.pexels.com/photos/7020124/pexels-photo-7020124.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"},
-    { id :9, title :"Puma Casual Sneaker" ,price : 35, stock : 164 , img : "https://images.pexels.com/photos/7020124/pexels-photo-7020124.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"},
-    { id :10, title :"New Balance Casual Hoodie" ,price : 65, stock : 27 , img : "https://images.pexels.com/photos/7020124/pexels-photo-7020124.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"},
-    { id :11, title :"Nike Air Jordan Sneaker" ,price : 65, stock : 97 , img : "https://images.pexels.com/photos/7020124/pexels-photo-7020124.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"},
-    { id :12, title :"Nike Multi-Colored Air Jordan Sneaker" ,price : 95, stock : 0 , img : "https://images.pexels.com/photos/7020124/pexels-photo-7020124.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"},
-    { id :13, title :"Vans Daily Sneaker" ,price : 35, stock : 67 , img : "https://images.pexels.com/photos/7020124/pexels-photo-7020124.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"},
-    { id :14, title :"Nike Running Sneaker" ,price : 45, stock : 65 , img : "https://images.pexels.com/photos/7020124/pexels-photo-7020124.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"},
-    { id :15, title :"Nike Pro Sports Bra" ,price : 60, stock : 107 , img : "https://images.pexels.com/photos/7020124/pexels-photo-7020124.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"}
+    { id :7, title :"Vans Special Edition Sneaker" ,price : 65, stock : 18 , img : "https://images.pexels.com/photos/6438289/pexels-photo-6438289.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"},
+    { id :8, title :"Nike Special Edition Sneaker" ,price : 85, stock : 0 , img : "https://images.pexels.com/photos/8381350/pexels-photo-8381350.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"},
+    { id :9, title :"Puma Casual Sneaker" ,price : 35, stock : 164 , img : "https://images.pexels.com/photos/2759783/pexels-photo-2759783.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"},
+    { id :10, title :"New Balance Casual Hoodie" ,price : 65, stock : 27 , img : "https://images.pexels.com/photos/6311662/pexels-photo-6311662.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"},
+    { id :11, title :"Nike Air Jordan Sneaker" ,price : 65, stock : 97 , img : "https://images.pexels.com/photos/6050929/pexels-photo-6050929.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"},
+    { id :12, title :"Nike Multi-Colored Air Jordan Sneaker" ,price : 95, stock : 0 , img : "https://images.pexels.com/photos/9214280/pexels-photo-9214280.png?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"},
+    { id :13, title :"Vans Daily Sneaker" ,price : 35, stock : 67 , img : "https://images.pexels.com/photos/1598508/pexels-photo-1598508.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"},
+    { id :14, title :"Nike Running Sneaker" ,price : 45, stock : 65 , img : "https://images.pexels.com/photos/1456740/pexels-photo-1456740.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"},
+    { id :15, title :"Nike Pro Sports Bra" ,price : 60, stock : 107 , img : "https://images.pexels.com/photos/8484671/pexels-photo-8484671.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"}
 
 ]
 
