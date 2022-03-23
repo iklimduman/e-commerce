@@ -165,16 +165,24 @@ export const TopSellingProducts = [
 ]
 
 export const salesPerformance = [
-    {name : "January" , actual : 500 , target : 450},
-    {name : "February" , actual : 500 , target : 450},
-    {name : "March" , actual : 500 , target : 450},
-    {name : "April" , actual : 500 , target : 450},
-    {name : "May" , actual : 500 , target : 450},
-    {name : "June" , actual : 500 , target : 450},
-    {name : "July" , actual : 500 , target : 450},
+    {name : "Jan" , actual : 500 , target : 450},
+    {name : "Feb" , actual : 600 , target : 500},
+    {name : "Mar" , actual : 450 , target : 550},
+    {name : "April" , actual : 500 , target : 400},
+    {name : "May" , actual : 400 , target : 450},
+    {name : "June" , actual : 350 , target : 500},
+    {name : "July" , actual : 400 , target : 400},
     {name : "Agust" , actual : 500 , target : 450},
-    {name : "September" , actual : 500 , target : 450},
-    {name : "October" , actual : 500 , target : 450},
-    {name : "November" , actual : 500 , target : 450},
-    {name : "December" , actual : 500 , target : 450}
+    {name : "Sep" , actual : 550 , target : 500},
+    {name : "Oct" , actual : 450 , target : 500},
+    {name : "Nov" , actual : 400 , target : 450},
+    {name : "Dec" , actual : 500 , target : 450}
+]
+
+export const ageDistribution = [
+    {name : "18-25" , value : 300},
+    {name : "26-35" , value : 270},
+    {name : "36-50" , value : 200},
+    {name : "50-65" , value : 120},
+    {name : "66 and over" , value : 50},
 ]

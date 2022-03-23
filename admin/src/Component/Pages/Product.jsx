@@ -2,8 +2,9 @@ import { useLocation } from "react-router-dom";
 import "./Product.css";
 import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 import CustomComposedChart from "../Chart/ComposedChart";
+import PieChartCustomLabel from "../Chart/PieChartCustomLabel";
 
-import { salesPerformance } from "../../dummyData";
+import { salesPerformance, ageDistribution } from "../../dummyData";
 
 const Product = (props) => {
 
@@ -80,8 +81,43 @@ const Product = (props) => {
                     </div>
                 </div>
                 <div className="sales-performance">
-                    <CustomComposedChart data={salesPerformance} dataKey="name" barKey="actual" lineKey="target"/>
+                    <span style={{
+                        fontSize: "24px",
+                        color: "rgba(6, 0, 14, 0.76)",
+                        fontFamily: "'Fira Sans', sans-serif",
+                    }}>Sales performance</span>
+                    <CustomComposedChart data={salesPerformance} dataKey="name" barKey="actual" lineKey="target" />
                 </div>
+
+            </div>
+            <div className="second-row-container">
+                <div className="age-distribution">
+                    <span style={{
+                        fontSize: "24px",
+                        color: "rgba(6, 0, 14, 0.76)",
+                        fontFamily: "'Fira Sans', sans-serif",
+                    }}>Age Distribution of Customers</span>
+                    <PieChartCustomLabel data={ageDistribution} />
+                </div>
+                <div className="age-distribution">
+                    <span style={{
+                        fontSize: "24px",
+                        color: "rgba(6, 0, 14, 0.76)",
+                        fontFamily: "'Fira Sans', sans-serif",
+                    }}>Age Distribution of Customers</span>
+                    <PieChartCustomLabel data={ageDistribution} />
+                </div>
+
+                <div className="age-distribution">
+                    <span style={{
+                        fontSize: "24px",
+                        color: "rgba(6, 0, 14, 0.76)",
+                        fontFamily: "'Fira Sans', sans-serif",
+                    }}>Age Distribution of Customers</span>
+                    <PieChartCustomLabel data={ageDistribution} />
+                </div>
+
+
 
             </div>
         </div>
