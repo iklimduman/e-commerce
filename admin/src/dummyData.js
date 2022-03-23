@@ -163,3 +163,18 @@ export const TopSellingProducts = [
     {name : "Puma RSX", value : 400},
     {name : "NewBalance 374", value : 500}
 ]
+
+export const salesPerformance = [
+    {name : "January" , actual : 500 , target : 450},
+    {name : "February" , actual : 500 , target : 450},
+    {name : "March" , actual : 500 , target : 450},
+    {name : "April" , actual : 500 , target : 450},
+    {name : "May" , actual : 500 , target : 450},
+    {name : "June" , actual : 500 , target : 450},
+    {name : "July" , actual : 500 , target : 450},
+    {name : "Agust" , actual : 500 , target : 450},
+    {name : "September" , actual : 500 , target : 450},
+    {name : "October" , actual : 500 , target : 450},
+    {name : "November" , actual : 500 , target : 450},
+    {name : "December" , actual : 500 , target : 450}
+]
