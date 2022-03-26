@@ -9,7 +9,8 @@ import { userData, TopSellingProducts, TopSellingBrands } from "../../dummyData"
 import Transactions from "../Transactions/Transactions";
 import TeamMember from "../TeamMember/TeamMember";
 import CustomPieChart from "../Chart/CustomPieChart";
-import { MapChart } from "../Chart/MapChart";
+import { MapChart } from "../Chart/CountryMapChart";
+import { WorldMap } from "../Chart/WorldMap";
 
 
 const featureArray = [
@@ -81,8 +82,8 @@ const Home = () => {
                     <CustomPieChart chartData={TopSellingProducts} />
                 </div>
                 <div className="map-container">
-                    <span className="chartText">Currently Open Stores</span>
-                    <MapChart />
+                    <span className="chartText">Active Visitors</span>
+                    <WorldMap />
                 </div>
 
             </div>
