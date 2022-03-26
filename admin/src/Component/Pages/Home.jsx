@@ -12,7 +12,6 @@ import CustomPieChart from "../Chart/CustomPieChart";
 import { MapChart } from "../Chart/CountryMapChart";
 import { WorldMap } from "../Chart/WorldMap";
 
-
 const featureArray = [
     {
         title: "Revanue",
@@ -56,6 +55,7 @@ const FeaturedItem = ({ item }) => {
 }
 
 const Home = () => {
+
     return (
         <div className="home-wrapper">
             <div className="home-container">

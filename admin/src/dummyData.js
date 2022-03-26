@@ -184,5 +184,5 @@ export const ageDistribution = [
     {name : "26-35" , value : 270},
     {name : "36-50" , value : 200},
     {name : "50-65" , value : 120},
-    {name : "66 and over" , value : 50},
+    {name : "66+" , value : 50},
 ]

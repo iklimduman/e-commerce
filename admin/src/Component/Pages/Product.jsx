@@ -3,6 +3,8 @@ import "./Product.css";
 import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 import CustomComposedChart from "../Chart/ComposedChart";
 import PieChartCustomLabel from "../Chart/PieChartCustomLabel";
+import { MapChart } from "../Chart/CountryMapChart";
+import { ColorDescription } from "../Chart/ColorDescription";
 
 import { salesPerformance, ageDistribution } from "../../dummyData";
 
@@ -10,6 +12,8 @@ const Product = (props) => {
 
     const location = useLocation();
     const imgBackground = "url(" + location.state.img + ")";
+    const COLORS = ["#620043", "#392B58", "#645E9D", "#6C969D", '#99D5C9'];
+    const AgeArr = ["18-25" , "25-34" , "35-50" , "50-65" , "65+"]
 
 
     return (
@@ -98,23 +102,22 @@ const Product = (props) => {
                         fontFamily: "'Fira Sans', sans-serif",
                     }}>Age Distribution of Customers</span>
                     <PieChartCustomLabel data={ageDistribution} />
-                </div>
-                <div className="age-distribution">
-                    <span style={{
-                        fontSize: "24px",
-                        color: "rgba(6, 0, 14, 0.76)",
-                        fontFamily: "'Fira Sans', sans-serif",
-                    }}>Age Distribution of Customers</span>
-                    <PieChartCustomLabel data={ageDistribution} />
-                </div>
 
-                <div className="age-distribution">
+                    <ColorDescription 
+                    colorArr={COLORS} 
+                    ageArr={ageDistribution}
+                        containerWidth="60%"
+                    />
+
+
+                </div>
+                <div className="top-selling-chart">
                     <span style={{
                         fontSize: "24px",
                         color: "rgba(6, 0, 14, 0.76)",
                         fontFamily: "'Fira Sans', sans-serif",
-                    }}>Age Distribution of Customers</span>
-                    <PieChartCustomLabel data={ageDistribution} />
+                    }}>Top Selling Branches</span>
+                    <MapChart />
                 </div>
 
 
