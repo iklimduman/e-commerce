@@ -1,3 +1,4 @@
+import { height } from "@mui/system";
 import React, { useState } from "react";
 
 import {
@@ -20,7 +21,7 @@ const countryArray = ["Germany", "Argentina", "United Kingdom", "South Africa" ,
 
 export const WorldMap = () => {
     return (
-        <div style={{ width: "80%" }}>
+        <div style={{ width: "80%", height : "80%"}}>
             <ComposableMap>
                 <Geographies geography={geoUrl}>
                     {({ geographies }) => geographies.filter((country) => country.properties.CONTINENT !== "Antarctica")

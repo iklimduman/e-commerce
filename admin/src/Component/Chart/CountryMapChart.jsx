@@ -10,8 +10,10 @@ import {
 
 import ReactTooltip from "react-tooltip";
 
+import PushPinIcon from '@mui/icons-material/PushPin';
+
 const geoUrl =
-    "https://raw.githubusercontent.com/zcreativelabs/react-simple-maps/master/topojson-maps/world-110m.json";
+    "https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json";
 
 
 // North and East are : + South and West are - values on coordinates !
@@ -54,13 +56,13 @@ const markers = [
 
 export const MapChart = () => {
     return (
-        <div style={{ width: "80%"}}>
+        <div style={{ width: "70%" , height : "70%"}}>
             <ComposableMap projection="geoAlbers">
                 <Geographies geography={geoUrl}>
-                    {({ geographies }) => geographies.filter(country => country.properties.NAME === "United States of America")
+                    {({ geographies }) => geographies
                         .map((geo) => (
                             <Geography key={geo.rmsKey}
-                                geography={geo} fill="#f6f0fa" stroke="#65556E" onMouseEnter={() => { console.log(geo) }} />
+                                geography={geo} fill="#F2ECF9" stroke="#AC9DBC" onMouseEnter={() => { console.log(geo) }} />
                         ))}
                 </Geographies>
                 {markers.map(({ markerOffset, name, coordinates }) => (
