@@ -8,6 +8,7 @@ import SingleUser from './Component/Pages/SingleUser';
 import NewUser from './Component/Pages/NewUser';
 import Products from './Component/Pages/Products' ;
 import Product from './Component/Pages/Product';
+import { Login } from './Component/Pages/Login';
 
 import {
   BrowserRouter as Router,
@@ -25,6 +26,7 @@ function App() {
 
         <Sidebar />
         <Routes>
+        <Route exact path="/login" element={<Login />} />
           <Route exact path="/" element={<Home />} />
           <Route exact path="/users" element={<UserPage />} />
           <Route path="/user/:userID" element={<SingleUser />} />
