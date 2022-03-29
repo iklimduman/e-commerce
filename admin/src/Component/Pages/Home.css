@@ -91,4 +91,6 @@
     font-family: 'Fira Sans', sans-serif;
     font-size : 22px ;
     color :rgba(13, 11, 15, 0.76) ;
+    margin-right: auto ;
+    margin-left : 30px ;
 }

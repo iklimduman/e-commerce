@@ -8,11 +8,16 @@
 }
 
 .sidebar-wrapper{
-    padding : 20px ;
 }
 
 .sidebarMenu{
-    margin-bottom : 10px ;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar-item{
+    flex : 1 ;
+    padding-left: 10% ;
 }
 
 .sidebarTitle{
@@ -27,7 +32,6 @@
     padding-left : 15px ;
 }
 .sidebarListItem{
-    padding : 2px ;
     cursor : pointer ;
     display : flex ;
     align-items: center ;

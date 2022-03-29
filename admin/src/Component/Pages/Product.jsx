@@ -116,6 +116,7 @@ const Product = (props) => {
                         fontSize: "24px",
                         color: "rgba(6, 0, 14, 0.76)",
                         fontFamily: "'Fira Sans', sans-serif",
+                       
                     }}>Top Selling Branches</span>
                     <MapChart />
                 </div>

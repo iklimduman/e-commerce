@@ -23,79 +23,87 @@ const iconStyle = {
 
 const Sidebar = () => {
 
-    const navigate = useNavigate() ;
+    const navigate = useNavigate();
 
     const handleUserClick = () => {
-        console.log("i got clicked") ;
-        navigate("/users") ;
+        navigate("/users");
     }
 
     const handleHomeClick = () => {
-        navigate("/") ;
+        navigate("/");
     }
 
     const handleProductClick = () => {
-        navigate("/products") ;
+        navigate("/products");
     }
 
     return (
         <div className="sidebar-container">
             <div className="sidebar-wrapper">
                 <div className="sidebarMenu">
-                    <h3 className="sidebarTitle">Dashboard</h3>
-                    <ul className="sidebarList">
-                        <li className="sidebarListItem" onClick={handleHomeClick}>
-                            <Home style={iconStyle} /> Home
-                        </li>
-                        <li className="sidebarListItem">
-                            <Insights style={iconStyle} /> Analiytics
-                        </li>
-                        <li className="sidebarListItem">
-                            <TrendingUp style={iconStyle} /> Sales
-                        </li>
-                    </ul>
+                    <div className="sidebar-item">
+                        <h3 className="sidebarTitle">Dashboard</h3>
+                        <ul className="sidebarList">
+                            <li className="sidebarListItem" onClick={handleHomeClick}>
+                                <Home style={iconStyle} /> Home
+                            </li>
+                            <li className="sidebarListItem">
+                                <Insights style={iconStyle} /> Analiytics
+                            </li>
+                            <li className="sidebarListItem">
+                                <TrendingUp style={iconStyle} /> Sales
+                            </li>
+                        </ul>
+                    </div>
 
-                    <h3 className="sidebarTitle">Quick Menu</h3>
-                    <ul className="sidebarList">
-                        <li className="sidebarListItem" onClick={handleUserClick}>
-                            <PersonIcon style={iconStyle} /> Users
-                        </li>
-                        <li className="sidebarListItem" onClick={handleProductClick}>
-                            <CategoryIcon style={iconStyle} /> Products
-                        </li>
-                        <li className="sidebarListItem">
-                            <ReceiptIcon style={iconStyle} /> Transactions
-                        </li>
-                        <li className="sidebarListItem">
-                            <SignalCellularAltIcon style={iconStyle} /> Reports
-                        </li>
-                    </ul>
+                    <div className="sidebar-item">
+                        <h3 className="sidebarTitle">Quick Menu</h3>
+                        <ul className="sidebarList">
+                            <li className="sidebarListItem" onClick={handleUserClick}>
+                                <PersonIcon style={iconStyle} /> Users
+                            </li>
+                            <li className="sidebarListItem" onClick={handleProductClick}>
+                                <CategoryIcon style={iconStyle} /> Products
+                            </li>
+                            <li className="sidebarListItem">
+                                <ReceiptIcon style={iconStyle} /> Transactions
+                            </li>
+                            <li className="sidebarListItem">
+                                <SignalCellularAltIcon style={iconStyle} /> Reports
+                            </li>
+                        </ul>
+                    </div>
 
-                    <h3 className="sidebarTitle">Notifications</h3>
-                    <ul className="sidebarList">
-                        <li className="sidebarListItem">
-                            <MailOutlineIcon style={iconStyle} /> Mail
-                        </li>
-                        <li className="sidebarListItem">
-                            <ChatBubbleOutlineIcon style={iconStyle} /> Feedback
-                        </li>
-                        <li className="sidebarListItem">
-                            <MessageIcon style={iconStyle} /> Messages
-                        </li>
-                    </ul>
+                    <div className="sidebar-item">
+                        <h3 className="sidebarTitle">Notifications</h3>
+                        <ul className="sidebarList">
+                            <li className="sidebarListItem">
+                                <MailOutlineIcon style={iconStyle} /> Mail
+                            </li>
+                            <li className="sidebarListItem">
+                                <ChatBubbleOutlineIcon style={iconStyle} /> Feedback
+                            </li>
+                            <li className="sidebarListItem">
+                                <MessageIcon style={iconStyle} /> Messages
+                            </li>
+                        </ul>
+                    </div>
 
-                    <h3 className="sidebarTitle">Staff</h3>
-                    <ul className="sidebarList">
-                        <li className="sidebarListItem">
-                            <WorkIcon style={iconStyle} /> Manage
-                        </li>
-                        <li className="sidebarListItem">
-                            <BarChartIcon style={iconStyle} /> Analiytics
-                        </li>
-                        <li className="sidebarListItem">
-                            <AttachFileIcon style={iconStyle} /> Reports
-                        </li>
-                    </ul>
+                    <div className="sidebar-item">
+                        <h3 className="sidebarTitle">Staff</h3>
+                        <ul className="sidebarList">
+                            <li className="sidebarListItem">
+                                <WorkIcon style={iconStyle} /> Manage
+                            </li>
+                            <li className="sidebarListItem">
+                                <BarChartIcon style={iconStyle} /> Analiytics
+                            </li>
+                            <li className="sidebarListItem">
+                                <AttachFileIcon style={iconStyle} /> Reports
+                            </li>
+                        </ul>
+                    </div>
+
 
                 </div>
             </div>
