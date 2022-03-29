@@ -6,7 +6,7 @@ import Home from './Component/Pages/Home';
 import UserPage from './Component/Pages/UserPage';
 import SingleUser from './Component/Pages/SingleUser';
 import NewUser from './Component/Pages/NewUser';
-import Products from './Component/Pages/Products' ;
+import Products from './Component/Pages/Products';
 import Product from './Component/Pages/Product';
 import { Login } from './Component/Pages/Login';
 
@@ -21,12 +21,13 @@ import {
 function App() {
   return (
     <Router className="App">
+      <Routes>
+        <Route exact path="/login" element={<Login />} />
+      </Routes>
       <Topbar />
       <div className="container">
-
         <Sidebar />
         <Routes>
-        <Route exact path="/login" element={<Login />} />
           <Route exact path="/" element={<Home />} />
           <Route exact path="/users" element={<UserPage />} />
           <Route path="/user/:userID" element={<SingleUser />} />
