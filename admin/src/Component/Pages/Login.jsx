@@ -1,4 +1,6 @@
-import react , { useState} from "react"
+import react , { useState} from "react" ;
+import { useDispatch } from "react-redux" ;
+import { login } from "../../Redux/apiCalls" ;
 
 export const Login = () => {
 
@@ -6,6 +8,8 @@ export const Login = () => {
         username : "",
         password : ""
     }) ;
+    
+    const dispatch = useDispatch() ;
 
     const handleChange = (e) => {
         switch(e.target.name){
@@ -27,7 +31,8 @@ export const Login = () => {
     }
     
     const handleLogin = (e) => {
-        e.preventDefaul();
+        e.preventDefault();
+        login(dispatch,user) ;
     }
 
     return (
