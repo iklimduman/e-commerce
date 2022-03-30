@@ -37,8 +37,6 @@ export const Login = () => {
         e.preventDefault();
         login(dispatch, user);
 
-        
-
         navigate("/") ;
     }
 

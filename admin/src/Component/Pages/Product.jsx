@@ -5,15 +5,17 @@ import CustomComposedChart from "../Chart/ComposedChart";
 import PieChartCustomLabel from "../Chart/PieChartCustomLabel";
 import { MapChart } from "../Chart/CountryMapChart";
 import { ColorDescription } from "../Chart/ColorDescription";
+import CalendarChart from "../Chart/Calendar";
 
 import { salesPerformance, ageDistribution } from "../../dummyData";
+
 
 const Product = (props) => {
 
     const location = useLocation();
     const imgBackground = "url(" + location.state.img + ")";
     const COLORS = ["#620043", "#392B58", "#645E9D", "#6C969D", '#99D5C9'];
-    const AgeArr = ["18-25" , "25-34" , "35-50" , "50-65" , "65+"]
+    const AgeArr = ["18-25", "25-34", "35-50", "50-65", "65+"]
 
 
     return (
@@ -100,29 +102,40 @@ const Product = (props) => {
                         fontSize: "24px",
                         color: "rgba(6, 0, 14, 0.76)",
                         fontFamily: "'Fira Sans', sans-serif",
+                        marginRight :"auto"
                     }}>Age Distribution of Customers</span>
                     <PieChartCustomLabel data={ageDistribution} />
 
-                    <ColorDescription 
-                    colorArr={COLORS} 
-                    ageArr={ageDistribution}
+                    <ColorDescription
+                        colorArr={COLORS}
+                        ageArr={ageDistribution}
                         containerWidth="60%"
                     />
-
-
                 </div>
                 <div className="top-selling-chart">
                     <span style={{
                         fontSize: "24px",
                         color: "rgba(6, 0, 14, 0.76)",
                         fontFamily: "'Fira Sans', sans-serif",
-                       
+                        marginRight :"auto"
+
                     }}>Top Selling Branches</span>
                     <MapChart />
                 </div>
+            </div>
+            <div className="second-row-container">
+                <div className="calendar">
+                <span style={{
+                        fontSize: "24px",
+                        color: "rgba(6, 0, 14, 0.76)",
+                        fontFamily: "'Fira Sans', sans-serif",
 
-
-
+                    }}>Planned Sales</span>
+                    <CalendarChart />
+                </div>
+                <div className="branch-contribution">
+                    
+                </div>
             </div>
         </div>
 
