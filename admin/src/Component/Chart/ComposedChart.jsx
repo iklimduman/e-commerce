@@ -35,7 +35,7 @@ const CustomComposedChart = (props) => {
                 <Tooltip />
                 <Legend />
 
-                <Bar dataKey={props.barKey} barSize={20} fill="#3c3385 " />
+                <Bar dataKey={props.barKey} barSize={20} fill="#3c3385 "  />
                 <Line type="monotone" dataKey={props.lineKey} stroke="red" dot={{ stroke: 'red', strokeWidth: 2, r: 4,strokeDasharray:''}}/>
                 
 

@@ -186,3 +186,12 @@ export const ageDistribution = [
     {name : "50-65" , value : 120},
     {name : "66+" , value : 50},
 ]
+
+export const comparisionOfBranches = [
+    {name : "New York, NY", "Sold Products" : 150},
+    {name : "Chicago, IL", "Sold Products" : 124},
+    {name : "Austin, TX", "Sold Products" : 176},
+    {name : "Phoenix, AZ", "Sold Products" : 102},
+    {name : "Los Angeles, CA", "Sold Products" : 168},
+    {name : "Wichita, KS", "Sold Products" : 140}
+]

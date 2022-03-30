@@ -62,14 +62,14 @@ export const MapChart = () => {
                     {({ geographies }) => geographies
                         .map((geo) => (
                             <Geography key={geo.rmsKey}
-                                geography={geo} fill="#F2ECF9" stroke="#AC9DBC" onMouseEnter={() => { console.log(geo) }} />
+                                geography={geo} fill="rgba(233,235,247)" stroke="rgba(182,187,219)" />
                         ))}
                 </Geographies>
                 {markers.map(({ markerOffset, name, coordinates }) => (
                     <Marker key={name} coordinates={coordinates}>
                         <g
                             fill="none"
-                            stroke="#450068"
+                            stroke="red"
                             strokeWidth="2"
                             strokeLinecap="round"
                             strokeLinejoin="round"

@@ -6,6 +6,7 @@ import PieChartCustomLabel from "../Chart/PieChartCustomLabel";
 import { MapChart } from "../Chart/CountryMapChart";
 import { ColorDescription } from "../Chart/ColorDescription";
 import CalendarChart from "../Chart/Calendar";
+import { HorizontalBarChart } from "../Chart/HorizontalBarChart";
 
 import { salesPerformance, ageDistribution } from "../../dummyData";
 
@@ -102,7 +103,7 @@ const Product = (props) => {
                         fontSize: "24px",
                         color: "rgba(6, 0, 14, 0.76)",
                         fontFamily: "'Fira Sans', sans-serif",
-                        marginRight :"auto"
+                        marginRight: "auto"
                     }}>Age Distribution of Customers</span>
                     <PieChartCustomLabel data={ageDistribution} />
 
@@ -117,7 +118,7 @@ const Product = (props) => {
                         fontSize: "24px",
                         color: "rgba(6, 0, 14, 0.76)",
                         fontFamily: "'Fira Sans', sans-serif",
-                        marginRight :"auto"
+                        marginRight: "auto"
 
                     }}>Top Selling Branches</span>
                     <MapChart />
@@ -125,7 +126,7 @@ const Product = (props) => {
             </div>
             <div className="second-row-container">
                 <div className="calendar">
-                <span style={{
+                    <span style={{
                         fontSize: "24px",
                         color: "rgba(6, 0, 14, 0.76)",
                         fontFamily: "'Fira Sans', sans-serif",
@@ -134,7 +135,13 @@ const Product = (props) => {
                     <CalendarChart />
                 </div>
                 <div className="branch-contribution">
-                    
+                    <span style={{
+                        fontSize: "24px",
+                        color: "rgba(6, 0, 14, 0.76)",
+                        fontFamily: "'Fira Sans', sans-serif",
+
+                    }}>Comparison of Branches</span>
+                    <HorizontalBarChart />
                 </div>
             </div>
         </div>
