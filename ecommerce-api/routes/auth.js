@@ -13,6 +13,7 @@ router.post("/register", async (req, res) => {
         {
             username: req.body.username,
             email: req.body.email,
+            isAdmin : req.body.isAdmin,
             password: CryptoJS.AES.encrypt(req.body.password,
                 process.env.PASS_SEC).toString(),
         }

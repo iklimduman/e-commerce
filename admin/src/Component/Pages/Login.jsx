@@ -1,6 +1,7 @@
 import react, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { login } from "../../Redux/apiCalls";
+import { useNavigate } from "react-router-dom";
 
 export const Login = () => {
 
@@ -8,6 +9,8 @@ export const Login = () => {
         username: "",
         password: ""
     });
+
+    const navigate = useNavigate();
 
     const dispatch = useDispatch();
 
@@ -33,6 +36,10 @@ export const Login = () => {
     const handleLogin = (e) => {
         e.preventDefault();
         login(dispatch, user);
+
+        
+
+        navigate("/") ;
     }
 
     return (

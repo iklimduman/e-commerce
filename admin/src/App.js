@@ -19,24 +19,28 @@ import {
 } from "react-router-dom";
 
 function App() {
+
+  const admin = (JSON.parse(JSON.parse(localStorage.getItem("persist:root")).user)).currentUser.isAdmin;
   return (
     <Router className="App">
       <Routes>
         <Route exact path="/login" element={<Login />} />
       </Routes>
-      <Topbar />
-      <div className="container">
-        <Sidebar />
-        <Routes>
-          <Route exact path="/" element={<Home />} />
-          <Route exact path="/users" element={<UserPage />} />
-          <Route path="/user/:userID" element={<SingleUser />} />
-          <Route path="/product/:productID" element={<Product />} />
-          <Route path="/newuser" element={<NewUser />} />
-          <Route path="/products" element={<Products />} />
-        </Routes>
+      {admin && (<>
+        <Topbar />
+        <div className="container">
+          <Sidebar />
+          <Routes>
+            <Route exact path="/" element={<Home />} />
+            <Route exact path="/users" element={<UserPage />} />
+            <Route path="/user/:userID" element={<SingleUser />} />
+            <Route path="/product/:productID" element={<Product />} />
+            <Route path="/newuser" element={<NewUser />} />
+            <Route path="/products" element={<Products />} />
+          </Routes>
 
-      </div>
+        </div>
+      </>)}
     </Router>
   );
 }
