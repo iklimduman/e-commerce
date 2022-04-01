@@ -52,13 +52,13 @@ const Products = () => {
 
 
     const columns = [
-        { field: 'id', headerName: 'ID', width: 70 },
+        { field: 'id', headerName: 'ID', flex : 1 },
         {
             field: 'img',
             headerName: 'Product',
             description: 'This column has a value getter and is not sortable.',
             sortable: false,
-            width: 250,
+            flex : 3,
             renderCell: (params) => {
                 return (
                     <Avatar imgSrc={params.row.img} title={params.row.title} />
@@ -69,14 +69,14 @@ const Products = () => {
             field: 'price',
             headerName: 'Price',
             type: 'number',
-            width: 90,
+            flex : 2,
             align: 'left',
             headerAlign: 'left'
         },
         {
             field : "inStock",
             headerName : "In Stock",
-            width : 200,
+            flex : 2,
             align: 'left',
             headerAlign: 'left',
             renderCell : (params) => {
@@ -88,13 +88,13 @@ const Products = () => {
         {
             field: 'stock',
             headerName: 'Stock',
-            width: 200,
+            flex : 2,
             align: 'left',
             headerAlign: 'left'
         },
         {
             headerName: 'Action',
-            width: 150,
+            flex : 2,
             renderCell: (params) => (<Action
                 productID={params.row.id}
                 title={params.row.title}
@@ -102,7 +102,7 @@ const Products = () => {
                 stock={params.row.stock}
                 img={params.row.img}
             />)
-        }
+        },
     ];
 
     const redirectNewProduct = () => {

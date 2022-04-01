@@ -113,6 +113,7 @@ input[type=text] {
     border-radius: 5px ;
     padding: 5px 25px ;
     font-size : 16px ;
+    margin-top : auto ;
     font-family: 'Fira Sans', sans-serif;
     border : none ;
     background-color : #6e64b9 ;

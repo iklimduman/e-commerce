@@ -73,40 +73,40 @@ const UserPage = () => {
 
 
     const columns = [
-        { field: 'id', headerName: 'ID', width: 70 },
+        { field: 'id', headerName: 'ID', flex : 1 },
         {
             field: 'Username',
             headerName: 'Username',
             description: 'This column has a value getter and is not sortable.',
             sortable: false,
-            width: 200,
+            flex : 3,
             renderCell: (params) => {
                 return (
                     <Avatar imgSrc={params.row.img} firstName={params.row.firstName} lastName={params.row.lastName} />
                 )
             }
         },
-        { field: 'firstName', headerName: 'First name', width: 130 },
-        { field: 'lastName', headerName: 'Last name', width: 130 },
+        { field: 'firstName', headerName: 'First name', flex : 2 },
+        { field: 'lastName', headerName: 'Last name', flex : 2 },
         {
             field: 'age',
             headerName: 'Age',
             type: 'number',
-            width: 90,
+            flex : 1,
             align: 'left',
             headerAlign: 'left'
         },
         {
             field: 'email',
             headerName: 'e-mail',
-            width: 200,
+            flex : 2 ,
             align: 'left',
             headerAlign: 'left'
         },
         {
             field: 'role',
             headerName: 'Role',
-            width: 170,
+            flex : 2 ,
             align: 'left',
             headerAlign: 'left',
             renderCell: (params) => {
@@ -118,7 +118,7 @@ const UserPage = () => {
         {
             field: 'status',
             headerName: 'Status',
-            width: 100,
+            flex : 1,
             renderCell: (params) => {
                 return (
                     <Status status={params.row.status} />
@@ -127,7 +127,7 @@ const UserPage = () => {
         },
         {
             headerName: 'Action',
-            width: 150,
+            flex : 2,
             renderCell: (params) => (<Action
                 userID={params.row.id}
                 firstname={params.row.firstName}

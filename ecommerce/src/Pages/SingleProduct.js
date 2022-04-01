@@ -11,6 +11,7 @@ import { useLocation } from "react-router-dom";
 import { publicRequest } from "../RequestMethods";
 import { addProduct } from "../Redux/cartRedux";
 import { useDispatch } from "react-redux";
+import { Comments } from "../Components/Comments";
 
 const Container = styled.div`
     font-family: 'Didact Gothic', sans-serif;
@@ -19,13 +20,15 @@ const Container = styled.div`
 const Wrapper = styled.div`
     width : 60% ;
     padding : 100px ;
-    height : 100vh ;
     margin : auto ;
     margin-top : 100px ;
+    margin-bottom : 40px ;
     display : flex ;
     flex-direction : row ;
-    border-radius: 3% ;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 2% ;
+    -webkit-box-shadow: -1px 2px 16px -6px rgba(17,1,38,0.76);
+    -moz-box-shadow: -1px 2px 16px -6px rgba(17,1,38,0.76);
+    box-shadow: -1px 2px 16px -6px rgba(17,1,38,0.76);
 `
 
 const ImageContainer = styled.div`
@@ -34,7 +37,6 @@ const ImageContainer = styled.div`
 
 const Image = styled.img`
     height : 60vh ;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     border-radius : 2% ;`
 
 const InfoContainer = styled.div`
@@ -196,10 +198,6 @@ const SingleProduct = () => {
             }
         }
         getProduct();
-        console.log("PRODUCT");
-        console.log(product);
-        console.log("COLORS");
-        console.log(colorArr);
 
     }, [id])
 
@@ -255,43 +253,7 @@ const SingleProduct = () => {
     const HandleSizeButtonOnClick = (index) => {
 
         setSize(index) ;
-        /*
-        let temp = sizeButton;
-
-        let target = temp.find(button => button.name === index);
-
-        let elementIndex = temp.indexOf(target);
-
-        if (temp[elementIndex].buttonStyle == sizeButtonStyle) {
-
-            temp.forEach(element => {
-                if (element.buttonStyle == sizeOnclick) {
-                    element.buttonStyle = sizeButtonStyle;
-                }
-            });
-
-            temp[elementIndex].buttonStyle = sizeOnclick;
-
-            setSizeButton(temp);
-
-            console.log(temp) ;
-
-            setUpdate(update + 1);
-        }
-        else if (temp[elementIndex].buttonStyle == sizeOnclick) {
-
-            temp[elementIndex].buttonStyle = sizeButtonStyle;
-
-            setSizeButton(temp);
-
-            console.log(temp) ;
-
-            setUpdate(update - 1);
-        }
-        else {
-            console.log("error");
-        }
-        */
+        
     }
 
     const handleDecrease = () => {
@@ -357,6 +319,7 @@ const SingleProduct = () => {
                         <CartButton onClick={handleAddCart}>ADD TO CART</CartButton>
                     </BuyContainer>
                 </InfoContainer>
+                <Comments />
             </Wrapper>
 
             <Newsletter />
