@@ -13,12 +13,31 @@ import { addProduct } from "../Redux/cartRedux";
 import { useDispatch } from "react-redux";
 import { Comments } from "../Components/Comments";
 
+
+const BoxShadow = styled.div`
+    -webkit-box-shadow: -1px 2px 16px -6px rgba(17,1,38,0.76);
+    -moz-box-shadow: -1px 2px 16px -6px rgba(17,1,38,0.76);
+    box-shadow: -1px 2px 16px -6px rgba(17,1,38,0.76);
+`
+
+const BaseButton = styled.button`
+    height : 40px ;
+    width : 200px ;
+    font-size : 18px ;
+    cursor : pointer ;
+    font-weight : 300 ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+`
+
 const Container = styled.div`
     font-family: 'Didact Gothic', sans-serif;
 `
 
-const Wrapper = styled.div`
-    width : 60% ;
+const Wrapper = styled(BoxShadow)`
+    width : 60vw ;
+    height : 60vh ;
     padding : 100px ;
     margin : auto ;
     margin-top : 100px ;
@@ -26,9 +45,6 @@ const Wrapper = styled.div`
     display : flex ;
     flex-direction : row ;
     border-radius: 2% ;
-    -webkit-box-shadow: -1px 2px 16px -6px rgba(17,1,38,0.76);
-    -moz-box-shadow: -1px 2px 16px -6px rgba(17,1,38,0.76);
-    box-shadow: -1px 2px 16px -6px rgba(17,1,38,0.76);
 `
 
 const ImageContainer = styled.div`
@@ -36,8 +52,11 @@ const ImageContainer = styled.div`
 `
 
 const Image = styled.img`
-    height : 60vh ;
-    border-radius : 2% ;`
+    border-radius : 2% ;
+    width : 90% ;
+    height : 90% ;
+    object-fit : cover ;
+`
 
 const InfoContainer = styled.div`
     flex  : 1 ;
@@ -68,32 +87,19 @@ const BuyContainer = styled.div`
     flex-direction : row ;
 `
 
-const Favorite = styled.button`
+const Favorite = styled(BaseButton)`
     margin-right : 15px ;
-    height : 40px ;
-    width : 200px ;
-    font-size : 18px ;
     background-color : transparent ;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     border : 0.5px solid rgb(58,15,84) ;
     border-radius : 2% ;
     color : rgb(58,15,84) ;
-    cursor : pointer ;
     letter-spacing: 2.5px;
-    font-weight : 300 ;
     `
 
-const CartButton = styled.button`
-    height : 40px ;
-    width : 200px ;
-    font-size : 18px ;
+const CartButton = styled(BaseButton)`
     letter-spacing: 2.5px;
     background-color : rgb(58,15,84) ;
     color : white ;
-    cursor : pointer ;
-    font-weight : 300 ;
 `
 
 const QuantityContainer = styled.div`
@@ -126,17 +132,6 @@ const sizeButtonStyle = {
     width: "37px",
 }
 
-const sizeOnclick = {
-    borderRadius: "50%",
-    backgroundColor: " rgb(58,15,84)",
-    borderColor: " rgb(58,15,84)",
-    color: "white",
-    cursor: "pointer ",
-    fontWeight: "500",
-    height: "37px",
-    width: "37px",
-}
-
 const Price = styled.span`
     color : rgb(58,15,84) ;
     font-weight : 600 ;
@@ -157,15 +152,6 @@ const ColorButton = styled.div`
     cursor : pointer ;
 `
 
-const ColorButtonSelected = {
-    width: "30px",
-    height: "30px",
-    border: "1px solid rgb(58,15,84)",
-    margin: "0 0 0 10px",
-    borderRadius: "50%",
-    cursor: "pointer"
-}
-
 const SingleProduct = () => {
 
     const [quantity, setQuantity] = useState(1);
@@ -178,10 +164,10 @@ const SingleProduct = () => {
 
     const [colorArr, setColorArr] = useState([]);
     const [sizeArr, setSizeArr] = useState([]);
-    const [color , setColor] = useState("") ;
-    const [size , setSize] = useState("") ;
+    const [color, setColor] = useState("");
+    const [size, setSize] = useState("");
 
-    const dispatch = useDispatch() ;
+    const dispatch = useDispatch();
 
     useEffect(() => {
         const getProduct = async () => {
@@ -244,16 +230,16 @@ const SingleProduct = () => {
     )
 
     const handleColorOnClick = (index) => {
-        
-        setColor(index) ;
+
+        setColor(index);
     }
 
-    
+
 
     const HandleSizeButtonOnClick = (index) => {
 
-        setSize(index) ;
-        
+        setSize(index);
+
     }
 
     const handleDecrease = () => {
@@ -267,11 +253,10 @@ const SingleProduct = () => {
     }
 
     const handleAddCart = () => {
-        dispatch(addProduct({...product , quantity , color , size})) ;
+        dispatch(addProduct({ ...product, quantity, color, size }));
     }
 
     return (
-
 
         <Container>
             <Navbar />
@@ -280,6 +265,7 @@ const SingleProduct = () => {
 
                 <ImageContainer>
                     <Image src={product.img} />
+
                 </ImageContainer>
                 <InfoContainer>
                     <Title>
@@ -319,8 +305,9 @@ const SingleProduct = () => {
                         <CartButton onClick={handleAddCart}>ADD TO CART</CartButton>
                     </BuyContainer>
                 </InfoContainer>
-                <Comments />
+
             </Wrapper>
+            <Comments />
 
             <Newsletter />
             <Footer />

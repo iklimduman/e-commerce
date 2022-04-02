@@ -20,13 +20,9 @@ import {
 } from "react-router-dom";
 
 function App() {
-  // temp boolen variable
-  
-  
+
   const user = useSelector((state) => state.user.currentUser);
   
-  
-
   return (
     <Router>
       <Routes>

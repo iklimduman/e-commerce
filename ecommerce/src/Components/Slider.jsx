@@ -50,23 +50,22 @@ const Wrapper = styled.div`
 const Slide = styled.div`
     width: 100vw;
     height: 100vh;
-    
+    display : flex ;
     background : ${props => `url(${props.src})`} ;
     background-size: 100% ;
-    
- 
+    align-items : center ;
+    box-sizing : border-box ;
+    padding-right : 5vw ;
 `
 
 const InfoContainer = styled.div`
-    flex : 1;
     width : 25vw ;
     height : 50vh ;
     display : flex ;
     flex-direction : column ;
     background-color : rgb(249,196,255,0.5) ;
-    position : relative ;
-    margin-left : 10vw ;
-
+    margin-left : auto ;
+    padding-left : 10vw ;
     box-shadow: 1px 1px #${(props) => props.bg} ;
 `
 
@@ -75,16 +74,9 @@ const Info = styled.h1`
     font-family: 'Bebas Neue', cursive;
     font-size : 100px ;
     margin-right : 3vw ;
-    
     letter-spacing: 3px;
     text-align : right ;
-    
-    
     color : rgb(255,255,255);
-`
-
-const ImgContainer = styled.div`
-    flex : 1 ;
 `
 
 const Desc = styled.p`
@@ -121,17 +113,7 @@ const Slider = () => {
                         <InfoContainer>
                             <Info boxshadow={item.bg}>{item.title}</Info>
                             <Desc>{item.desc}</Desc>
-
-                            {/*
-                            <Title>{item.title}</Title>
-                            <Desc>{item.desc}</Desc>
-                            <Button>SHOW NOW</Button>
-                            */}
                         </InfoContainer>
-                        <ImgContainer>
-
-                        </ImgContainer>
-
                     </Slide>
                 ))}
             </Wrapper>
