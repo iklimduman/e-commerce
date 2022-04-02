@@ -94,6 +94,7 @@ window.addEventListener('resize', () => {
 const Navbar = () => {
 
     const quantity = useSelector(state => state.cart.quantity);
+    const wishlistQuantity = useSelector(state => state.wishlist.quantity) ;
 
     console.log(quantity);
 
@@ -117,7 +118,7 @@ const Navbar = () => {
                     <MenuItem>Sign in</MenuItem>
                     <Link to="/cart" style={{textDecoration : "none"}}>
                         <MenuItemKeep>
-                            <Badge badgeContent={quantity} color="primary">
+                            <Badge badgeContent={wishlistQuantity} color="primary">
                                 <FavoriteBorderOutlinedIcon />
                             </Badge>
                             <NavbarText>

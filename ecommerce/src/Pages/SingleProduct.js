@@ -12,6 +12,7 @@ import { publicRequest } from "../RequestMethods";
 import { addProduct } from "../Redux/cartRedux";
 import { useDispatch } from "react-redux";
 import { Comments } from "../Components/Comments";
+import { addWishlistProduct } from "../Redux/wishlistRedux";
 
 
 const BoxShadow = styled.div`
@@ -256,6 +257,13 @@ const SingleProduct = () => {
         dispatch(addProduct({ ...product, quantity, color, size }));
     }
 
+    const handleAddWishlist = () => {
+        dispatch(addWishlistProduct({
+            ...product ,
+            quantity : 1
+        }))
+    }
+
     return (
 
         <Container>
@@ -301,7 +309,10 @@ const SingleProduct = () => {
                         <QuantityButton onClick={handleIncrease}> + </QuantityButton>
                     </QuantityContainer>
                     <BuyContainer>
-                        <Favorite><FavoriteBorderOutlinedIcon style={{ marginRight: "5px", color: " rgb(58,15,84)" }} />WISHLIST</Favorite>
+                        <Favorite onClick={handleAddWishlist}>
+                            <FavoriteBorderOutlinedIcon style={{ marginRight: "5px", color: " rgb(58,15,84)" }} />
+                            WISHLIST
+                        </Favorite>
                         <CartButton onClick={handleAddCart}>ADD TO CART</CartButton>
                     </BuyContainer>
                 </InfoContainer>

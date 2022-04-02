@@ -1,22 +1,31 @@
-import React, { useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../Components/Navbar";
 import Footer from "../Components/Footer";
 import styled from "styled-components";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import StripeCheckout from "react-stripe-checkout";
 import { userRequest } from "../RequestMethods";
+import Newsletter from "../Components/Newsletter";
+import { addProduct, removeProduct } from "../Redux/cartRedux";
+import { publicRequest } from "../RequestMethods";
+import CartItemView from "../Components/CartItemView";
 
 const KEY = process.env.REACT_APP_STRIPE;
 
 const Container = styled.div``
 
+const BaseComponentShadow = styled.div`
+    -webkit-box-shadow: -1px 2px 16px -6px rgba(17,1,38,0.76);
+    -moz-box-shadow: -1px 2px 16px -6px rgba(17,1,38,0.76);
+    box-shadow: -1px 2px 16px -6px rgba(17,1,38,0.76);
+    border-radius: 10px ;
+`
+
 const Wrapper = styled.div`
     font-family: 'Didact Gothic', sans-serif;
     display : flex ;
     flex-direction : row ;
-    align-items : center ;
-    
     margin-bottom : 20px ;
     width : 80% ;
     margin : auto ;
@@ -31,161 +40,21 @@ const Title = styled.span`
     color : #39024D ;
 `
 
-const ButtonWrapper = styled.div`
-    width : 70% ;
-    height : 10vh ;
-    margin-top : 15px ;
-    position : relative ;
-`
-
-const ContinueShopping = styled.button`
-    position : absolute ;
-    left : 0px ;
-    background-color : rgb(58,15,84) ;
-    border : none ;
-    color : white ;
-    height : 45px ;
-    font-size : 16px ;
-    cursor : pointer ;
-`
-
-const CheckOut = styled.button`
-    position : absolute ;
-    right : 0px ;
-    border : 2px solid rgb(58,15,84) ;
-    background-color : white ;
-    color : rgb(58,15,84) ;
-    height : 45px ;
-    font-size : 16px ;
-    cursor : pointer ;
-    font-weight : 700 ;
-`
-
 const CartWrapper = styled.div`
-    width : 68% ;
+    flex : 3 ;
     display : flex ;
     flex-direction : column ;
-    position : absolute ;
     top : 0 ;
-    
-`
-
-const CartItem = styled.div`
-    width : 100% ;
-    height : 30vh ;
-    display : flex ;
-    justify-content : center ;
-    align-items : center ;
-    flex-direction : row ;
-    margin-bottom : 15px ;
-    box-shadow: 0 4px 8px -5px rgba(0, 0, 0, 0.7), 0 6px 20px -5px rgba(0, 0, 0, 0.5);
-`
-
-const CartImage = styled.div`
-    width : 20% ;
-    height : 90% ;
-    display : flex ;
-    align-items : center ;
-    justify-content : center ;
-`
-
-const CartDetail = styled.div`
-    width : 60% ;
-    height : 70% ;
-    display : flex ;
-    flex-direction : column ;
-    padding : 20px 0 ;
-`
-
-const CartPrice = styled.div`
-    width : 20% ;
-    height : 60% ;
-    display : flex ;
-    flex-direction : column ;
-`
-
-const Row = styled.div`
-    flex : 1 ;
-    display : flex ;
-    align-items :center ;
-    flex-direction :row ;
-`
-
-const Image = styled.img`
-    height : 100% ;`
-
-const SmallTitle = styled.span`
-    line-height : 30px ;
-    font-size : 19px ;
-    font-weight : 700 ;
-    margin-right : 10px ;
-`
-
-const Description = styled.span`
-    font-size : 17px ;
-    font-weight : 550 ;`
-
-const Color = styled.div`
-    width : 30px ;
-    height : 30px ;
-    background-color : ${props => props.color} ;
-    border-radius: 50% ;
-    border : 1px solid black ;
-`
-const Price = styled.span`
-    flex : 1 ;
-    font-size : 19px ;
-    font-weight : 700 ;
-    color : #39024D ;
-`
-
-const QuantityWrap = styled.div`
-    flex : 1 ;
-    display : flex ;
-    flex-direction : row ;
-`
-
-const Quantity = styled.div`
-    font-size : 20px ;
-    font-weight : 700 ;
-    color : #590876 ;
-    margin : 0 15px ;`
-
-const QuantityButton = styled.button`
-    width : 33px ;
-    height : 33px ;
-    color : #590876  ;
-    font-size : 18px ;
-    font-weight : 700 ;
-    border : 1.5px solid #590876  ;
-    background-color : transparent ;
-    border-radius : 50% ;
-    cursor : pointer ;
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 5px 0 rgba(0, 0, 0, 0.19);
-`
-
-const TopWrap = styled.div`
-    display : flex ;
-    justify-content : center ;
-    align-items : center ;
-    flex-direction : column ;
-    margin-top : 20px ;
 `
 
 const SummaryWarpper = styled.div`
-    width : 30% ;
-    position : absolute ;
-    top : 0 ;
-    right : 0 ;
+    flex : 1 ;
 `
 
-const Summary = styled.div`
-    width : 100% ;
-    
-    padding-top : 20px ;
-    padding-bottom : 20px ;
-    margin-top : 20px ;
-    box-shadow: 0 4px 8px -5px rgba(0, 0, 0, 0.7), 0 6px 20px -5px rgba(0, 0, 0, 0.5);
+const Summary = styled(BaseComponentShadow)`
+    box-sizing: padding-box ;
+    padding : 20px 0 ;
+    margin-top : 35px ;
     border-radius : 15px ;
     display : flex ;
     flex-direction : column ;
@@ -222,9 +91,7 @@ const CouponButton = styled.button`
 
 const CheckOutButton = styled.button`
     width : 100% ;
-    padding-left : 15px ;
-    padding-right : 15px ;
-    height : 3vh ;
+    padding : 5px 15px ;
     background-color : #590876;
     color : white ;
     border : none ;
@@ -236,42 +103,32 @@ const CheckOutButton = styled.button`
 const Cart = () => {
 
     const [quantity, setQuantity] = useState(1);
+    const [product, setProduct] = useState({});
     const [stripeToken, setStripeToken] = useState(null);
     const cart = useSelector(state => state.cart);
-    const navigate = useNavigate() ;
-
-    const handleIncrement = () => {
-        setQuantity(quantity + 1)
-    }
-
-    const handleDecrement = () => {
-        quantity > 1 && setQuantity(quantity - 1);
-    }
+    const navigate = useNavigate();
 
     const onToken = (token) => {
         setStripeToken(token)
     }
 
-    useEffect(()=>{
+    useEffect(() => {
         const makeRequest = async () => {
-            try{
-                const res = await userRequest.post("/checkout/payment" , {
-                    tokenId : stripeToken.id , 
-                    amount : 500 ,  
+            try {
+                const res = await userRequest.post("/checkout/payment", {
+                    tokenId: stripeToken.id,
+                    amount: 500,
                 })
-               navigate("/success" , {
-                   data : res.data
-               }) ;
-            } 
-            catch(err){
-                console.log(err) ;
+                navigate("/success", {
+                    data: res.data
+                });
             }
-        } ;
-        stripeToken && makeRequest() ;
-    },[stripeToken , cart.total,navigate])
-
-    console.log(stripeToken);
-
+            catch (err) {
+                console.log(err);
+            }
+        };
+        stripeToken && makeRequest();
+    }, [stripeToken, cart.total, navigate])
 
     return (
         <Container>
@@ -283,45 +140,14 @@ const Cart = () => {
                         Order
                     </Title>
                     {cart.products.map(item => (
-                        <CartItem>
-                            <CartImage>
-                                <Image src={item.img} />
-                            </CartImage>
-                            <CartDetail>
-                                <Row>
-                                    <SmallTitle>Product : </SmallTitle>
-                                    <Description>{item.title}</Description>
-                                </Row>
-                                <Row>
-                                    <SmallTitle>Description : </SmallTitle>
-                                    <Description>{item.description}</Description>
-                                </Row>
-                                <Row>
-                                    <SmallTitle>ID : </SmallTitle>
-                                    <Description>{item._id}</Description>
-                                </Row>
-                                <Row>
-                                    <SmallTitle>Size : </SmallTitle>
-                                    <Description>{item.size}</Description>
-                                </Row>
-                                <Row>
-                                    <SmallTitle>Color : </SmallTitle>
-                                    <Color color={item.color} />
-                                </Row>
-                            </CartDetail>
-                            <CartPrice>
-                                <Price>{item.price * item.quantity} $</Price>
-                                <QuantityWrap>
-                                    <QuantityButton onClick={handleIncrement}>+</QuantityButton>
-                                    <Quantity>{item.quantity}</Quantity>
-                                    <QuantityButton onClick={handleDecrement}>-</QuantityButton>
-                                </QuantityWrap>
-
-                            </CartPrice>
-                        </CartItem>
+                        <CartItemView img={item.img} 
+                        title={item.title}
+                        description={item.description}
+                        id={item._id}
+                        size={item._size}
+                        color={item.color}
+                        quantity={item.quantity} /> 
                     ))}
-
-
                 </CartWrapper>
 
 
@@ -361,7 +187,6 @@ const Cart = () => {
                             token={onToken}
                             stripeKey={KEY}>
                             <CheckOutButton>CHECKOUT NOW</CheckOutButton>
-
                         </StripeCheckout>
 
                     </Summary>
@@ -370,6 +195,7 @@ const Cart = () => {
                 </SummaryWarpper>
 
             </Wrapper>
+            <Newsletter />
             <Footer />
 
         </Container>

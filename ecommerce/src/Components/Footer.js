@@ -15,7 +15,8 @@ const Container = styled.div`
     display : flex ;
     height : auto ;
     padding-bottom : 50px ;
-    ${Mobile({flexDirection : "column"})} ;
+    ${Mobile({ flexDirection: "column" })} ;
+    box-shadow: 10px 0 5px -2px #888;
 `
 
 const Left = styled.div`
@@ -81,27 +82,27 @@ const Footer = () => {
                 <SocialContainer>
                     <button style={{
                         border: '1px solid black',
-                        borderRadius : '5px',
-                        backgroundColor : '#3D4780'
+                        borderRadius: '5px',
+                        backgroundColor: '#3D4780'
                     }}>
-                        <FacebookIcon style={{color : 'white',fontSize:"30px"}} />
+                        <FacebookIcon style={{ color: 'white', fontSize: "30px" }} />
                     </button>
 
                     <button style={{
                         border: '1px solid black',
-                        borderRadius : '5px',
-                        backgroundColor : '#00FFFB',
-                        margin : '10px'
+                        borderRadius: '5px',
+                        backgroundColor: '#00FFFB',
+                        margin: '10px'
                     }}>
-                        <TwitterIcon style={{color : 'white',fontSize:"30px"}}/>
+                        <TwitterIcon style={{ color: 'white', fontSize: "30px" }} />
                     </button>
 
                     <button style={{
                         backgroundColor: '#B900FF',
                         border: '1px solid black',
-                        borderRadius : '5px',
+                        borderRadius: '5px',
                     }}>
-                        <InstagramIcon style={{color:'white',fontSize:"30px"}}/>
+                        <InstagramIcon style={{ color: 'white', fontSize: "30px" }} />
                     </button>
 
                 </SocialContainer>
@@ -111,29 +112,29 @@ const Footer = () => {
                 <SmallTitle>
                     Useful Links
                 </SmallTitle>
-                <div style={{columns:2}}>
+                <div style={{ columns: 2 }}>
                     <ul style={{ margin: 0, padding: 0, listStyle: 'none', display: 'flex', flexWrap: 'wrap' }}>
                         {Links.map(link => <ListItem>{link}</ListItem>)}
                     </ul>
                 </div>
             </Center>
             <Right>
-            <SmallTitle>
-                Contact
-            </SmallTitle>
-            <ContactItem>
-                <LocationOnIcon style={{marginRight : '5px'}}/> 42 Wallaby Way,Sydney
-            </ContactItem>
-            <ContactItem>
-                <MailIcon style={{marginRight : '5px'}}/> contact@lotus.com
-            </ContactItem>
-            <ContactItem>
-                <LocalPhoneIcon style={{marginRight : '5px'}}/> +1 234 56 78
-            </ContactItem>
+                <SmallTitle>
+                    Contact
+                </SmallTitle>
+                <ContactItem>
+                    <LocationOnIcon style={{ marginRight: '5px' }} /> 42 Wallaby Way,Sydney
+                </ContactItem>
+                <ContactItem>
+                    <MailIcon style={{ marginRight: '5px' }} /> contact@lotus.com
+                </ContactItem>
+                <ContactItem>
+                    <LocalPhoneIcon style={{ marginRight: '5px' }} /> +1 234 56 78
+                </ContactItem>
 
-            <Payment src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/MasterCard_logo.png/800px-MasterCard_logo.png" />
-            <Payment src="https://toppng.com/uploads/preview/visa-115507187089o8siwhhtf.png" />
-            <Payment src="https://cdn.pixabay.com/photo/2015/05/26/09/37/paypal-784404_1280.png" />
+                <Payment src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/MasterCard_logo.png/800px-MasterCard_logo.png" />
+                <Payment src="https://toppng.com/uploads/preview/visa-115507187089o8siwhhtf.png" />
+                <Payment src="https://cdn.pixabay.com/photo/2015/05/26/09/37/paypal-784404_1280.png" />
 
             </Right>
 
