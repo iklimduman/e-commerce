@@ -94,7 +94,7 @@ const Favorite = styled(BaseButton)`
     border-radius : 2% ;
     color : rgb(58,15,84) ;
     letter-spacing: 2.5px;
-    `
+`
 
 const CartButton = styled(BaseButton)`
     letter-spacing: 2.5px;

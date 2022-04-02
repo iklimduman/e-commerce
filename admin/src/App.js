@@ -19,8 +19,8 @@ import {
 } from "react-router-dom";
 
 function App() {
-
-  const admin = (JSON.parse(JSON.parse(localStorage.getItem("persist:root")).user)).currentUser.isAdmin;
+  const admin = true ;
+  //const admin = (JSON.parse(JSON.parse(localStorage.getItem("persist:root")).user)).currentUser.isAdmin;
   return (
     <Router className="App">
       <Routes>

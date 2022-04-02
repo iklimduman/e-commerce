@@ -1,12 +1,22 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Search, ShoppingCart, ShoppingCartOutlined } from "@material-ui/icons";
+import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
 import MenuOutlinedIcon from '@mui/icons-material/MenuOutlined';
 import { Badge, Input } from '@material-ui/core';
 import { Mobile } from '../ResponsiveConstants';
 import "./Navbar.css";
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+
+const BaseNavbarText = styled.span`
+    font-family: 'Didact Gothic', sans-serif;
+    cursor : pointer ;
+    color : black ;
+    font-size : 18px ;
+    color : #07000B ;
+    font-weight : 500 ;
+`
 
 const Container = styled.div`
     height : 60px ;
@@ -38,8 +48,7 @@ const Center = styled.div`
     display : flex ;
     flex : 1 ;
 `
-const MenuItem = styled.div`
-    cursor : pointer ;
+const MenuItem = styled(BaseNavbarText)`
     margin-left : 25px ;
     ${Mobile({ display: "none" })} ;
     
@@ -64,6 +73,10 @@ const SearchContainer = styled.div`
     align-items : center ;
     padding : 5px ;
     border-radius : 25px ;
+`
+
+const NavbarText = styled(BaseNavbarText)`
+
 `
 
 window.addEventListener('resize', () => {
@@ -102,14 +115,26 @@ const Navbar = () => {
                 <Right>
                     <MenuItem>Register</MenuItem>
                     <MenuItem>Sign in</MenuItem>
-                    <Link to="/cart">
+                    <Link to="/cart" style={{textDecoration : "none"}}>
+                        <MenuItemKeep>
+                            <Badge badgeContent={quantity} color="primary">
+                                <FavoriteBorderOutlinedIcon />
+                            </Badge>
+                            <NavbarText>
+                                My Wishlist
+                            </NavbarText>
+                        </MenuItemKeep>
+                    </Link>
+                    <Link to="/cart" style={{textDecoration : "none"}}>
                         <MenuItemKeep>
                             <Badge badgeContent={quantity} color="primary">
                                 <ShoppingCartOutlined />
                             </Badge>
+                            <NavbarText>
+                                My Cart
+                            </NavbarText>
                         </MenuItemKeep>
                     </Link>
-
                     <MenuMobile>
                         <MenuOutlinedIcon />
                     </MenuMobile>
