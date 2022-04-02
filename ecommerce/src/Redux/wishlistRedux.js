@@ -15,7 +15,7 @@ const wishlistSlice = createSlice({
         },
         removeWishlistProduct : (state, action) => {
             state.quantity -= action.payload.quantity ;
-            state.products.splice(indexOf(action.paylaod) , 1) ;
+            state.products.splice(state.products.indexOf(action.paylaod) , 1) ;
         }
     }
 }) ;
