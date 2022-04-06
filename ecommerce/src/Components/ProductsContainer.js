@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 
-import { Products } from "../Data";
 import ProductCard from "./ProductCard";
 
 import axios from "axios";
@@ -10,8 +9,8 @@ const ProductContainer = styled.div`
     margin : auto ;
     width : 90% ;
     display : flex ;
+    align-items: center;
     flex-wrap : wrap ;
-    justify-content: space-between ;
 `
 
 const ProductsContainer = ({ cat, filters, sort }) => {

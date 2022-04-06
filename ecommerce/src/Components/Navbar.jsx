@@ -12,7 +12,7 @@ import { Link } from 'react-router-dom';
 const BaseNavbarText = styled.span`
     font-family: 'Didact Gothic', sans-serif;
     cursor : pointer ;
-    color : black ;
+    color : #250455 ;
     font-size : 18px ;
     color : #07000B ;
     font-weight : 500 ;
@@ -25,6 +25,7 @@ const Wrapper = styled.div`
     padding : 10px 20px ;
     display : flex ;
     justify-content : space-between ;
+    box-shadow :  0 3px 2px -2px rgba(37,4,85,0.4);  
 `
 const Left = styled.div`
     flex : 1;
@@ -56,6 +57,10 @@ const MenuItem = styled(BaseNavbarText)`
 const MenuItemKeep = styled.div`
     cursor : pointer ;
     margin-left : 25px ;
+    display : flex ;
+    flex: row;
+    justify-content: center;
+    align-items: center ;
 `
 
 const MenuMobile = styled.div`
@@ -116,8 +121,8 @@ const Navbar = () => {
                     <MenuItem>Sign in</MenuItem>
                     <Link to="/cart" style={{textDecoration : "none"}}>
                         <MenuItemKeep>
-                            <Badge badgeContent={wishlistQuantity} color="primary">
-                                <FavoriteBorderOutlinedIcon />
+                            <Badge badgeContent={wishlistQuantity}>
+                                <FavoriteBorderOutlinedIcon  style={{color : "#250455"}}/>
                             </Badge>
                             <NavbarText>
                                 My Wishlist
@@ -127,7 +132,7 @@ const Navbar = () => {
                     <Link to="/cart" style={{textDecoration : "none"}}>
                         <MenuItemKeep>
                             <Badge badgeContent={quantity} color="primary">
-                                <ShoppingCartOutlined />
+                                <ShoppingCartOutlined style={{color : "#250455"}}/>
                             </Badge>
                             <NavbarText>
                                 My Cart

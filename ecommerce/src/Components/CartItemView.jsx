@@ -18,6 +18,7 @@ const CartItem = styled(BaseComponentShadow)`
     align-items : center ;
     flex-direction : row ;
     margin: 15px ;
+    height : 20vh ;
 `
 
 const CartImage = styled.div`
@@ -138,7 +139,7 @@ const CartItemView = (props) => {
             productid,
             quantity : 1
         }));
-        
+
         setQuantity(quantity + 1);
     }
 

@@ -14,12 +14,12 @@ const Container = styled.div`
     justify-content: center;
     align-items: center;
     height: 650px;
-    width: 38vh ;
-    margin : 5px ;
-    margin-bottom : 20px ;
+    width: 20vw ;
+    margin-right : 10px ;
+    margin-bottom : 40px ;
     position : relative ;
     padding : 1em ;
-    background-color : rgb(222,222,222, 0.6) ;
+    background-color : rgb(222,222,222, 0.4) ;
     border-radius: 20px ;
 `
 

@@ -18,6 +18,22 @@ const Container = styled.div`
     ${Mobile({ flexDirection: "column" })} ;
     box-shadow: 10px 0 5px -2px #888;
 `
+const BaseComponentShadow = styled.div`
+    box-shadow:
+   -7px -7px 20px 0px #fff9,
+   -4px -4px 5px 0px #fff9,
+   7px 7px 20px 0px #0002,
+   4px 4px 5px 0px #0001,
+   inset 0px 0px 0px 0px #fff9,
+   inset 0px 0px 0px 0px #0001,
+   inset 0px 0px 0px 0px #fff9,        inset 0px 0px 0px 0px #0001;
+ transition:box-shadow 0.6s cubic-bezier(.79,.21,.06,.81);
+`
+
+const SocialMedia = styled(BaseComponentShadow)`
+    border-radius : 5px ;
+    margin-right: 15px ;
+`
 
 const Left = styled.div`
     flex : 1 ;
@@ -46,6 +62,9 @@ const SmallTitle = styled.h2``
 
 const SocialContainer = styled.div`
     margin : 10px  ;
+    display: flex ;
+    flex-direction : row;
+    align-items: center ;
 `
 
 const ListItem = styled.li`
@@ -80,30 +99,31 @@ const Footer = () => {
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                 </Desc>
                 <SocialContainer>
-                    <button style={{
-                        border: '1px solid black',
-                        borderRadius: '5px',
-                        backgroundColor: '#3D4780'
-                    }}>
-                        <FacebookIcon style={{ color: 'white', fontSize: "30px" }} />
-                    </button>
 
-                    <button style={{
-                        border: '1px solid black',
-                        borderRadius: '5px',
-                        backgroundColor: '#00FFFB',
-                        margin: '10px'
-                    }}>
-                        <TwitterIcon style={{ color: 'white', fontSize: "30px" }} />
-                    </button>
+                    <SocialMedia>
+                        <button style={{
+                            border: 'none'
+                        }}>
+                            <FacebookIcon style={{ color: '#3D4780', fontSize: "35px" }} />
+                        </button>
+                    </SocialMedia>
 
-                    <button style={{
-                        backgroundColor: '#B900FF',
-                        border: '1px solid black',
-                        borderRadius: '5px',
-                    }}>
-                        <InstagramIcon style={{ color: 'white', fontSize: "30px" }} />
-                    </button>
+                    <SocialMedia>
+                        <button style={{
+                            border: 'none',
+                        }}>
+                            <TwitterIcon style={{ color: '#00FFFB', fontSize: "35px" }} />
+                        </button>
+                    </SocialMedia>
+
+                    <SocialMedia>
+                        <button style={{
+                            border: 'none'
+                        }}>
+                            <InstagramIcon style={{ color: '#C13584', fontSize: "35px" }} />
+                        </button>
+                    </SocialMedia>
+
 
                 </SocialContainer>
 

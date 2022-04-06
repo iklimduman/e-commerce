@@ -13,7 +13,8 @@ import CartItemView from "../Components/CartItemView";
 
 const KEY = process.env.REACT_APP_STRIPE;
 
-const Container = styled.div``
+const Container = styled.div`
+    `
 
 const BaseComponentShadow = styled.div`
     -webkit-box-shadow: -1px 2px 16px -6px rgba(17,1,38,0.76);
@@ -45,6 +46,7 @@ const CartWrapper = styled.div`
     display : flex ;
     flex-direction : column ;
     top : 0 ;
+    margin-bottom : 15px ;
 `
 
 const SummaryWarpper = styled.div`
@@ -144,7 +146,7 @@ const Cart = () => {
             <Wrapper>
 
                 <CartWrapper>
-                    <Title style={{ marginBottom: "20px" }}>
+                    <Title style={{ marginBottom: "20px", marginLeft : "15px" }}>
                         Order
                     </Title>
                     {cart.products.map(item => (
@@ -189,11 +191,11 @@ const Cart = () => {
 
                         <StripeCheckout
                             name='Lotus-Shop'
-                            image='./logo.png'
+                            image='https://images.pexels.com/photos/515631/pexels-photo-515631.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'
                             billingAddress
                             shippingAddress
-                            description={`Your total is $ ${cart.total}`}
-                            amount={cart.total * 100}
+                            description={`Your total is $ ${cart.total + 10}`}
+                            amount={(cart.total+10) * 100}
                             token={onToken}
                             stripeKey={KEY}>
                             <CheckOutButton>CHECKOUT NOW</CheckOutButton>
@@ -205,7 +207,6 @@ const Cart = () => {
                 </SummaryWarpper>
 
             </Wrapper>
-            <Newsletter />
             <Footer />
 
         </Container>

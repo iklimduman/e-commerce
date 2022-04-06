@@ -4,12 +4,16 @@ import SendIcon from '@mui/icons-material/Send';
 import { Mobile } from "../ResponsiveConstants";
 
 const Container = styled.div`
-    background-color : rgb(232,252,242,0.5) ;
-    height : 40vh ;
+    background: rgba(211,211,255,0.25) ;
+    width: 100% ;
+    margin : auto ;
+    height : 30vh ;
     display : flex ;
     align-items : center ;
     justify-content : center ;
     flex-direction : column ;
+    margin-bottom : 20px ;
+
     `
 
 const Header = styled.span`
@@ -21,7 +25,7 @@ const Header = styled.span`
     font-size: 60px;
     font-weight : 300 ;
     line-height: 2.5em;
-    ${Mobile({fontSize : "40px"})} ;
+    ${Mobile({ fontSize: "40px" })} ;
     `
 
 const Description = styled.span`
@@ -32,22 +36,23 @@ const Description = styled.span`
     font-size: 1.2em;
     line-height: 2.5em;
     margin-bottom : 20px ;
-    ${Mobile({fontSize : "1em" , lineHeight : "1.5em" , margin : "10px 10px" , textAlign : "center"})} ;
+    ${Mobile({ fontSize: "1em", lineHeight: "1.5em", margin: "10px 10px", textAlign: "center" })} ;
     `
 
 const İnputContainer = styled.div`
     width : 30% ;
     display: flex;
     justify-content : space-between ;
-    ${Mobile({width : "70%"})} ;
+    ${Mobile({ width: "70%" })} ;
     `
 
 const Input = styled.input`
     width : 30% ;
     height : 30px ;
+    background-color: transparent ;
+    border : 0.5px solid #aa8fe8 ;
     flex : 8 ;
-    padding : 0 !important ; 
-    ${Mobile({width : "70%"})} ;
+    ${Mobile({ width: "70%" })} ;
 `
 
 const Subscribe = styled.button`
@@ -70,7 +75,11 @@ const Newsletter = () => {
             <Header>Newsletter</Header>
             <Description>Subscribe to our newsletter to keep up with our latest news!</Description>
             <İnputContainer>
-                <Input autoComplete="off" ref={inputElement} type="email" placeholder="Enter your e-mail">
+                <Input
+                    autoComplete="off"
+                    ref={inputElement}
+                    type="email"
+                    placeholder="Enter your e-mail">
 
                 </Input>
                 <Subscribe>
