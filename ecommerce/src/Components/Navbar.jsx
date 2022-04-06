@@ -96,8 +96,6 @@ const Navbar = () => {
     const quantity = useSelector(state => state.cart.quantity);
     const wishlistQuantity = useSelector(state => state.wishlist.quantity) ;
 
-    console.log(quantity);
-
     return (
         <Container>
             <Wrapper>

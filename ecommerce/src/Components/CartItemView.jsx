@@ -1,8 +1,8 @@
 import styled from "styled-components";
 import { useSelector, useDispatch } from "react-redux";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { publicRequest } from "../RequestMethods";
-import { addProduct } from "../Redux/cartRedux";
+import { addProduct, resetChart, removeProduct } from "../Redux/cartRedux";
 
 const BaseComponentShadow = styled.div`
     -webkit-box-shadow: -1px 2px 16px -6px rgba(17,1,38,0.76);
@@ -108,68 +108,93 @@ const CartItemView = (props) => {
 
     const dispatch = useDispatch();
     const cart = useSelector(state => state.cart);
-    const [quantity, setQuantity] = useState(1);
+    const [quantity, setQuantity] = useState(props.quantity);
     const [product, setProduct] = useState({});
+    const [productid, setProductID] = useState(props.id);
+    const [price, setPrice] = useState(props.price);
+    const [color, setColor] = useState(props.color);
+    const [size, setSize] = useState(props.size);
 
-    async function handleIncrement (ProductID, Price) {
-        setQuantity(quantity + 1);
-        try {
-            const res = await publicRequest.get("/products/find/" + ProductID);
-            setProduct(res.data);
-            console.log(res.data) ;
+    useEffect(() => {
+        const getProduct = async () => {
+            try {
+                const res = await publicRequest.get("/products/find/" + productid);
+                setProduct(res.data);
+            }
+            catch (err) {
+                console.log(err);
+            }
         }
-        catch (err) {
-            console.log(err);
-        }
+        getProduct();
+
+    }, [productid])
+
+    const handleIncrement = () => {
+
         dispatch(addProduct({
             ...product,
-            quantity : quantity + 1,
-            price : Price
+            color,
+            size,
+            productid,
+            quantity : 1
         }));
+        
+        setQuantity(quantity + 1);
     }
 
     const handleDecrement = () => {
-        quantity > 1 && setQuantity(quantity - 1);
         
+        dispatch(removeProduct({
+            ...product,
+            color,
+            size,
+            productid,
+            quantity : 1
+        }))
+
+        quantity >= 1 && setQuantity(quantity - 1);
+
     }
 
     return (
-        <CartItem>
-            <CartImage>
-                <Image src={props.img} />
-            </CartImage>
-            <CartDetail>
-                <Row>
-                    <SmallTitle>Product : </SmallTitle>
-                    <Description>{props.title}</Description>
-                </Row>
-                <Row>
-                    <SmallTitle>Description : </SmallTitle>
-                    <Description>{props.description}</Description>
-                </Row>
-                <Row>
-                    <SmallTitle>ID : </SmallTitle>
-                    <Description>{props._id}</Description>
-                </Row>
-                <Row>
-                    <SmallTitle>Size : </SmallTitle>
-                    <Description>{props.size}</Description>
-                </Row>
-                <Row>
-                    <SmallTitle>Color : </SmallTitle>
-                    <Color color={props.color} />
-                </Row>
-            </CartDetail>
-            <CartPrice>
-                <Price>{props.price * props.quantity} $</Price>
-                <QuantityWrap>
-                    <QuantityButton onClick={() => handleIncrement(props._id, props.price)}>+</QuantityButton>
-                    <Quantity>{props.quantity}</Quantity>
-                    <QuantityButton onClick={() => handleDecrement(props._id, props.price)}>-</QuantityButton>
-                </QuantityWrap>
-            </CartPrice>
-        </CartItem>
+        <div>
+            {quantity != 0 ?
+                <CartItem>
+                    <CartImage>
+                        <Image src={props.img} />
+                    </CartImage>
+                    <CartDetail>
+                        <Row>
+                            <SmallTitle>Product : </SmallTitle>
+                            <Description>{props.title}</Description>
+                        </Row>
+                        <Row>
+                            <SmallTitle>Description : </SmallTitle>
+                            <Description>{props.description}</Description>
+                        </Row>
+                        <Row>
+                            <SmallTitle>Size : </SmallTitle>
+                            <Description>{size}</Description>
+                        </Row>
+                        <Row>
+                            <SmallTitle>Color : </SmallTitle>
+                            <Color color={color} />
+                        </Row>
+                    </CartDetail>
+                    <CartPrice>
+                        <Price>{price * quantity} $</Price>
+                        <QuantityWrap>
+                            <QuantityButton onClick={() => handleIncrement()}>+</QuantityButton>
+                            <Quantity>{quantity}</Quantity>
+                            <QuantityButton onClick={() => handleDecrement()}>-</QuantityButton>
+                        </QuantityWrap>
+                    </CartPrice>
+                </CartItem>
+                : null}
+        </div>
+
+
     )
 }
 
-export default CartItemView ;
+export default CartItemView;

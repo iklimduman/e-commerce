@@ -254,7 +254,7 @@ const SingleProduct = () => {
     }
 
     const handleAddCart = () => {
-        dispatch(addProduct({ ...product, quantity, color, size }));
+        dispatch(addProduct({ ...product, quantity,color,size}));
     }
 
     const handleAddWishlist = () => {
@@ -318,7 +318,6 @@ const SingleProduct = () => {
                 </InfoContainer>
 
             </Wrapper>
-            <Comments />
 
             <Newsletter />
             <Footer />

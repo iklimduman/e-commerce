@@ -102,11 +102,19 @@ const CheckOutButton = styled.button`
 
 const Cart = () => {
 
-    const [quantity, setQuantity] = useState(1);
-    const [product, setProduct] = useState({});
     const [stripeToken, setStripeToken] = useState(null);
     const cart = useSelector(state => state.cart);
+
+    console.log("Cart") ;
+    console.log(cart.products) ;
+    var count = {} ;
     const navigate = useNavigate();
+
+    cart.products.forEach(element => {
+        count[element._id] = (count[element._id] || 0) + 1 ;
+    });
+
+    console.log(count) ;
 
     const onToken = (token) => {
         setStripeToken(token)
@@ -140,13 +148,15 @@ const Cart = () => {
                         Order
                     </Title>
                     {cart.products.map(item => (
-                        <CartItemView img={item.img} 
+                        <CartItemView
+                        img={item.img} 
                         title={item.title}
                         description={item.description}
                         id={item._id}
-                        size={item._size}
+                        size={item.size}
                         color={item.color}
-                        quantity={item.quantity} /> 
+                        quantity={item.quantity}
+                        price={item.price} /> 
                     ))}
                 </CartWrapper>
 
