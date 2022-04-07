@@ -1,6 +1,6 @@
-Full-Stack E-Commerce Project
+<h1>Full-Stack E-Commerce Project</h1>
 
-This project is a full stack e-commerce project uses React on front-end, Redux for state management, NodeJS on back-end and MongoDB as database, Styled Componnets/Material UI/SASS used for styling.
+This project is a full stack e-commerce project uses <strong>React</strong> on front-end, <strong>Redux</strong> for state management, <strong>NodeJS</strong>  on back-end and <strong>MongoDB</strong>  as database, <strong>Styled Componnets/Material UI/SASS</strong>  used for styling.
 JWT used for authentication and Stripe used for payment methods.
 
 On home page of application firstly there is a navbar that has searchbar in it that user can search for an item. 
