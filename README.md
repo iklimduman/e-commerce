@@ -1,7 +1,7 @@
 <h1>Full-Stack E-Commerce Project</h1>
 
 This project is a full stack e-commerce project uses <strong>React</strong> on front-end, <strong>Redux</strong> for state management, <strong>NodeJS</strong>  on back-end and <strong>MongoDB</strong>  as database, <strong>Styled Componnets/Material UI/SASS</strong>  used for styling.
-JWT used for authentication and Stripe used for payment methods.
+<strong>JWT</strong>  used for authentication and <strong>Stripe</strong>  used for payment methods.
 
 On home page of application firstly there is a navbar that has searchbar in it that user can search for an item. 
 On the right side sign in/register buttons redirects user to sign in/register pages.
